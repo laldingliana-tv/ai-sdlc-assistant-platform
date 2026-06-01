@@ -24,8 +24,11 @@ services:
     ports:
       - '7233:7233'
     environment:
-      - DB=sqlite
-      - DYNAMIC_CONFIG_FILE_PATH=config/dynamicconfig/development-sql.yaml
+      - DB=postgres12_pgx
+      - DB_PORT=5432
+      - POSTGRES_USER=ai_sdlc
+      - POSTGRES_PWD=ai_sdlc_dev
+      - POSTGRES_SEEDS=postgres
     healthcheck:
       test: ['CMD', 'tctl', '--address', 'temporal:7233', 'cluster', 'health']
       interval: 10s
