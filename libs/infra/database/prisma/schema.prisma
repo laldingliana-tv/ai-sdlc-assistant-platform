@@ -1,0 +1,166 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
+}
+
+datasource db {
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  extensions = [pgvector(map: "vector")]
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String
+  role      Role     @default(DEVELOPER)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  tasks     Task[]
+  approvals Approval[]
+}
+
+model Task {
+  id                  String    @id @default(uuid())
+  title               String
+  description         String
+  status              TaskStatus @default(PENDING)
+  priority            TaskPriority @default(MEDIUM)
+  labels              String[]
+  metadata            Json       @default("{}")
+  embedding           Unsupported("vector(1536)")?
+  workflowExecutionId String?
+  createdById         String
+  createdAt           DateTime   @default(now())
+  updatedAt           DateTime   @updatedAt
+
+  createdBy           User               @relation(fields: [createdById], references: [id])
+  workflowExecution   WorkflowExecution? @relation(fields: [workflowExecutionId], references: [id])
+  agentExecutions     AgentExecution[]
+  evaluationResults   EvaluationResult[]
+}
+
+model WorkflowExecution {
+  id                 String          @id @default(uuid())
+  temporalWorkflowId String          @unique
+  temporalRunId      String
+  status             WorkflowStatus  @default(PENDING)
+  currentStep        WorkflowStep    @default(PLANNING)
+  startedAt          DateTime        @default(now())
+  completedAt        DateTime?
+  error              String?
+
+  tasks              Task[]
+  agentExecutions    AgentExecution[]
+  evaluationResults  EvaluationResult[]
+  approvals          Approval[]
+}
+
+model AgentExecution {
+  id                  String             @id @default(uuid())
+  agentName           AgentName
+  workflowExecutionId String
+  taskId              String
+  input               Json
+  output              Json?
+  status              AgentExecutionStatus @default(RUNNING)
+  startedAt           DateTime           @default(now())
+  completedAt         DateTime?
+  durationMs          Int?
+  tokenUsage          Json?
+
+  workflowExecution   WorkflowExecution  @relation(fields: [workflowExecutionId], references: [id])
+  task                Task               @relation(fields: [taskId], references: [id])
+}
+
+model EvaluationResult {
+  id                  String             @id @default(uuid())
+  taskId              String
+  agentName           AgentName
+  workflowExecutionId String
+  scores              Json
+  overallScore        Float
+  evaluatedAt         DateTime           @default(now())
+  metadata            Json?
+
+  task                Task               @relation(fields: [taskId], references: [id])
+  workflowExecution   WorkflowExecution  @relation(fields: [workflowExecutionId], references: [id])
+}
+
+model Approval {
+  id                  String             @id @default(uuid())
+  workflowExecutionId String
+  approved            Boolean?
+  reason              String?
+  decidedById         String?
+  requestedAt         DateTime           @default(now())
+  decidedAt           DateTime?
+
+  workflowExecution   WorkflowExecution  @relation(fields: [workflowExecutionId], references: [id])
+  decidedBy           User?              @relation(fields: [decidedById], references: [id])
+}
+
+enum Role {
+  ADMIN
+  DEVELOPER
+  REVIEWER
+  VIEWER
+}
+
+enum TaskStatus {
+  PENDING
+  PLANNING
+  RETRIEVING
+  REVIEWING_ARCHITECTURE
+  AWAITING_APPROVAL
+  IMPLEMENTING
+  REVIEWING
+  COMPLETED
+  FAILED
+  CANCELLED
+}
+
+enum TaskPriority {
+  LOW
+  MEDIUM
+  HIGH
+  CRITICAL
+}
+
+enum WorkflowStatus {
+  PENDING
+  RUNNING
+  AWAITING_APPROVAL
+  COMPLETED
+  FAILED
+  CANCELLED
+  TIMED_OUT
+}
+
+enum WorkflowStep {
+  PLANNING
+  RETRIEVAL
+  ARCHITECTURE_REVIEW
+  APPROVAL_GATE
+  IMPLEMENTATION
+  REVIEW
+  FINALIZATION
+}
+
+enum AgentName {
+  PLANNER
+  RETRIEVER
+  REVIEWER
+  ARCHITECTURE
+  IMPLEMENTOR
+}
+
+enum AgentExecutionStatus {
+  RUNNING
+  COMPLETED
+  FAILED
+}
