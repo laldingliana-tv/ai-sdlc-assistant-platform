@@ -62,6 +62,17 @@ make migrate
 make dev
 ```
 
+> **Windows users without `make`:** See the equivalent commands in the [Available Commands](#available-commands) table below.
+
+```powershell
+# Windows (PowerShell) — without make:
+pnpm install                                        # Step 1
+Copy-Item .env.example .env                         # Step 2
+docker-compose up -d                                # Step 3
+pnpm nx run infra-database:prisma-migrate           # Step 4
+pnpm nx run-many -t serve --projects=api,web        # Step 5
+```
+
 The API will be available at `http://localhost:3001` and the web UI at `http://localhost:3000`.
 
 ## API Keys
@@ -103,17 +114,17 @@ You only need **one** of the following, depending on which LLM provider you want
 
 ## Available Commands
 
-| Command          | Description                                |
-| ---------------- | ------------------------------------------ |
-| `make install`   | Install all dependencies                   |
-| `make docker`    | Start Docker services (Postgres, Temporal) |
-| `make migrate`   | Run Prisma migrations                      |
-| `make seed`      | Seed the database                          |
-| `make dev`       | Start API + Web in development mode        |
-| `make lint`      | Lint all projects                          |
-| `make test`      | Run all unit tests                         |
-| `make typecheck` | Type-check all projects                    |
-| `make clean`     | Remove node_modules, dist, tmp             |
+| Make Command     | Direct Command                                 | Description                                |
+| ---------------- | ---------------------------------------------- | ------------------------------------------ |
+| `make install`   | `pnpm install`                                 | Install all dependencies                   |
+| `make docker`    | `docker-compose up -d`                         | Start Docker services (Postgres, Temporal) |
+| `make migrate`   | `pnpm nx run infra-database:prisma-migrate`    | Run Prisma migrations                      |
+| `make seed`      | `pnpm nx run infra-database:prisma-seed`       | Seed the database                          |
+| `make dev`       | `pnpm nx run-many -t serve --projects=api,web` | Start API + Web in development mode        |
+| `make lint`      | `pnpm nx run-many -t lint`                     | Lint all projects                          |
+| `make test`      | `pnpm nx run-many -t test`                     | Run all unit tests                         |
+| `make typecheck` | `pnpm nx run-many -t typecheck`                | Type-check all projects                    |
+| `make clean`     | `rm -rf node_modules dist tmp .nx`             | Remove node_modules, dist, tmp             |
 
 ## Development
 
