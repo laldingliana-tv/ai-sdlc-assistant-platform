@@ -44,6 +44,11 @@ jobs:
         with:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
 
+      - name: Run database migrations
+        run: pnpm nx run infra-database:prisma-migrate-deploy
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+
       # TODO: Deploy API to Cloud Run
       # - name: Deploy API
       #   run: |

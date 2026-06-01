@@ -2,7 +2,7 @@
  * User and authentication types.
  */
 
-export type UserRole = 'admin' | 'developer' | 'viewer';
+export type UserRole = 'admin' | 'developer' | 'reviewer' | 'viewer';
 
 export interface User {
   id: string;

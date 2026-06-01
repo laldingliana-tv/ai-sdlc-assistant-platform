@@ -1,4 +1,5 @@
 const API_BASE_URL = '/api';
+const API_TIMEOUT_MS = 30_000;
 
 export class ApiError extends Error {
   constructor(
@@ -18,16 +19,26 @@ async function handleResponse<T>(response: Response): Promise<T> {
   return response.json() as Promise<T>;
 }
 
+async function fetchWithTimeout(url: string, options?: RequestInit): Promise<Response> {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), API_TIMEOUT_MS);
+  try {
+    return await fetch(url, { ...options, signal: controller.signal });
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
 export const apiClient = {
   async get<T>(path: string): Promise<T> {
-    const response = await fetch(`${API_BASE_URL}${path}`, {
+    const response = await fetchWithTimeout(`${API_BASE_URL}${path}`, {
       headers: { 'Content-Type': 'application/json' },
     });
     return handleResponse<T>(response);
   },
 
   async post<T>(path: string, body?: unknown): Promise<T> {
-    const response = await fetch(`${API_BASE_URL}${path}`, {
+    const response = await fetchWithTimeout(`${API_BASE_URL}${path}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: body ? JSON.stringify(body) : undefined,

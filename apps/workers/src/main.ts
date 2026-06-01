@@ -2,6 +2,9 @@
 import { Worker, NativeConnection } from '@temporalio/worker';
 import { startHealthServer, setConnected } from './health.js';
 import * as activities from './activities/index.js';
+import { createLogger } from '@ai-sdlc/infra/telemetry';
+
+const logger = createLogger({ name: 'workers' });
 
 const TASK_QUEUE = 'ai-sdlc-tasks';
 const TEMPORAL_ADDRESS = process.env['TEMPORAL_ADDRESS'] ?? 'localhost:7233';
@@ -11,7 +14,7 @@ async function main(): Promise<void> {
   // Start health probe server
   startHealthServer(HEALTH_PORT);
 
-  console.log(`Connecting to Temporal at ${TEMPORAL_ADDRESS}...`);
+  logger.info({ address: TEMPORAL_ADDRESS }, 'Connecting to Temporal');
 
   const connection = await NativeConnection.connect({
     address: TEMPORAL_ADDRESS,
@@ -26,16 +29,16 @@ async function main(): Promise<void> {
   });
 
   setConnected(true);
-  console.log(`Worker started, polling task queue: ${TASK_QUEUE}`);
+  logger.info({ taskQueue: TASK_QUEUE }, 'Worker started, polling task queue');
 
   // Block until worker shuts down
   await worker.run();
 
   setConnected(false);
-  console.log('Worker shut down');
+  logger.info('Worker shut down');
 }
 
 main().catch((err) => {
-  console.error('Worker failed to start:', err);
+  logger.fatal({ err }, 'Worker failed to start');
   process.exit(1);
 });

@@ -1,94 +1,112 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { v4 as uuidv4 } from 'uuid';
 import type { CreateTaskDto } from './dto/create-task.dto.js';
 import type { TaskListQueryInput } from '@ai-sdlc/shared/schemas';
 import { WorkflowsService } from '../workflows/workflows.service.js';
-
-interface StoredTask {
-  id: string;
-  title: string;
-  description: string;
-  status: string;
-  priority: string;
-  labels: string[];
-  metadata: Record<string, unknown>;
-  workflowExecutionId?: string;
-  createdBy: string;
-  createdAt: string;
-  updatedAt: string;
-}
+import { PrismaService } from '@ai-sdlc/infra/database';
 
 @Injectable()
 export class TasksService {
-  private readonly tasks = new Map<string, StoredTask>();
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly workflowsService: WorkflowsService,
+  ) {}
 
-  constructor(private readonly workflowsService: WorkflowsService) {}
-
-  create(dto: CreateTaskDto): StoredTask {
-    const now = new Date().toISOString();
-    const task: StoredTask = {
-      id: uuidv4(),
-      title: dto.title,
-      description: dto.description,
-      status: 'pending',
-      priority: dto.priority ?? 'medium',
-      labels: dto.labels ?? [],
-      metadata: dto.metadata ?? {},
-      createdBy: 'system',
-      createdAt: now,
-      updatedAt: now,
-    };
-    this.tasks.set(task.id, task);
-    return task;
+  async create(dto: CreateTaskDto) {
+    const task = await this.prisma.task.create({
+      data: {
+        title: dto.title,
+        description: dto.description,
+        status: 'PENDING',
+        priority:
+          (dto.priority?.toUpperCase() as 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL') ?? 'MEDIUM',
+        labels: dto.labels ?? [],
+        metadata: dto.metadata ?? {},
+        createdById: 'system', // TODO: Replace with authenticated user ID
+      },
+    });
+    return this.mapTask(task);
   }
 
-  findAll(query: TaskListQueryInput) {
-    let results = [...this.tasks.values()];
-
-    if (query.status) {
-      results = results.filter((t) => t.status === query.status);
-    }
-    if (query.priority) {
-      results = results.filter((t) => t.priority === query.priority);
-    }
-    if (query.search) {
-      const search = query.search.toLowerCase();
-      results = results.filter(
-        (t) =>
-          t.title.toLowerCase().includes(search) ||
-          t.description.toLowerCase().includes(search),
-      );
-    }
-
+  async findAll(query: TaskListQueryInput) {
     const page = query.page ?? 1;
     const pageSize = query.pageSize ?? 20;
-    const start = (page - 1) * pageSize;
-    const paged = results.slice(start, start + pageSize);
+    const skip = (page - 1) * pageSize;
+
+    const where: Record<string, unknown> = {};
+    if (query.status) {
+      where.status = query.status.toUpperCase();
+    }
+    if (query.priority) {
+      where.priority = query.priority.toUpperCase();
+    }
+    if (query.search) {
+      where.OR = [
+        { title: { contains: query.search, mode: 'insensitive' } },
+        { description: { contains: query.search, mode: 'insensitive' } },
+      ];
+    }
+
+    const [data, total] = await Promise.all([
+      this.prisma.task.findMany({ where, skip, take: pageSize, orderBy: { createdAt: 'desc' } }),
+      this.prisma.task.count({ where }),
+    ]);
 
     return {
-      data: paged,
-      total: results.length,
+      data: data.map((t) => this.mapTask(t)),
+      total,
       page,
       pageSize,
     };
   }
 
-  findOne(id: string): StoredTask {
-    const task = this.tasks.get(id);
+  async findOne(id: string) {
+    const task = await this.prisma.task.findUnique({ where: { id } });
     if (!task) {
       throw new NotFoundException(`Task ${id} not found`);
     }
-    return task;
+    return this.mapTask(task);
   }
 
-  async submit(id: string): Promise<StoredTask> {
-    const task = this.findOne(id);
-    task.status = 'planning';
-    task.updatedAt = new Date().toISOString();
+  async submit(id: string) {
+    const task = await this.prisma.task.update({
+      where: { id },
+      data: { status: 'PLANNING' },
+    });
 
     const execution = await this.workflowsService.trigger({ taskId: id });
-    task.workflowExecutionId = execution.id;
+    const updated = await this.prisma.task.update({
+      where: { id },
+      data: { workflowExecutionId: execution.id },
+    });
 
-    return task;
+    return this.mapTask(updated);
+  }
+
+  private mapTask(task: {
+    id: string;
+    title: string;
+    description: string;
+    status: string;
+    priority: string;
+    labels: string[];
+    metadata: unknown;
+    workflowExecutionId: string | null;
+    createdById: string;
+    createdAt: Date;
+    updatedAt: Date;
+  }) {
+    return {
+      id: task.id,
+      title: task.title,
+      description: task.description,
+      status: task.status.toLowerCase(),
+      priority: task.priority.toLowerCase(),
+      labels: task.labels,
+      metadata: task.metadata as Record<string, unknown>,
+      workflowExecutionId: task.workflowExecutionId ?? undefined,
+      createdBy: task.createdById,
+      createdAt: task.createdAt.toISOString(),
+      updatedAt: task.updatedAt.toISOString(),
+    };
   }
 }

@@ -1,4 +1,10 @@
-import { Injectable, NotFoundException, OnModuleInit, OnModuleDestroy } from '@nestjs/common';
+import {
+  Injectable,
+  Logger,
+  NotFoundException,
+  OnModuleInit,
+  OnModuleDestroy,
+} from '@nestjs/common';
 import { v4 as uuidv4 } from 'uuid';
 import { Client, Connection } from '@temporalio/client';
 import type { WorkflowTriggerRequestInput } from '@ai-sdlc/shared/schemas';
@@ -29,6 +35,7 @@ interface WorkflowExecution {
  */
 @Injectable()
 export class WorkflowsService implements OnModuleInit, OnModuleDestroy {
+  private readonly logger = new Logger(WorkflowsService.name);
   private connection: Connection | undefined;
   private client: Client | undefined;
   private readonly executions = new Map<string, WorkflowExecution>();
@@ -37,11 +44,11 @@ export class WorkflowsService implements OnModuleInit, OnModuleDestroy {
     try {
       this.connection = await Connection.connect({ address: TEMPORAL_ADDRESS });
       this.client = new Client({ connection: this.connection });
-      console.log(`Connected to Temporal at ${TEMPORAL_ADDRESS}`);
+      this.logger.log(`Connected to Temporal at ${TEMPORAL_ADDRESS}`);
     } catch (err) {
-      console.warn(
+      this.logger.warn(
         `Failed to connect to Temporal at ${TEMPORAL_ADDRESS}. Falling back to mock mode.`,
-        err,
+        err instanceof Error ? err.stack : undefined,
       );
     }
   }

@@ -4,6 +4,7 @@ import './globals.css';
 import { ThemeProvider } from '@/components/layout/theme-provider';
 import { QueryProvider } from '@/lib/query-provider';
 import { Shell } from '@/components/layout/shell';
+import { RootErrorBoundary } from '@/components/error-boundary';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,7 +19,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
           <QueryProvider>
-            <Shell>{children}</Shell>
+            <RootErrorBoundary>
+              <Shell>{children}</Shell>
+            </RootErrorBoundary>
           </QueryProvider>
         </ThemeProvider>
       </body>

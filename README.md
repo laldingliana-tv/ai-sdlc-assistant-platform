@@ -21,7 +21,8 @@ An enterprise AI platform that orchestrates multiple AI agents through SDLC work
 ai-sdlc-assistant-platform/
 ├── apps/
 │   ├── api/              # NestJS backend (Fastify)
-│   └── web/              # Next.js frontend
+│   ├── web/              # Next.js frontend
+│   └── workers/          # Temporal worker
 ├── libs/
 │   ├── shared/           # Shared types, schemas, constants, prompts
 │   ├── infra/            # Telemetry, logging, auth, database, governance
@@ -73,7 +74,7 @@ pnpm nx run @ai-sdlc/infra-database:prisma:migrate:dev    # Step 4
 pnpm nx run-many -t serve --projects=api,web              # Step 5
 ```
 
-The API will be available at `http://localhost:3001` and the web UI at `http://localhost:3000`.
+The API will be available at `http://localhost:3000` and the web UI at `http://localhost:4200`.
 
 ## API Keys
 

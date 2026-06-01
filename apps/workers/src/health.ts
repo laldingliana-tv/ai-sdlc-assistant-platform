@@ -1,5 +1,8 @@
 // Orchestration owner: Temporal
 import http from 'node:http';
+import { createLogger } from '@ai-sdlc/infra/telemetry';
+
+const logger = createLogger({ name: 'workers-health' });
 
 let isConnected = false;
 
@@ -24,7 +27,7 @@ export function startHealthServer(port: number = 8081): http.Server {
   });
 
   server.listen(port, () => {
-    console.log(`Health probe server listening on port ${port}`);
+    logger.info({ port }, 'Health probe server listening');
   });
 
   return server;

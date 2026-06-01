@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "outDir": "../../dist/apps/api",
+    "noEmit": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "types": ["vitest/globals", "node"]

@@ -1,3 +1,6 @@
+// Option A chosen: Retained for integration with task list filter/search UI.
+// This store provides centralized filter state management for the TaskList component.
+// Wire into <TaskList> when filter controls are added to the tasks page.
 import { create } from 'zustand';
 
 interface TaskStoreState {

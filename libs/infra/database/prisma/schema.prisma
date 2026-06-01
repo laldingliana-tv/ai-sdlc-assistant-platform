@@ -67,7 +67,7 @@ model AgentExecution {
   taskId              String
   input               Json
   output              Json?
-  status              AgentExecutionStatus @default(RUNNING)
+  status              AgentExecutionStatus @default(PENDING)
   startedAt           DateTime           @default(now())
   completedAt         DateTime?
   durationMs          Int?
@@ -160,7 +160,9 @@ enum AgentName {
 }
 
 enum AgentExecutionStatus {
+  PENDING
   RUNNING
   COMPLETED
   FAILED
+  CANCELLED
 }

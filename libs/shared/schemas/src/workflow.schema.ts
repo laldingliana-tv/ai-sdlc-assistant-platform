@@ -54,5 +54,17 @@ export const ApprovalDecisionSchema = z.object({
   decidedAt: z.string().datetime(),
 });
 
+export const ApproveWorkflowSchema = z.object({
+  approvedBy: z.string().min(1),
+  comments: z.string().max(1000).optional(),
+});
+
+export const RejectWorkflowSchema = z.object({
+  rejectedBy: z.string().min(1),
+  reason: z.string().min(1).max(1000),
+});
+
 export type WorkflowTriggerRequestInput = z.input<typeof WorkflowTriggerRequestSchema>;
 export type ApprovalDecisionInput = z.input<typeof ApprovalDecisionSchema>;
+export type ApproveWorkflowInput = z.input<typeof ApproveWorkflowSchema>;
+export type RejectWorkflowInput = z.input<typeof RejectWorkflowSchema>;

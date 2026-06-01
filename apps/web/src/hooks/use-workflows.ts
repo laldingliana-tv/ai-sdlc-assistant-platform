@@ -51,8 +51,24 @@ export function useApproveWorkflow() {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: (workflowId: string) => apiClient.get<void>(`/workflows/${workflowId}/approve`),
+    mutationFn: (workflowId: string) =>
+      apiClient.post<void>(`/workflows/${workflowId}/approve`, { approvedBy: 'current-user' }),
     onSuccess: (_, workflowId) => {
+      queryClient.invalidateQueries({ queryKey: ['workflows', workflowId] });
+    },
+  });
+}
+
+export function useRejectWorkflow() {
+  const queryClient = useQueryClient();
+
+  return useMutation({
+    mutationFn: ({ workflowId, reason }: { workflowId: string; reason: string }) =>
+      apiClient.post<void>(`/workflows/${workflowId}/reject`, {
+        rejectedBy: 'current-user',
+        reason,
+      }),
+    onSuccess: (_, { workflowId }) => {
       queryClient.invalidateQueries({ queryKey: ['workflows', workflowId] });
     },
   });

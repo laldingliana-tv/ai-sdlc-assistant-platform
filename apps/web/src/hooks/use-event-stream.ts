@@ -38,7 +38,7 @@ export function useEventStream(workflowId: string | undefined) {
 
     eventSource.onerror = () => {
       setIsConnected(false);
-      eventSource.close();
+      // Allow browser's native SSE auto-reconnect to operate
     };
   }, [workflowId]);
 

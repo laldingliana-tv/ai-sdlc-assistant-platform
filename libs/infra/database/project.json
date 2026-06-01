@@ -1,0 +1,29 @@
+{
+  "name": "infra-database",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/infra/database/src",
+  "projectType": "library",
+  "targets": {
+    "prisma-generate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "pnpm prisma generate",
+        "cwd": "libs/infra/database"
+      }
+    },
+    "prisma-migrate": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "pnpm prisma migrate dev",
+        "cwd": "libs/infra/database"
+      }
+    },
+    "prisma-migrate-deploy": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "pnpm prisma migrate deploy",
+        "cwd": "libs/infra/database"
+      }
+    }
+  }
+}
