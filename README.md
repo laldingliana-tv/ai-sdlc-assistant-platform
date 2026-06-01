@@ -66,11 +66,11 @@ make dev
 
 ```powershell
 # Windows (PowerShell) — without make:
-pnpm install                                        # Step 1
-Copy-Item .env.example .env                         # Step 2
-docker-compose up -d                                # Step 3
-pnpm nx run infra-database:prisma-migrate           # Step 4
-pnpm nx run-many -t serve --projects=api,web        # Step 5
+pnpm install                                              # Step 1
+Copy-Item .env.example .env                               # Step 2
+docker-compose up -d                                      # Step 3
+pnpm nx run @ai-sdlc/infra-database:prisma:migrate:dev    # Step 4
+pnpm nx run-many -t serve --projects=api,web              # Step 5
 ```
 
 The API will be available at `http://localhost:3001` and the web UI at `http://localhost:3000`.
@@ -114,17 +114,17 @@ You only need **one** of the following, depending on which LLM provider you want
 
 ## Available Commands
 
-| Make Command     | Direct Command                                 | Description                                |
-| ---------------- | ---------------------------------------------- | ------------------------------------------ |
-| `make install`   | `pnpm install`                                 | Install all dependencies                   |
-| `make docker`    | `docker-compose up -d`                         | Start Docker services (Postgres, Temporal) |
-| `make migrate`   | `pnpm nx run infra-database:prisma-migrate`    | Run Prisma migrations                      |
-| `make seed`      | `pnpm nx run infra-database:prisma-seed`       | Seed the database                          |
-| `make dev`       | `pnpm nx run-many -t serve --projects=api,web` | Start API + Web in development mode        |
-| `make lint`      | `pnpm nx run-many -t lint`                     | Lint all projects                          |
-| `make test`      | `pnpm nx run-many -t test`                     | Run all unit tests                         |
-| `make typecheck` | `pnpm nx run-many -t typecheck`                | Type-check all projects                    |
-| `make clean`     | `rm -rf node_modules dist tmp .nx`             | Remove node_modules, dist, tmp             |
+| Make Command     | Direct Command                                           | Description                                |
+| ---------------- | -------------------------------------------------------- | ------------------------------------------ |
+| `make install`   | `pnpm install`                                           | Install all dependencies                   |
+| `make docker`    | `docker-compose up -d`                                   | Start Docker services (Postgres, Temporal) |
+| `make migrate`   | `pnpm nx run @ai-sdlc/infra-database:prisma:migrate:dev` | Run Prisma migrations                      |
+| `make seed`      | `pnpm nx run @ai-sdlc/infra-database:db:seed`            | Seed the database                          |
+| `make dev`       | `pnpm nx run-many -t serve --projects=api,web`           | Start API + Web in development mode        |
+| `make lint`      | `pnpm nx run-many -t lint`                               | Lint all projects                          |
+| `make test`      | `pnpm nx run-many -t test`                               | Run all unit tests                         |
+| `make typecheck` | `pnpm nx run-many -t typecheck`                          | Type-check all projects                    |
+| `make clean`     | `rm -rf node_modules dist tmp .nx`                       | Remove node_modules, dist, tmp             |
 
 ## Development
 

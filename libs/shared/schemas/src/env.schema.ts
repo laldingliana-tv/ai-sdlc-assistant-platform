@@ -1,6 +1,16 @@
 import { z } from 'zod';
 
 /**
+ * Treats empty strings as undefined, so empty env vars don't fail URL validation.
+ */
+const optionalUrl = z.preprocess(
+  (val) => (val === '' ? undefined : val),
+  z.string().url().optional(),
+);
+
+const optionalString = z.preprocess((val) => (val === '' ? undefined : val), z.string().optional());
+
+/**
  * Reusable environment variable validation schema.
  * Used at app bootstrap to fail fast on missing/invalid config.
  */
@@ -10,10 +20,10 @@ export const EnvSchema = z.object({
   PORT: z.coerce.number().int().positive().default(3000),
 
   // Database
-  DATABASE_URL: z.string().url().optional(),
+  DATABASE_URL: optionalUrl,
 
   // Auth
-  JWT_SECRET: z.string().min(16).optional(),
+  JWT_SECRET: optionalString,
   JWT_EXPIRES_IN: z.string().default('1h'),
 
   // Temporal
@@ -22,19 +32,19 @@ export const EnvSchema = z.object({
   TEMPORAL_TASK_QUEUE: z.string().default('ai-sdlc-tasks'),
 
   // LLM Providers
-  OPENAI_API_KEY: z.string().optional(),
-  ANTHROPIC_API_KEY: z.string().optional(),
+  OPENAI_API_KEY: optionalString,
+  ANTHROPIC_API_KEY: optionalString,
 
   // Observability
-  LANGFUSE_PUBLIC_KEY: z.string().optional(),
-  LANGFUSE_SECRET_KEY: z.string().optional(),
-  LANGFUSE_HOST: z.string().url().optional(),
-  OTEL_EXPORTER_OTLP_ENDPOINT: z.string().url().optional(),
+  LANGFUSE_PUBLIC_KEY: optionalString,
+  LANGFUSE_SECRET_KEY: optionalString,
+  LANGFUSE_HOST: optionalUrl,
+  OTEL_EXPORTER_OTLP_ENDPOINT: optionalUrl,
 
   // MCP Providers
-  GITHUB_TOKEN: z.string().optional(),
-  JIRA_BASE_URL: z.string().url().optional(),
-  JIRA_API_TOKEN: z.string().optional(),
+  GITHUB_TOKEN: optionalString,
+  JIRA_BASE_URL: optionalUrl,
+  JIRA_API_TOKEN: optionalString,
 });
 
 export type Env = z.infer<typeof EnvSchema>;

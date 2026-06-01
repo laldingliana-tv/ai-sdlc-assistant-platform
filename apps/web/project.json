@@ -5,10 +5,17 @@
   "projectType": "application",
   "tags": ["scope:web", "type:app"],
   "targets": {
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx next dev --port 4200",
+        "cwd": "apps/web"
+      }
+    },
     "dev": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "next dev --port 4200",
+        "command": "npx next dev --port 4200",
         "cwd": "apps/web"
       }
     },
