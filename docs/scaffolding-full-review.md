@@ -15,7 +15,7 @@ However, several issues need attention — ranging from critical dependency conf
 
 | Category             | Rating     | Notes                                                       |
 | -------------------- | ---------- | ----------------------------------------------------------- |
-| Completeness vs Plan | ⭐⭐⭐⭐☆  | ~95% of planned files present; `.env.example` missing       |
+| Completeness vs Plan | ⭐⭐⭐⭐☆  | ~95% of planned files present                               |
 | Correctness          | ⭐⭐⭐☆☆   | Type/enum mismatches, dependency config bugs                |
 | Architecture         | ⭐⭐⭐⭐⭐ | Clean layering, proper orchestration ownership              |
 | DRYness              | ⭐⭐⭐⭐☆  | Good reuse via shared libs; minor redundancies              |
@@ -201,7 +201,31 @@ But `tsconfig.json` likely extends `tsconfig.base.json` which has `"declaration"
 
 ---
 
-### 12. Docker Compose Temporal Shares Postgres with App
+### 12. PORT / CORS_ORIGIN Mismatch Between Config Sources
+
+**Files:** `.env.example`, `apps/api/src/main.ts`, `libs/shared/schemas/src/env.schema.ts`, `apps/web/next.config.mjs`
+
+Multiple sources disagree on the API port and CORS origin:
+
+| Source                      | PORT   | CORS Origin                        |
+| --------------------------- | ------ | ---------------------------------- |
+| `.env.example`              | `3001` | (not defined)                      |
+| `EnvSchema` default         | `3000` | —                                  |
+| `main.ts` code fallback     | `3000` | `http://localhost:3001`            |
+| `next.config.mjs` API proxy | —      | proxies to `http://localhost:3000` |
+| Phase-7 docs (intended)     | —      | `http://localhost:4200`            |
+
+**Impact:** If a developer copies `.env.example` → `.env`, the API runs on port 3001 but the frontend proxy targets port 3000. The app breaks out of the box. Additionally, the CORS origin default (`localhost:3001`) is the API's own address, not the frontend's (`localhost:4200`).
+
+**Fix:**
+
+- `.env.example`: Change `PORT=3000` (or add `NEXT_PUBLIC_API_URL=http://localhost:3001` if 3001 is intentional)
+- `main.ts`: Change CORS default to `http://localhost:4200`
+- Add `CORS_ORIGIN=http://localhost:4200` to `.env.example`
+
+---
+
+### 13. Docker Compose Temporal Shares Postgres with App
 
 Both Temporal and the application use the same Postgres instance (`ai_sdlc` DB). This is fine for local dev but creates coupling.
 
@@ -210,14 +234,6 @@ Both Temporal and the application use the same Postgres instance (`ai_sdlc` DB).
 ---
 
 ## 🟡 Low-Priority Issues
-
-### 13. Missing `.env.example` File
-
-The implementation plan specifies a `.env.example` template file. The `EnvSchema` in `libs/shared/schemas/src/env.schema.ts` defines all required vars, but there's no developer-facing file to copy.
-
-**Fix:** Create `.env.example` derived from `EnvSchema` with commented descriptions.
-
----
 
 ### 14. Global ZodValidationPipe Conflicts with Per-Route Pipes
 
@@ -341,7 +357,7 @@ The deploy workflow has no `prisma migrate deploy` step. First deployment to a f
 
 | Phase                              | Status      | Missing Items                                       |
 | ---------------------------------- | ----------- | --------------------------------------------------- |
-| 1. Monorepo Foundation             | ✅ Complete | `.env.example` missing                              |
+| 1. Monorepo Foundation             | ✅ Complete | —                                                   |
 | 2. Shared Contracts                | ✅ Complete | —                                                   |
 | 2B. Observability Libs             | ✅ Complete | —                                                   |
 | 3. Backend API                     | ⚠️ 95%      | Approval endpoint missing; PrismaService not wired  |
@@ -365,7 +381,7 @@ The deploy workflow has no `prisma migrate deploy` step. First deployment to a f
 | P2       | Add request timeout to `api-client.ts`                          | 15 min |
 | P2       | Replace `console.*` with structured logger                      | 20 min |
 | P2       | Fix workers build script to use `tsconfig.build.json`           | 5 min  |
-| P2       | Create `.env.example`                                           | 15 min |
+| P2       | Fix PORT/CORS_ORIGIN mismatch across config sources             | 10 min |
 | P3       | Add root ErrorBoundary in frontend                              | 20 min |
 | P3       | Remove global ZodValidationPipe or document intent              | 10 min |
 | P3       | Complete workflows page                                         | 30 min |
