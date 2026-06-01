@@ -35,6 +35,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Generate Prisma client
+        run: pnpm --filter @ai-sdlc/infra-database prisma:generate
+
       # Derive SHAs for Nx affected commands
       - name: Derive NX_BASE and NX_HEAD
         uses: nrwl/nx-set-shas@v4
