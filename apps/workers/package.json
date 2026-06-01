@@ -1,0 +1,33 @@
+{
+  "name": "@ai-sdlc/workers",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node dist/main.js",
+    "start:dev": "tsx watch src/main.ts",
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "@temporalio/activity": "^1.11.0",
+    "@temporalio/client": "^1.11.0",
+    "@temporalio/worker": "^1.11.0",
+    "@temporalio/workflow": "^1.11.0"
+  },
+  "devDependencies": {
+    "@temporalio/testing": "^1.11.0",
+    "@types/node": "^20.14.0"
+  },
+  "peerDependencies": {
+    "@ai-sdlc/agents-core": "workspace:*",
+    "@ai-sdlc/agents-planner": "workspace:*",
+    "@ai-sdlc/agents-retriever": "workspace:*",
+    "@ai-sdlc/agents-architecture": "workspace:*",
+    "@ai-sdlc/agents-implementor": "workspace:*",
+    "@ai-sdlc/agents-reviewer": "workspace:*",
+    "@ai-sdlc/shared-types": "workspace:*"
+  }
+}

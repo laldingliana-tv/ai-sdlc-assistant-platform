@@ -1,0 +1,43 @@
+{
+  "name": "workers",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/workers/src",
+  "projectType": "application",
+  "tags": ["scope:workers", "type:app"],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/workers",
+        "main": "apps/workers/src/main.ts",
+        "tsConfig": "apps/workers/tsconfig.json"
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsx watch apps/workers/src/main.ts",
+        "cwd": "."
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "options": {
+        "config": "apps/workers/vitest.config.ts"
+      }
+    },
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc --noEmit -p apps/workers/tsconfig.json"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["apps/workers/src/**/*.ts"]
+      }
+    }
+  }
+}
