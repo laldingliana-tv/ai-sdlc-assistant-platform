@@ -21,6 +21,11 @@
     "prepare": "husky",
     "clean": "rm -rf node_modules dist tmp .nx"
   },
+  "dependencies": {
+    "@langchain/core": "^0.3.0",
+    "@langchain/langgraph": "^0.2.0",
+    "@langchain/openai": "^0.3.0"
+  },
   "devDependencies": {
     "@nx/eslint": "19.8.0",
     "@nx/eslint-plugin": "^19.8.0",
