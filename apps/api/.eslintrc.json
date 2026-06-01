@@ -4,7 +4,9 @@
   "overrides": [
     {
       "files": ["*.ts"],
-      "rules": {}
+      "rules": {
+        "@typescript-eslint/consistent-type-imports": "off"
+      }
     }
   ]
 }

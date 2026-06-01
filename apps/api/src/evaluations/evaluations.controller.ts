@@ -1,6 +1,6 @@
 import { Controller, Get, Param, ParseUUIDPipe, Query } from '@nestjs/common';
 
-import type { EvaluationsService } from './evaluations.service.js';
+import { EvaluationsService } from './evaluations.service.js';
 
 @Controller('evaluations')
 export class EvaluationsController {

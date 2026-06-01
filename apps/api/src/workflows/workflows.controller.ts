@@ -12,7 +12,7 @@ import { Controller, Get, Post, Body, Param, ParseUUIDPipe } from '@nestjs/commo
 
 import { ZodValidationPipe } from '../common/pipes/zod-validation.pipe.js';
 
-import type { WorkflowsService } from './workflows.service.js';
+import { WorkflowsService } from './workflows.service.js';
 
 @Controller('workflows')
 export class WorkflowsController {

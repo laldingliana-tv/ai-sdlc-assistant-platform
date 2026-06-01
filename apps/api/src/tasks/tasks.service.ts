@@ -1,8 +1,8 @@
-import type { PrismaService } from '@ai-sdlc/infra/database';
+import { PrismaService } from '@ai-sdlc/infra/database';
 import type { TaskListQueryInput } from '@ai-sdlc/shared/schemas';
 import { Injectable, NotFoundException } from '@nestjs/common';
 
-import type { WorkflowsService } from '../workflows/workflows.service.js';
+import { WorkflowsService } from '../workflows/workflows.service.js';
 
 import type { CreateTaskDto } from './dto/create-task.dto.js';
 
@@ -22,7 +22,8 @@ export class TasksService {
         priority:
           (dto.priority?.toUpperCase() as 'LOW' | 'MEDIUM' | 'HIGH' | 'CRITICAL') ?? 'MEDIUM',
         labels: dto.labels ?? [],
-        metadata: dto.metadata ?? {},
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        metadata: (dto.metadata ?? {}) as any,
         createdById: 'system', // TODO: Replace with authenticated user ID
       },
     });
@@ -34,7 +35,8 @@ export class TasksService {
     const pageSize = query.pageSize ?? 20;
     const skip = (page - 1) * pageSize;
 
-    const where: Record<string, unknown> = {};
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const where: any = {};
     if (query.status) {
       where.status = query.status.toUpperCase();
     }

@@ -6,7 +6,7 @@ import { ZodValidationPipe } from '../common/pipes/zod-validation.pipe.js';
 
 import type { CreateTaskDto } from './dto/create-task.dto.js';
 import { CreateTaskDtoSchema } from './dto/create-task.dto.js';
-import type { TasksService } from './tasks.service.js';
+import { TasksService } from './tasks.service.js';
 
 @Controller('tasks')
 export class TasksController {
