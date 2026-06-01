@@ -1,6 +1,5 @@
 // Orchestration owner: Temporal
 import type { AgentOutput } from '@ai-sdlc/shared/types';
-import type { ActivityInput } from '../workflows/sdlc-task.workflow.js';
 
 /**
  * Temporal activity placeholder for human approval notifications.
@@ -8,7 +7,7 @@ import type { ActivityInput } from '../workflows/sdlc-task.workflow.js';
  * to the designated approver. The actual approval is handled via
  * Temporal signals (approveSignal/rejectSignal).
  */
-export async function notifyApprovalRequired(input: {
+export async function notifyApprovalRequired(_input: {
   taskId: string;
   stepOutputs: AgentOutput[];
 }): Promise<{ notified: boolean; requestedAt: string }> {

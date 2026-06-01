@@ -1,6 +1,7 @@
 // Orchestration owner: Temporal
-import type { AgentInput, AgentOutput } from '@ai-sdlc/shared/types';
 import { ImplementorAgent } from '@ai-sdlc/agents/implementor';
+import type { AgentInput, AgentOutput } from '@ai-sdlc/shared/types';
+
 import type { ActivityInput } from '../workflows/sdlc-task.workflow.js';
 
 /**

@@ -1,8 +1,10 @@
+import { PrismaService } from '@ai-sdlc/infra/database';
 import { Module, forwardRef } from '@nestjs/common';
+
+import { WorkflowsModule } from '../workflows/workflows.module.js';
+
 import { TasksController } from './tasks.controller.js';
 import { TasksService } from './tasks.service.js';
-import { WorkflowsModule } from '../workflows/workflows.module.js';
-import { PrismaService } from '@ai-sdlc/infra/database';
 
 @Module({
   imports: [forwardRef(() => WorkflowsModule)],

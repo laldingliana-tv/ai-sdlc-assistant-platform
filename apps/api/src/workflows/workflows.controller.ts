@@ -1,16 +1,18 @@
-import { Controller, Get, Post, Body, Param, ParseUUIDPipe } from '@nestjs/common';
-import { WorkflowsService } from './workflows.service.js';
 import {
   WorkflowTriggerRequestSchema,
   ApproveWorkflowSchema,
   RejectWorkflowSchema,
 } from '@ai-sdlc/shared/schemas';
-import { ZodValidationPipe } from '../common/pipes/zod-validation.pipe.js';
 import type {
   WorkflowTriggerRequestInput,
   ApproveWorkflowInput,
   RejectWorkflowInput,
 } from '@ai-sdlc/shared/schemas';
+import { Controller, Get, Post, Body, Param, ParseUUIDPipe } from '@nestjs/common';
+
+import { ZodValidationPipe } from '../common/pipes/zod-validation.pipe.js';
+
+import type { WorkflowsService } from './workflows.service.js';
 
 @Controller('workflows')
 export class WorkflowsController {

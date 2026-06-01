@@ -1,8 +1,9 @@
 // Orchestration owner: Temporal
-import { Worker, NativeConnection } from '@temporalio/worker';
-import { startHealthServer, setConnected } from './health.js';
-import * as activities from './activities/index.js';
 import { createLogger } from '@ai-sdlc/infra/telemetry';
+import { Worker, NativeConnection } from '@temporalio/worker';
+
+import * as activities from './activities/index.js';
+import { startHealthServer, setConnected } from './health.js';
 
 const logger = createLogger({ name: 'workers' });
 

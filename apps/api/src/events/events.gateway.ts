@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { Subject, Observable } from 'rxjs';
+import type { Observable } from 'rxjs';
+import { Subject } from 'rxjs';
 
 export interface ServerEvent {
   type: string;

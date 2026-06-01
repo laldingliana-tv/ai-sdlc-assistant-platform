@@ -1,13 +1,8 @@
-import {
-  Injectable,
-  Logger,
-  NotFoundException,
-  OnModuleInit,
-  OnModuleDestroy,
-} from '@nestjs/common';
-import { v4 as uuidv4 } from 'uuid';
-import { Client, Connection } from '@temporalio/client';
 import type { WorkflowTriggerRequestInput } from '@ai-sdlc/shared/schemas';
+import type { OnModuleInit, OnModuleDestroy } from '@nestjs/common';
+import { Injectable, Logger, NotFoundException } from '@nestjs/common';
+import { Client, Connection } from '@temporalio/client';
+import { v4 as uuidv4 } from 'uuid';
 
 const TASK_QUEUE = 'ai-sdlc-tasks';
 const TEMPORAL_ADDRESS = process.env['TEMPORAL_ADDRESS'] ?? 'localhost:7233';

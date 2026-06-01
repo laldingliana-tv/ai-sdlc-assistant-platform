@@ -1,6 +1,7 @@
 // Orchestration owner: Temporal
-import { proxyActivities, setHandler, condition, ApplicationFailure } from '@temporalio/workflow';
 import type { AgentOutput } from '@ai-sdlc/shared/types';
+import { proxyActivities, setHandler, condition } from '@temporalio/workflow';
+
 import { approveSignal, rejectSignal, getStatusQuery } from './signals.js';
 
 // Activity interfaces — typed stubs for proxyActivities

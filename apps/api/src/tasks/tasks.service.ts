@@ -1,8 +1,10 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
-import type { CreateTaskDto } from './dto/create-task.dto.js';
+import type { PrismaService } from '@ai-sdlc/infra/database';
 import type { TaskListQueryInput } from '@ai-sdlc/shared/schemas';
-import { WorkflowsService } from '../workflows/workflows.service.js';
-import { PrismaService } from '@ai-sdlc/infra/database';
+import { Injectable, NotFoundException } from '@nestjs/common';
+
+import type { WorkflowsService } from '../workflows/workflows.service.js';
+
+import type { CreateTaskDto } from './dto/create-task.dto.js';
 
 @Injectable()
 export class TasksService {
@@ -68,7 +70,7 @@ export class TasksService {
   }
 
   async submit(id: string) {
-    const task = await this.prisma.task.update({
+    await this.prisma.task.update({
       where: { id },
       data: { status: 'PLANNING' },
     });

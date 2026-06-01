@@ -1,10 +1,12 @@
+import { TaskListQuerySchema } from '@ai-sdlc/shared/schemas';
+import type { TaskListQueryInput } from '@ai-sdlc/shared/schemas';
 import { Controller, Get, Post, Body, Param, Query, ParseUUIDPipe } from '@nestjs/common';
-import { TasksService } from './tasks.service.js';
+
+import { ZodValidationPipe } from '../common/pipes/zod-validation.pipe.js';
+
 import type { CreateTaskDto } from './dto/create-task.dto.js';
 import { CreateTaskDtoSchema } from './dto/create-task.dto.js';
-import { TaskListQuerySchema } from '@ai-sdlc/shared/schemas';
-import { ZodValidationPipe } from '../common/pipes/zod-validation.pipe.js';
-import type { TaskListQueryInput } from '@ai-sdlc/shared/schemas';
+import type { TasksService } from './tasks.service.js';
 
 @Controller('tasks')
 export class TasksController {

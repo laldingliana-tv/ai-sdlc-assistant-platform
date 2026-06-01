@@ -1,12 +1,7 @@
-import {
-  ExceptionFilter,
-  Catch,
-  ArgumentsHost,
-  HttpException,
-  HttpStatus,
-} from '@nestjs/common';
-import { FastifyReply } from 'fastify';
 import { createLogger } from '@ai-sdlc/infra/telemetry';
+import type { ExceptionFilter, ArgumentsHost } from '@nestjs/common';
+import { Catch, HttpException, HttpStatus } from '@nestjs/common';
+import type { FastifyReply } from 'fastify';
 
 const logger = createLogger({ name: 'HttpExceptionFilter' });
 
@@ -17,14 +12,10 @@ export class HttpExceptionFilter implements ExceptionFilter {
     const response = ctx.getResponse<FastifyReply>();
 
     const status =
-      exception instanceof HttpException
-        ? exception.getStatus()
-        : HttpStatus.INTERNAL_SERVER_ERROR;
+      exception instanceof HttpException ? exception.getStatus() : HttpStatus.INTERNAL_SERVER_ERROR;
 
     const message =
-      exception instanceof HttpException
-        ? exception.getResponse()
-        : 'Internal server error';
+      exception instanceof HttpException ? exception.getResponse() : 'Internal server error';
 
     const body = {
       statusCode: status,

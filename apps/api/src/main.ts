@@ -1,7 +1,9 @@
 import 'reflect-metadata';
-import { NestFactory } from '@nestjs/core';
-import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
 import { AppLoggerService } from '@ai-sdlc/infra/logging';
+import { NestFactory } from '@nestjs/core';
+import type { NestFastifyApplication } from '@nestjs/platform-fastify';
+import { FastifyAdapter } from '@nestjs/platform-fastify';
+
 import { AppModule } from './app.module.js';
 
 async function bootstrap() {
