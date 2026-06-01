@@ -4,7 +4,7 @@ install:
 	pnpm install
 
 docker:
-	docker compose up -d
+	docker-compose up -d
 
 migrate:
 	pnpm nx run infra-database:prisma-migrate

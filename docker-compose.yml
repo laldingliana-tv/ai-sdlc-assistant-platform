@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: pgvector/pgvector:pg15
+    container_name: ai-sdlc-postgres
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: ai_sdlc
+      POSTGRES_PASSWORD: ai_sdlc_dev
+      POSTGRES_DB: ai_sdlc
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U ai_sdlc -d ai_sdlc']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  temporal:
+    image: temporalio/auto-setup:latest
+    container_name: ai-sdlc-temporal
+    ports:
+      - '7233:7233'
+    environment:
+      - DB=sqlite
+      - DYNAMIC_CONFIG_FILE_PATH=config/dynamicconfig/development-sql.yaml
+    healthcheck:
+      test: ['CMD', 'tctl', '--address', 'temporal:7233', 'cluster', 'health']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+  temporal-ui:
+    image: temporalio/ui:latest
+    container_name: ai-sdlc-temporal-ui
+    ports:
+      - '8233:8080'
+    environment:
+      - TEMPORAL_ADDRESS=temporal:7233
+      - TEMPORAL_CORS_ORIGINS=http://localhost:4200
+    depends_on:
+      temporal:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
+    driver: local
