@@ -1,0 +1,77 @@
+{
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\.eslintrc.json": {
+    "mtime": 1779448927.6105907,
+    "ast_hash": "15333575d3e0ced86a3aa6a7f6157c20",
+    "semantic_hash": "15333575d3e0ced86a3aa6a7f6157c20"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\.lintstagedrc.json": {
+    "mtime": 1779448927.612167,
+    "ast_hash": "6c84ca3e8de27f4fc8eef3d89fc14113",
+    "semantic_hash": "6c84ca3e8de27f4fc8eef3d89fc14113"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\nx.json": {
+    "mtime": 1779448927.6105907,
+    "ast_hash": "8ccbc72bf32be295571c539bcc294fb3",
+    "semantic_hash": "8ccbc72bf32be295571c539bcc294fb3"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\package.json": {
+    "mtime": 1779448927.6105907,
+    "ast_hash": "1cdf567e804ce8ee65a7eea0186e928e",
+    "semantic_hash": "1cdf567e804ce8ee65a7eea0186e928e"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\tsconfig.base.json": {
+    "mtime": 1779448927.6105907,
+    "ast_hash": "3a317d6637171f3f2a5fa39f65228079",
+    "semantic_hash": "3a317d6637171f3f2a5fa39f65228079"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\README.md": {
+    "mtime": 1779448927.6656337,
+    "ast_hash": "de48759bf21aabb267330d5e0f28a2f0",
+    "semantic_hash": "de48759bf21aabb267330d5e0f28a2f0"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\docs\\IMPLEMENTATION_PLAN.md": {
+    "mtime": 1779432604.9776275,
+    "ast_hash": "5c361ae0bb377c2e45963eed15066216",
+    "semantic_hash": "5c361ae0bb377c2e45963eed15066216"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\docs\\IMPLEMENTATION_PLAN_V2.md": {
+    "mtime": 1779435528.9595592,
+    "ast_hash": "99dc8d5ee12dbfaddc445e466bb7cf7f",
+    "semantic_hash": "99dc8d5ee12dbfaddc445e466bb7cf7f"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\docs\\IMPLEMENTATION_PLAN_V3_FINAL.md": {
+    "mtime": 1779437193.718809,
+    "ast_hash": "3d0a2560632e61b8003b5dbdbafa1b60",
+    "semantic_hash": "3d0a2560632e61b8003b5dbdbafa1b60"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\docs\\IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md": {
+    "mtime": 1779444569.9551203,
+    "ast_hash": "460591d6e138fc5fe76fe5123219e7b1",
+    "semantic_hash": "460591d6e138fc5fe76fe5123219e7b1"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\docs\\PRD_AND_ADR_HUMAN_GUIDE.md": {
+    "mtime": 1779445052.7375715,
+    "ast_hash": "890960073980fd37f0f838ae1380345d",
+    "semantic_hash": "890960073980fd37f0f838ae1380345d"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\docs\\ai_sdlc_platform_scaffolding_prompt.md": {
+    "mtime": 1779448540.7303748,
+    "ast_hash": "d6181691ac9219b155a8ad85bcc96f01",
+    "semantic_hash": "d6181691ac9219b155a8ad85bcc96f01"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\docs\\final_feedback_recommendations_ai_sdlc_platform.md": {
+    "mtime": 1779448540.866444,
+    "ast_hash": "727e1b11a10cf67368c1a5410d29a181",
+    "semantic_hash": "727e1b11a10cf67368c1a5410d29a181"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\docs\\implementation-phase-1-prompt.md": {
+    "mtime": 1779448773.2591207,
+    "ast_hash": "6b71b4e48377142d37c2d5dafbc360df",
+    "semantic_hash": "6b71b4e48377142d37c2d5dafbc360df"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\pnpm-workspace.yaml": {
+    "mtime": 1779448927.6105907,
+    "ast_hash": "81996bfeb0b2191f96d4c98e394c6047",
+    "semantic_hash": "81996bfeb0b2191f96d4c98e394c6047"
+  }
+}

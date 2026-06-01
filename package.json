@@ -1,0 +1,42 @@
+{
+  "name": "@ai-sdlc/source",
+  "version": "0.0.0",
+  "private": true,
+  "description": "AI SDLC Assistant Platform — AI-powered software development lifecycle orchestration",
+  "license": "UNLICENSED",
+  "packageManager": "pnpm@9.12.3",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "scripts": {
+    "dev": "nx run-many -t serve --projects=api,web",
+    "build": "nx run-many -t build",
+    "lint": "nx run-many -t lint",
+    "test": "nx run-many -t test",
+    "test:e2e": "nx run-many -t e2e",
+    "typecheck": "nx run-many -t typecheck",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "husky",
+    "clean": "rm -rf node_modules dist tmp .nx"
+  },
+  "devDependencies": {
+    "@nx/eslint": "19.8.0",
+    "@nx/js": "19.8.0",
+    "@nx/nest": "19.8.0",
+    "@nx/next": "19.8.0",
+    "@nx/vite": "19.8.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "nx": "19.8.0",
+    "prettier": "^3.3.3",
+    "typescript": "~5.5.4",
+    "vitest": "^1.6.0"
+  }
+}

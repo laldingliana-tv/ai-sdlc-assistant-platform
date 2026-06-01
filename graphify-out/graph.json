@@ -1,0 +1,3018 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "sdlc_agent_pipeline",
+        "label": "SDLC Agent Pipeline",
+        "nodes": [
+          "planner_agent",
+          "retriever_agent",
+          "architecture_agent",
+          "approval_gate",
+          "implementor_agent",
+          "reviewer_agent"
+        ],
+        "relation": "participate_in",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md"
+      },
+      {
+        "id": "monorepo_foundation_configs",
+        "label": "Phase 1 Monorepo Foundation",
+        "nodes": [
+          "package_json_root",
+          "nx_json_config",
+          "tsconfig_base",
+          "eslintrc_root",
+          "lintstagedrc",
+          "pnpm_workspace"
+        ],
+        "relation": "form",
+        "confidence": "EXTRACTED",
+        "confidence_score": 1.0,
+        "source_file": "docs/implementation-phase-1-prompt.md"
+      },
+      {
+        "id": "implementation_plan_evolution",
+        "label": "Implementation Plan Version Chain",
+        "nodes": [
+          "impl_plan_v1",
+          "impl_plan_v2",
+          "impl_plan_v3",
+          "impl_plan_v4",
+          "feedback_recommendations"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.95,
+        "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": ".eslintrc.json",
+      "file_type": "code",
+      "source_file": ".eslintrc.json",
+      "source_location": "L1",
+      "id": "eslintrc",
+      "community": 2,
+      "norm_label": ".eslintrc.json"
+    },
+    {
+      "label": "root",
+      "file_type": "code",
+      "source_file": ".eslintrc.json",
+      "source_location": "L2",
+      "id": "eslintrc_root",
+      "community": 2,
+      "norm_label": "root"
+    },
+    {
+      "label": "ignorePatterns",
+      "file_type": "code",
+      "source_file": ".eslintrc.json",
+      "source_location": "L3",
+      "id": "eslintrc_ignorepatterns",
+      "community": 2,
+      "norm_label": "ignorepatterns"
+    },
+    {
+      "label": "plugins",
+      "file_type": "code",
+      "source_file": ".eslintrc.json",
+      "source_location": "L4",
+      "id": "eslintrc_plugins",
+      "community": 2,
+      "norm_label": "plugins"
+    },
+    {
+      "label": "overrides",
+      "file_type": "code",
+      "source_file": ".eslintrc.json",
+      "source_location": "L5",
+      "id": "eslintrc_overrides",
+      "community": 2,
+      "norm_label": "overrides"
+    },
+    {
+      "label": ".lintstagedrc.json",
+      "file_type": "code",
+      "source_file": ".lintstagedrc.json",
+      "source_location": "L1",
+      "id": "lintstagedrc",
+      "community": 2,
+      "norm_label": ".lintstagedrc.json"
+    },
+    {
+      "label": "*.{ts,tsx}",
+      "file_type": "code",
+      "source_file": ".lintstagedrc.json",
+      "source_location": "L2",
+      "id": "lintstagedrc_ts_tsx",
+      "community": 2,
+      "norm_label": "*.{ts,tsx}"
+    },
+    {
+      "label": "*.{js,jsx}",
+      "file_type": "code",
+      "source_file": ".lintstagedrc.json",
+      "source_location": "L3",
+      "id": "lintstagedrc_js_jsx",
+      "community": 2,
+      "norm_label": "*.{js,jsx}"
+    },
+    {
+      "label": "*.{json,md,yaml,yml}",
+      "file_type": "code",
+      "source_file": ".lintstagedrc.json",
+      "source_location": "L4",
+      "id": "lintstagedrc_json_md_yaml_yml",
+      "community": 2,
+      "norm_label": "*.{json,md,yaml,yml}"
+    },
+    {
+      "label": "nx.json",
+      "file_type": "code",
+      "source_file": "nx.json",
+      "source_location": "L1",
+      "id": "nx",
+      "community": 8,
+      "norm_label": "nx.json"
+    },
+    {
+      "label": "$schema",
+      "file_type": "code",
+      "source_file": "nx.json",
+      "source_location": "L2",
+      "id": "nx_schema",
+      "community": 8,
+      "norm_label": "$schema"
+    },
+    {
+      "label": "namedInputs",
+      "file_type": "code",
+      "source_file": "nx.json",
+      "source_location": "L3",
+      "id": "nx_namedinputs",
+      "community": 8,
+      "norm_label": "namedinputs"
+    },
+    {
+      "label": "default",
+      "file_type": "code",
+      "source_file": "nx.json",
+      "source_location": "L4",
+      "id": "nx_namedinputs_default",
+      "community": 8,
+      "norm_label": "default"
+    },
+    {
+      "label": "sharedGlobals",
+      "file_type": "code",
+      "source_file": "nx.json",
+      "source_location": "L5",
+      "id": "nx_namedinputs_sharedglobals",
+      "community": 8,
+      "norm_label": "sharedglobals"
+    },
+    {
+      "label": "production",
+      "file_type": "code",
+      "source_file": "nx.json",
+      "source_location": "L6",
+      "id": "nx_namedinputs_production",
+      "community": 8,
+      "norm_label": "production"
+    },
+    {
+      "label": "targetDefaults",
+      "file_type": "code",
+      "source_file": "nx.json",
+      "source_location": "L14",
+      "id": "nx_targetdefaults",
+      "community": 5,
+      "norm_label": "targetdefaults"
+    },
+    {
+      "label": "build",
+      "file_type": "code",
+      "source_file": "nx.json",
+      "source_location": "L15",
+      "id": "nx_targetdefaults_build",
+      "community": 5,
+      "norm_label": "build"
+    },
+    {
+      "label": "dependsOn",
+      "file_type": "code",
+      "source_file": "nx.json",
+      "source_location": "L16",
+      "id": "nx_build_dependson",
+      "community": 5,
+      "norm_label": "dependson"
+    },
+    {
+      "label": "inputs",
+      "file_type": "code",
+      "source_file": "nx.json",
+      "source_location": "L17",
+      "id": "nx_build_inputs",
+      "community": 5,
+      "norm_label": "inputs"
+    },
+    {
+      "label": "cache",
+      "file_type": "code",
+      "source_file": "nx.json",
+      "source_location": "L18",
+      "id": "nx_build_cache",
+      "community": 5,
+      "norm_label": "cache"
+    },
+    {
+      "label": "lint",
+      "file_type": "code",
+      "source_file": "nx.json",
+      "source_location": "L20",
+      "id": "nx_targetdefaults_lint",
+      "community": 5,
+      "norm_label": "lint"
+    },
+    {
+      "label": "inputs",
+      "file_type": "code",
+      "source_file": "nx.json",
+      "source_location": "L21",
+      "id": "nx_lint_inputs",
+      "community": 5,
+      "norm_label": "inputs"
+    },
+    {
+      "label": "cache",
+      "file_type": "code",
+      "source_file": "nx.json",
+      "source_location": "L22",
+      "id": "nx_lint_cache",
+      "community": 5,
+      "norm_label": "cache"
+    },
+    {
+      "label": "test",
+      "file_type": "code",
+      "source_file": "nx.json",
+      "source_location": "L24",
+      "id": "nx_targetdefaults_test",
+      "community": 5,
+      "norm_label": "test"
+    },
+    {
+      "label": "inputs",
+      "file_type": "code",
+      "source_file": "nx.json",
+      "source_location": "L25",
+      "id": "nx_test_inputs",
+      "community": 5,
+      "norm_label": "inputs"
+    },
+    {
+      "label": "cache",
+      "file_type": "code",
+      "source_file": "nx.json",
+      "source_location": "L26",
+      "id": "nx_test_cache",
+      "community": 5,
+      "norm_label": "cache"
+    },
+    {
+      "label": "typecheck",
+      "file_type": "code",
+      "source_file": "nx.json",
+      "source_location": "L28",
+      "id": "nx_targetdefaults_typecheck",
+      "community": 5,
+      "norm_label": "typecheck"
+    },
+    {
+      "label": "dependsOn",
+      "file_type": "code",
+      "source_file": "nx.json",
+      "source_location": "L29",
+      "id": "nx_typecheck_dependson",
+      "community": 5,
+      "norm_label": "dependson"
+    },
+    {
+      "label": "cache",
+      "file_type": "code",
+      "source_file": "nx.json",
+      "source_location": "L30",
+      "id": "nx_typecheck_cache",
+      "community": 5,
+      "norm_label": "cache"
+    },
+    {
+      "label": "plugins",
+      "file_type": "code",
+      "source_file": "nx.json",
+      "source_location": "L33",
+      "id": "nx_plugins",
+      "community": 8,
+      "norm_label": "plugins"
+    },
+    {
+      "label": "defaultBase",
+      "file_type": "code",
+      "source_file": "nx.json",
+      "source_location": "L37",
+      "id": "nx_defaultbase",
+      "community": 8,
+      "norm_label": "defaultbase"
+    },
+    {
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L1",
+      "id": "package",
+      "community": 7,
+      "norm_label": "package.json"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "id": "package_name",
+      "community": 7,
+      "norm_label": "name"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "id": "package_version",
+      "community": 7,
+      "norm_label": "version"
+    },
+    {
+      "label": "private",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "id": "package_private",
+      "community": 7,
+      "norm_label": "private"
+    },
+    {
+      "label": "description",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "id": "package_description",
+      "community": 7,
+      "norm_label": "description"
+    },
+    {
+      "label": "license",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "id": "package_license",
+      "community": 7,
+      "norm_label": "license"
+    },
+    {
+      "label": "packageManager",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "id": "package_packagemanager",
+      "community": 7,
+      "norm_label": "packagemanager"
+    },
+    {
+      "label": "engines",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "id": "package_engines",
+      "community": 7,
+      "norm_label": "engines"
+    },
+    {
+      "label": "node",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "id": "package_engines_node",
+      "community": 7,
+      "norm_label": "node"
+    },
+    {
+      "label": "pnpm",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "id": "package_engines_pnpm",
+      "community": 7,
+      "norm_label": "pnpm"
+    },
+    {
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "id": "package_scripts",
+      "community": 6,
+      "norm_label": "scripts"
+    },
+    {
+      "label": "dev",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "id": "package_scripts_dev",
+      "community": 6,
+      "norm_label": "dev"
+    },
+    {
+      "label": "build",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "id": "package_scripts_build",
+      "community": 6,
+      "norm_label": "build"
+    },
+    {
+      "label": "lint",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "id": "package_scripts_lint",
+      "community": 6,
+      "norm_label": "lint"
+    },
+    {
+      "label": "test",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "id": "package_scripts_test",
+      "community": 6,
+      "norm_label": "test"
+    },
+    {
+      "label": "test:e2e",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "id": "package_scripts_test_e2e",
+      "community": 6,
+      "norm_label": "test:e2e"
+    },
+    {
+      "label": "typecheck",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "id": "package_scripts_typecheck",
+      "community": 6,
+      "norm_label": "typecheck"
+    },
+    {
+      "label": "format",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "id": "package_scripts_format",
+      "community": 6,
+      "norm_label": "format"
+    },
+    {
+      "label": "format:check",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "id": "package_scripts_format_check",
+      "community": 6,
+      "norm_label": "format:check"
+    },
+    {
+      "label": "prepare",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L21",
+      "id": "package_scripts_prepare",
+      "community": 6,
+      "norm_label": "prepare"
+    },
+    {
+      "label": "clean",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "id": "package_scripts_clean",
+      "community": 6,
+      "norm_label": "clean"
+    },
+    {
+      "label": "devDependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L24",
+      "id": "package_devdependencies",
+      "community": 4,
+      "norm_label": "devdependencies"
+    },
+    {
+      "label": "@nx/eslint",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L25",
+      "id": "package_devdependencies_nx_eslint",
+      "community": 4,
+      "norm_label": "@nx/eslint"
+    },
+    {
+      "label": "@nx/js",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "id": "package_devdependencies_nx_js",
+      "community": 4,
+      "norm_label": "@nx/js"
+    },
+    {
+      "label": "@nx/nest",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L27",
+      "id": "package_devdependencies_nx_nest",
+      "community": 4,
+      "norm_label": "@nx/nest"
+    },
+    {
+      "label": "@nx/next",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L28",
+      "id": "package_devdependencies_nx_next",
+      "community": 4,
+      "norm_label": "@nx/next"
+    },
+    {
+      "label": "@nx/vite",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L29",
+      "id": "package_devdependencies_nx_vite",
+      "community": 4,
+      "norm_label": "@nx/vite"
+    },
+    {
+      "label": "@typescript-eslint/eslint-plugin",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L30",
+      "id": "package_devdependencies_typescript_eslint_eslint_plugin",
+      "community": 4,
+      "norm_label": "@typescript-eslint/eslint-plugin"
+    },
+    {
+      "label": "@typescript-eslint/parser",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L31",
+      "id": "package_devdependencies_typescript_eslint_parser",
+      "community": 4,
+      "norm_label": "@typescript-eslint/parser"
+    },
+    {
+      "label": "eslint",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L32",
+      "id": "package_devdependencies_eslint",
+      "community": 4,
+      "norm_label": "eslint"
+    },
+    {
+      "label": "eslint-config-prettier",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L33",
+      "id": "package_devdependencies_eslint_config_prettier",
+      "community": 4,
+      "norm_label": "eslint-config-prettier"
+    },
+    {
+      "label": "eslint-plugin-import",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L34",
+      "id": "package_devdependencies_eslint_plugin_import",
+      "community": 4,
+      "norm_label": "eslint-plugin-import"
+    },
+    {
+      "label": "husky",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L35",
+      "id": "package_devdependencies_husky",
+      "community": 4,
+      "norm_label": "husky"
+    },
+    {
+      "label": "lint-staged",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L36",
+      "id": "package_devdependencies_lint_staged",
+      "community": 4,
+      "norm_label": "lint-staged"
+    },
+    {
+      "label": "nx",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L37",
+      "id": "package_devdependencies_nx",
+      "community": 8,
+      "norm_label": "nx"
+    },
+    {
+      "label": "prettier",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L38",
+      "id": "package_devdependencies_prettier",
+      "community": 4,
+      "norm_label": "prettier"
+    },
+    {
+      "label": "typescript",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L39",
+      "id": "package_devdependencies_typescript",
+      "community": 4,
+      "norm_label": "typescript"
+    },
+    {
+      "label": "vitest",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L40",
+      "id": "package_devdependencies_vitest",
+      "community": 4,
+      "norm_label": "vitest"
+    },
+    {
+      "label": "tsconfig.base.json",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L1",
+      "id": "tsconfig_base",
+      "community": 2,
+      "norm_label": "tsconfig.base.json"
+    },
+    {
+      "label": "compileOnSave",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L2",
+      "id": "tsconfig_base_compileonsave",
+      "community": 2,
+      "norm_label": "compileonsave"
+    },
+    {
+      "label": "compilerOptions",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L3",
+      "id": "tsconfig_base_compileroptions",
+      "community": 0,
+      "norm_label": "compileroptions"
+    },
+    {
+      "label": "strict",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L4",
+      "id": "tsconfig_base_compileroptions_strict",
+      "community": 0,
+      "norm_label": "strict"
+    },
+    {
+      "label": "noImplicitOverride",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L5",
+      "id": "tsconfig_base_compileroptions_noimplicitoverride",
+      "community": 0,
+      "norm_label": "noimplicitoverride"
+    },
+    {
+      "label": "noPropertyAccessFromIndexSignature",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L6",
+      "id": "tsconfig_base_compileroptions_nopropertyaccessfromindexsignature",
+      "community": 0,
+      "norm_label": "nopropertyaccessfromindexsignature"
+    },
+    {
+      "label": "noImplicitReturns",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L7",
+      "id": "tsconfig_base_compileroptions_noimplicitreturns",
+      "community": 0,
+      "norm_label": "noimplicitreturns"
+    },
+    {
+      "label": "noFallthroughCasesInSwitch",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L8",
+      "id": "tsconfig_base_compileroptions_nofallthroughcasesinswitch",
+      "community": 0,
+      "norm_label": "nofallthroughcasesinswitch"
+    },
+    {
+      "label": "forceConsistentCasingInFileNames",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L9",
+      "id": "tsconfig_base_compileroptions_forceconsistentcasinginfilenames",
+      "community": 0,
+      "norm_label": "forceconsistentcasinginfilenames"
+    },
+    {
+      "label": "target",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L10",
+      "id": "tsconfig_base_compileroptions_target",
+      "community": 0,
+      "norm_label": "target"
+    },
+    {
+      "label": "module",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L11",
+      "id": "tsconfig_base_compileroptions_module",
+      "community": 0,
+      "norm_label": "module"
+    },
+    {
+      "label": "moduleResolution",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L12",
+      "id": "tsconfig_base_compileroptions_moduleresolution",
+      "community": 0,
+      "norm_label": "moduleresolution"
+    },
+    {
+      "label": "lib",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L13",
+      "id": "tsconfig_base_compileroptions_lib",
+      "community": 0,
+      "norm_label": "lib"
+    },
+    {
+      "label": "skipLibCheck",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L14",
+      "id": "tsconfig_base_compileroptions_skiplibcheck",
+      "community": 0,
+      "norm_label": "skiplibcheck"
+    },
+    {
+      "label": "skipDefaultLibCheck",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L15",
+      "id": "tsconfig_base_compileroptions_skipdefaultlibcheck",
+      "community": 0,
+      "norm_label": "skipdefaultlibcheck"
+    },
+    {
+      "label": "declaration",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L16",
+      "id": "tsconfig_base_compileroptions_declaration",
+      "community": 0,
+      "norm_label": "declaration"
+    },
+    {
+      "label": "declarationMap",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L17",
+      "id": "tsconfig_base_compileroptions_declarationmap",
+      "community": 0,
+      "norm_label": "declarationmap"
+    },
+    {
+      "label": "sourceMap",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L18",
+      "id": "tsconfig_base_compileroptions_sourcemap",
+      "community": 0,
+      "norm_label": "sourcemap"
+    },
+    {
+      "label": "esModuleInterop",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L19",
+      "id": "tsconfig_base_compileroptions_esmoduleinterop",
+      "community": 0,
+      "norm_label": "esmoduleinterop"
+    },
+    {
+      "label": "resolveJsonModule",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L20",
+      "id": "tsconfig_base_compileroptions_resolvejsonmodule",
+      "community": 0,
+      "norm_label": "resolvejsonmodule"
+    },
+    {
+      "label": "isolatedModules",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L21",
+      "id": "tsconfig_base_compileroptions_isolatedmodules",
+      "community": 0,
+      "norm_label": "isolatedmodules"
+    },
+    {
+      "label": "baseUrl",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L22",
+      "id": "tsconfig_base_compileroptions_baseurl",
+      "community": 0,
+      "norm_label": "baseurl"
+    },
+    {
+      "label": "paths",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L23",
+      "id": "tsconfig_base_compileroptions_paths",
+      "community": 1,
+      "norm_label": "paths"
+    },
+    {
+      "label": "@ai-sdlc/shared/types",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L24",
+      "id": "tsconfig_base_paths_ai_sdlc_shared_types",
+      "community": 1,
+      "norm_label": "@ai-sdlc/shared/types"
+    },
+    {
+      "label": "@ai-sdlc/shared/schemas",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L25",
+      "id": "tsconfig_base_paths_ai_sdlc_shared_schemas",
+      "community": 1,
+      "norm_label": "@ai-sdlc/shared/schemas"
+    },
+    {
+      "label": "@ai-sdlc/shared/constants",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L26",
+      "id": "tsconfig_base_paths_ai_sdlc_shared_constants",
+      "community": 1,
+      "norm_label": "@ai-sdlc/shared/constants"
+    },
+    {
+      "label": "@ai-sdlc/shared/prompts",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L27",
+      "id": "tsconfig_base_paths_ai_sdlc_shared_prompts",
+      "community": 1,
+      "norm_label": "@ai-sdlc/shared/prompts"
+    },
+    {
+      "label": "@ai-sdlc/infra/telemetry",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L28",
+      "id": "tsconfig_base_paths_ai_sdlc_infra_telemetry",
+      "community": 1,
+      "norm_label": "@ai-sdlc/infra/telemetry"
+    },
+    {
+      "label": "@ai-sdlc/infra/logging",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L29",
+      "id": "tsconfig_base_paths_ai_sdlc_infra_logging",
+      "community": 1,
+      "norm_label": "@ai-sdlc/infra/logging"
+    },
+    {
+      "label": "@ai-sdlc/infra/auth",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L30",
+      "id": "tsconfig_base_paths_ai_sdlc_infra_auth",
+      "community": 1,
+      "norm_label": "@ai-sdlc/infra/auth"
+    },
+    {
+      "label": "@ai-sdlc/infra/database",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L31",
+      "id": "tsconfig_base_paths_ai_sdlc_infra_database",
+      "community": 1,
+      "norm_label": "@ai-sdlc/infra/database"
+    },
+    {
+      "label": "@ai-sdlc/infra/governance",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L32",
+      "id": "tsconfig_base_paths_ai_sdlc_infra_governance",
+      "community": 1,
+      "norm_label": "@ai-sdlc/infra/governance"
+    },
+    {
+      "label": "@ai-sdlc/agents/core",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L33",
+      "id": "tsconfig_base_paths_ai_sdlc_agents_core",
+      "community": 1,
+      "norm_label": "@ai-sdlc/agents/core"
+    },
+    {
+      "label": "@ai-sdlc/agents/planner",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L34",
+      "id": "tsconfig_base_paths_ai_sdlc_agents_planner",
+      "community": 1,
+      "norm_label": "@ai-sdlc/agents/planner"
+    },
+    {
+      "label": "@ai-sdlc/agents/retriever",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L35",
+      "id": "tsconfig_base_paths_ai_sdlc_agents_retriever",
+      "community": 1,
+      "norm_label": "@ai-sdlc/agents/retriever"
+    },
+    {
+      "label": "@ai-sdlc/agents/reviewer",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L36",
+      "id": "tsconfig_base_paths_ai_sdlc_agents_reviewer",
+      "community": 1,
+      "norm_label": "@ai-sdlc/agents/reviewer"
+    },
+    {
+      "label": "@ai-sdlc/agents/architecture",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L37",
+      "id": "tsconfig_base_paths_ai_sdlc_agents_architecture",
+      "community": 1,
+      "norm_label": "@ai-sdlc/agents/architecture"
+    },
+    {
+      "label": "@ai-sdlc/agents/implementor",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L38",
+      "id": "tsconfig_base_paths_ai_sdlc_agents_implementor",
+      "community": 1,
+      "norm_label": "@ai-sdlc/agents/implementor"
+    },
+    {
+      "label": "@ai-sdlc/agents/a2a",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L39",
+      "id": "tsconfig_base_paths_ai_sdlc_agents_a2a",
+      "community": 1,
+      "norm_label": "@ai-sdlc/agents/a2a"
+    },
+    {
+      "label": "@ai-sdlc/agents/adk",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L40",
+      "id": "tsconfig_base_paths_ai_sdlc_agents_adk",
+      "community": 1,
+      "norm_label": "@ai-sdlc/agents/adk"
+    },
+    {
+      "label": "@ai-sdlc/mcp",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L41",
+      "id": "tsconfig_base_paths_ai_sdlc_mcp",
+      "community": 1,
+      "norm_label": "@ai-sdlc/mcp"
+    },
+    {
+      "label": "@ai-sdlc/evaluations",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L42",
+      "id": "tsconfig_base_paths_ai_sdlc_evaluations",
+      "community": 1,
+      "norm_label": "@ai-sdlc/evaluations"
+    },
+    {
+      "label": "exclude",
+      "file_type": "code",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L45",
+      "id": "tsconfig_base_exclude",
+      "community": 2,
+      "norm_label": "exclude"
+    },
+    {
+      "label": "Root package.json",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "package_json_root",
+      "community": 2,
+      "norm_label": "root package.json"
+    },
+    {
+      "label": "Nx Workspace Configuration",
+      "file_type": "code",
+      "source_file": "nx.json",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "nx_json_config",
+      "community": 2,
+      "norm_label": "nx workspace configuration"
+    },
+    {
+      "label": "pnpm Workspace Definition",
+      "file_type": "code",
+      "source_file": "pnpm-workspace.yaml",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "pnpm_workspace",
+      "community": 2,
+      "norm_label": "pnpm workspace definition"
+    },
+    {
+      "label": "AI SDLC Assistant Platform README",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_platform",
+      "community": 9,
+      "norm_label": "ai sdlc assistant platform readme"
+    },
+    {
+      "label": "Implementation Plan v1",
+      "file_type": "document",
+      "source_file": "docs/IMPLEMENTATION_PLAN.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "impl_plan_v1",
+      "community": 9,
+      "norm_label": "implementation plan v1"
+    },
+    {
+      "label": "Implementation Plan v2",
+      "file_type": "document",
+      "source_file": "docs/IMPLEMENTATION_PLAN_V2.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "impl_plan_v2",
+      "community": 9,
+      "norm_label": "implementation plan v2"
+    },
+    {
+      "label": "Implementation Plan v3 Final",
+      "file_type": "document",
+      "source_file": "docs/IMPLEMENTATION_PLAN_V3_FINAL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "impl_plan_v3",
+      "community": 9,
+      "norm_label": "implementation plan v3 final"
+    },
+    {
+      "label": "Implementation Plan v4 Revised Final",
+      "file_type": "document",
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "impl_plan_v4",
+      "community": 9,
+      "norm_label": "implementation plan v4 revised final"
+    },
+    {
+      "label": "PRD and ADR Human Guide",
+      "file_type": "document",
+      "source_file": "docs/PRD_AND_ADR_HUMAN_GUIDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "prd_adr_guide",
+      "community": 9,
+      "norm_label": "prd and adr human guide"
+    },
+    {
+      "label": "Project Scaffolding Prompt",
+      "file_type": "document",
+      "source_file": "docs/ai_sdlc_platform_scaffolding_prompt.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "scaffolding_prompt",
+      "community": 9,
+      "norm_label": "project scaffolding prompt"
+    },
+    {
+      "label": "Final Feedback and Recommendations",
+      "file_type": "document",
+      "source_file": "docs/final_feedback_recommendations_ai_sdlc_platform.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "feedback_recommendations",
+      "community": 9,
+      "norm_label": "final feedback and recommendations"
+    },
+    {
+      "label": "Phase 1 Implementation Prompt",
+      "file_type": "document",
+      "source_file": "docs/implementation-phase-1-prompt.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "phase1_prompt",
+      "community": 2,
+      "norm_label": "phase 1 implementation prompt"
+    },
+    {
+      "label": "Temporal Workflow Orchestration",
+      "file_type": "rationale",
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Provides workflow durability, retries, approval gates, activity sequencing, and failure recovery. Chosen over autonomous agent chaos to give deterministic workflows, resumability, inspectability, governance. Does NOT own agent reasoning, tool selection, or LLM calls.",
+      "id": "temporal_orchestration",
+      "community": 3,
+      "norm_label": "temporal workflow orchestration"
+    },
+    {
+      "label": "LangGraph Agent Reasoning",
+      "file_type": "rationale",
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Owns agent reasoning graphs, tool calling, structured output, state machines within a single agent. Does NOT own cross-agent sequencing, durability, or human approval. Chosen because agents need tool calling, structured outputs, and branching/looping.",
+      "id": "langgraph_agent_reasoning",
+      "community": 3,
+      "norm_label": "langgraph agent reasoning"
+    },
+    {
+      "label": "Golden Demo Scenario",
+      "file_type": "rationale",
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Canonical task 'Implement dark mode support across all MFEs' used as the thread pulled through entire system. Every phase prioritizes this single journey working end-to-end. Prevents 'everything 70% done, nothing working'.",
+      "id": "golden_demo_scenario",
+      "community": 3,
+      "norm_label": "golden demo scenario"
+    },
+    {
+      "label": "Nx Monorepo Architecture",
+      "file_type": "rationale",
+      "source_file": "docs/PRD_AND_ADR_HUMAN_GUIDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Single repository managed by Nx. Three apps share types and schemas. Nx provides build caching, dependency graph awareness, and affected-only testing. One pnpm install, one repo to clone.",
+      "id": "nx_monorepo_decision",
+      "community": 2,
+      "norm_label": "nx monorepo architecture"
+    },
+    {
+      "label": "No Redis Decision",
+      "file_type": "rationale",
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Removed from infrastructure to reduce local dev complexity. In-memory rate limiting sufficient for POC. Can be added later if scaling to multiple instances.",
+      "id": "no_redis_decision",
+      "community": 10,
+      "norm_label": "no redis decision"
+    },
+    {
+      "label": "Zod Schema Validation",
+      "file_type": "rationale",
+      "source_file": "docs/PRD_AND_ADR_HUMAN_GUIDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Single source of truth: define schema once, infer TypeScript types from it. Runtime validation at API boundaries. Contract-first approach essential for AI systems where workflow state evolves rapidly and agent outputs must remain structured.",
+      "id": "zod_validation_decision",
+      "community": 2,
+      "norm_label": "zod schema validation"
+    },
+    {
+      "label": "NestJS + Fastify Backend",
+      "file_type": "rationale",
+      "source_file": "docs/PRD_AND_ADR_HUMAN_GUIDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "NestJS provides modular architecture, DI, and good TypeScript support. Fastify chosen over Express for speed (SSE/streaming), better plugin ecosystem for rate limiting and CORS, and schema-based validation.",
+      "id": "nestjs_fastify_decision",
+      "community": 10,
+      "norm_label": "nestjs + fastify backend"
+    },
+    {
+      "label": "Observability Before Orchestration",
+      "file_type": "rationale",
+      "source_file": "docs/final_feedback_recommendations_ai_sdlc_platform.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Introducing telemetry and tracing before workflow orchestration prevents fragmented traces and lost correlation across workflows. Phase 2B exists before Phase 5 for this reason.",
+      "id": "observability_before_orchestration",
+      "community": 3,
+      "norm_label": "observability before orchestration"
+    },
+    {
+      "label": "Governance Layer",
+      "file_type": "rationale",
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Approval policies, scope boundaries, and enforcement interfaces. Makes the platform enterprise-oriented rather than experimental. Ties into Temporal HITL approval gate.",
+      "id": "governance_layer",
+      "community": 3,
+      "norm_label": "governance layer"
+    },
+    {
+      "label": "SDLC Agent Workflow",
+      "file_type": "rationale",
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Planner \u2192 Retriever \u2192 Architecture Review \u2192 Approval Gate (HITL) \u2192 Implementor \u2192 Reviewer. Multi-agent pipeline orchestrated by Temporal with LangGraph reasoning within each agent.",
+      "id": "sdlc_workflow",
+      "community": 3,
+      "norm_label": "sdlc agent workflow"
+    },
+    {
+      "label": "Planner Agent",
+      "file_type": "rationale",
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "planner_agent",
+      "community": 3,
+      "norm_label": "planner agent"
+    },
+    {
+      "label": "Retriever Agent",
+      "file_type": "rationale",
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "retriever_agent",
+      "community": 3,
+      "norm_label": "retriever agent"
+    },
+    {
+      "label": "Architecture Validation Agent",
+      "file_type": "rationale",
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "architecture_agent",
+      "community": 3,
+      "norm_label": "architecture validation agent"
+    },
+    {
+      "label": "Implementor Agent",
+      "file_type": "rationale",
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "implementor_agent",
+      "community": 3,
+      "norm_label": "implementor agent"
+    },
+    {
+      "label": "Reviewer Agent",
+      "file_type": "rationale",
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "reviewer_agent",
+      "community": 3,
+      "norm_label": "reviewer agent"
+    },
+    {
+      "label": "Model Context Protocol Integration",
+      "file_type": "rationale",
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Connectors to external tools (GitHub, Docs, Jira). Provider registry pattern with transport abstraction. Agents use MCP tools for context retrieval.",
+      "id": "mcp_integration",
+      "community": 3,
+      "norm_label": "model context protocol integration"
+    },
+    {
+      "label": "Evaluation Framework",
+      "file_type": "rationale",
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Scoring system for agent output quality. Uses evaluator interface with strategy pattern (relevance, quality evaluators). Feedback recommends starting simpler with direct scoring functions.",
+      "id": "evaluation_framework",
+      "community": 3,
+      "norm_label": "evaluation framework"
+    },
+    {
+      "label": "Human-in-the-Loop Approval Gate",
+      "file_type": "rationale",
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Workflow pauses indefinitely until human approves. Implemented via Temporal signals. Ensures humans remain in control before final outputs. Key differentiator from autonomous agent systems.",
+      "id": "approval_gate",
+      "community": 3,
+      "norm_label": "human-in-the-loop approval gate"
+    },
+    {
+      "label": "A2A Protocol Placeholder",
+      "file_type": "rationale",
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Future interop placeholder only. Typed message contract interface. Nothing active in POC. Feedback recommends collapsing into agents/core until true distributed multi-agent systems exist.",
+      "id": "a2a_placeholder",
+      "community": 3,
+      "norm_label": "a2a protocol placeholder"
+    },
+    {
+      "label": "Google ADK Placeholder",
+      "file_type": "rationale",
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "rationale": "Future Google ADK interop placeholder only. Nothing active in POC.",
+      "id": "adk_placeholder",
+      "community": 3,
+      "norm_label": "google adk placeholder"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".eslintrc.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "eslintrc",
+      "target": "eslintrc_ignorepatterns",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".eslintrc.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "eslintrc",
+      "target": "eslintrc_overrides",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".eslintrc.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "eslintrc",
+      "target": "eslintrc_plugins",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".eslintrc.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "eslintrc",
+      "target": "eslintrc_root",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": ".eslintrc.json",
+      "source_location": "Phase 1 deliverable #5",
+      "weight": 1.0,
+      "source": "eslintrc_root",
+      "target": "phase1_prompt"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": ".lintstagedrc.json",
+      "source_location": "runs eslint --fix which uses .eslintrc.json",
+      "weight": 0.8,
+      "source": "lintstagedrc",
+      "target": "eslintrc_root"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "nx.json",
+      "source_location": "lint inputs reference .eslintrc.json",
+      "weight": 1.0,
+      "source": "nx_json_config",
+      "target": "eslintrc_root"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".lintstagedrc.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "lintstagedrc",
+      "target": "lintstagedrc_js_jsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".lintstagedrc.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "lintstagedrc",
+      "target": "lintstagedrc_json_md_yaml_yml",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".lintstagedrc.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "lintstagedrc",
+      "target": "lintstagedrc_ts_tsx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": ".lintstagedrc.json",
+      "source_location": "Phase 1 deliverable #9",
+      "weight": 1.0,
+      "source": "lintstagedrc",
+      "target": "phase1_prompt"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "nx.json",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "nx",
+      "target": "nx_defaultbase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "nx.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "nx",
+      "target": "nx_namedinputs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "nx.json",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "nx",
+      "target": "nx_plugins",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "nx.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "nx",
+      "target": "nx_schema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "nx.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "nx",
+      "target": "nx_targetdefaults",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L37",
+      "weight": 1.0,
+      "context": "import",
+      "source": "package_devdependencies_nx",
+      "target": "nx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "nx.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "nx_namedinputs",
+      "target": "nx_namedinputs_default",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "nx.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "nx_namedinputs",
+      "target": "nx_namedinputs_production",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "nx.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "nx_namedinputs",
+      "target": "nx_namedinputs_sharedglobals",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "nx.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "nx_targetdefaults",
+      "target": "nx_targetdefaults_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "nx.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "nx_targetdefaults",
+      "target": "nx_targetdefaults_lint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "nx.json",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "nx_targetdefaults",
+      "target": "nx_targetdefaults_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "nx.json",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "nx_targetdefaults",
+      "target": "nx_targetdefaults_typecheck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "nx.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "nx_targetdefaults_build",
+      "target": "nx_build_cache",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "nx.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "nx_targetdefaults_build",
+      "target": "nx_build_dependson",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "nx.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "nx_targetdefaults_build",
+      "target": "nx_build_inputs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "nx.json",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "nx_targetdefaults_lint",
+      "target": "nx_lint_cache",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "nx.json",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "nx_targetdefaults_lint",
+      "target": "nx_lint_inputs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "nx.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "nx_targetdefaults_test",
+      "target": "nx_test_cache",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "nx.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "nx_targetdefaults_test",
+      "target": "nx_test_inputs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "nx.json",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "nx_targetdefaults_typecheck",
+      "target": "nx_typecheck_cache",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "nx.json",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "nx_targetdefaults_typecheck",
+      "target": "nx_typecheck_dependson",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_description",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_devdependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_engines",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_license",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_packagemanager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_private",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_scripts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_version",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "package_engines",
+      "target": "package_engines_node",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "package_engines",
+      "target": "package_engines_pnpm",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_clean",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_dev",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_format",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_format_check",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_lint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_prepare",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_test",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_test_e2e",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_typecheck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_eslint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_eslint_config_prettier",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_eslint_plugin_import",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_husky",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_lint_staged",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_nx",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_nx_eslint",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_nx_js",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_nx_nest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_nx_next",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_nx_vite",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_prettier",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_typescript",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_typescript_eslint_eslint_plugin",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_typescript_eslint_parser",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_vitest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "nx.json",
+      "source_location": "sharedGlobals references tsconfig.base.json",
+      "weight": 1.0,
+      "source": "nx_json_config",
+      "target": "tsconfig_base"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "tsconfig.base.json",
+      "source_location": "Phase 1 deliverable #4",
+      "weight": 1.0,
+      "source": "tsconfig_base",
+      "target": "phase1_prompt"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "tsconfig.base.json",
+      "source_location": "path aliases map to libs defined in workspace",
+      "weight": 0.7,
+      "source": "tsconfig_base",
+      "target": "pnpm_workspace"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "tsconfig_base",
+      "target": "tsconfig_base_compileonsave",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "tsconfig_base",
+      "target": "tsconfig_base_compileroptions",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L45",
+      "weight": 1.0,
+      "source": "tsconfig_base",
+      "target": "tsconfig_base_exclude",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "docs/PRD_AND_ADR_HUMAN_GUIDE.md",
+      "source_location": "Zod schemas infer TypeScript types used by the type system configured in tsconfig",
+      "weight": 0.6,
+      "source": "zod_validation_decision",
+      "target": "tsconfig_base"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions",
+      "target": "tsconfig_base_compileroptions_baseurl",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions",
+      "target": "tsconfig_base_compileroptions_declaration",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions",
+      "target": "tsconfig_base_compileroptions_declarationmap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions",
+      "target": "tsconfig_base_compileroptions_esmoduleinterop",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions",
+      "target": "tsconfig_base_compileroptions_forceconsistentcasinginfilenames",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions",
+      "target": "tsconfig_base_compileroptions_isolatedmodules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions",
+      "target": "tsconfig_base_compileroptions_lib",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions",
+      "target": "tsconfig_base_compileroptions_module",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions",
+      "target": "tsconfig_base_compileroptions_moduleresolution",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions",
+      "target": "tsconfig_base_compileroptions_nofallthroughcasesinswitch",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions",
+      "target": "tsconfig_base_compileroptions_noimplicitoverride",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions",
+      "target": "tsconfig_base_compileroptions_noimplicitreturns",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions",
+      "target": "tsconfig_base_compileroptions_nopropertyaccessfromindexsignature",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions",
+      "target": "tsconfig_base_compileroptions_paths",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions",
+      "target": "tsconfig_base_compileroptions_resolvejsonmodule",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions",
+      "target": "tsconfig_base_compileroptions_skipdefaultlibcheck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions",
+      "target": "tsconfig_base_compileroptions_skiplibcheck",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions",
+      "target": "tsconfig_base_compileroptions_sourcemap",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions",
+      "target": "tsconfig_base_compileroptions_strict",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions",
+      "target": "tsconfig_base_compileroptions_target",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L39",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions_paths",
+      "target": "tsconfig_base_paths_ai_sdlc_agents_a2a",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L40",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions_paths",
+      "target": "tsconfig_base_paths_ai_sdlc_agents_adk",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L37",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions_paths",
+      "target": "tsconfig_base_paths_ai_sdlc_agents_architecture",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L33",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions_paths",
+      "target": "tsconfig_base_paths_ai_sdlc_agents_core",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L38",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions_paths",
+      "target": "tsconfig_base_paths_ai_sdlc_agents_implementor",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L34",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions_paths",
+      "target": "tsconfig_base_paths_ai_sdlc_agents_planner",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L35",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions_paths",
+      "target": "tsconfig_base_paths_ai_sdlc_agents_retriever",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L36",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions_paths",
+      "target": "tsconfig_base_paths_ai_sdlc_agents_reviewer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions_paths",
+      "target": "tsconfig_base_paths_ai_sdlc_evaluations",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L30",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions_paths",
+      "target": "tsconfig_base_paths_ai_sdlc_infra_auth",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions_paths",
+      "target": "tsconfig_base_paths_ai_sdlc_infra_database",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L32",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions_paths",
+      "target": "tsconfig_base_paths_ai_sdlc_infra_governance",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L29",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions_paths",
+      "target": "tsconfig_base_paths_ai_sdlc_infra_logging",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L28",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions_paths",
+      "target": "tsconfig_base_paths_ai_sdlc_infra_telemetry",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions_paths",
+      "target": "tsconfig_base_paths_ai_sdlc_mcp",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L26",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions_paths",
+      "target": "tsconfig_base_paths_ai_sdlc_shared_constants",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L27",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions_paths",
+      "target": "tsconfig_base_paths_ai_sdlc_shared_prompts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L25",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions_paths",
+      "target": "tsconfig_base_paths_ai_sdlc_shared_schemas",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "tsconfig.base.json",
+      "source_location": "L24",
+      "weight": 1.0,
+      "source": "tsconfig_base_compileroptions_paths",
+      "target": "tsconfig_base_paths_ai_sdlc_shared_types",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "shares_data_with",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "nx.json",
+      "source_location": "plugins declared in both",
+      "weight": 0.8,
+      "source": "nx_json_config",
+      "target": "package_json_root"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "package.json",
+      "source_location": "Phase 1 deliverable #1",
+      "weight": 1.0,
+      "source": "package_json_root",
+      "target": "phase1_prompt"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pnpm-workspace.yaml",
+      "source_location": "defines workspace packages for pnpm",
+      "weight": 1.0,
+      "source": "pnpm_workspace",
+      "target": "package_json_root"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "nx.json",
+      "source_location": "Phase 1 deliverable #2",
+      "weight": 1.0,
+      "source": "nx_json_config",
+      "target": "phase1_prompt"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/PRD_AND_ADR_HUMAN_GUIDE.md",
+      "source_location": "ADR explains why Nx was chosen",
+      "weight": 1.0,
+      "source": "nx_monorepo_decision",
+      "target": "nx_json_config"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "README.md",
+      "source_location": "README describes structure defined in plan",
+      "weight": 0.7,
+      "source": "readme_platform",
+      "target": "impl_plan_v4"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "docs/IMPLEMENTATION_PLAN_V2.md",
+      "source_location": "v2 is evolution of v1",
+      "weight": 1.0,
+      "source": "impl_plan_v2",
+      "target": "impl_plan_v1"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "docs/ai_sdlc_platform_scaffolding_prompt.md",
+      "source_location": "defines project requirements that implementation plans realize",
+      "weight": 0.8,
+      "source": "scaffolding_prompt",
+      "target": "impl_plan_v1"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "docs/IMPLEMENTATION_PLAN_V3_FINAL.md",
+      "source_location": "v3 evolves v2",
+      "weight": 1.0,
+      "source": "impl_plan_v3",
+      "target": "impl_plan_v2"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "docs/final_feedback_recommendations_ai_sdlc_platform.md",
+      "source_location": "provides feedback on the implementation plan architecture",
+      "weight": 1.0,
+      "source": "feedback_recommendations",
+      "target": "impl_plan_v3"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": "'Changes from v3' section explicitly references v3",
+      "weight": 1.0,
+      "source": "impl_plan_v4",
+      "target": "impl_plan_v3"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": "v4 incorporates feedback recommendations (removed Redis, added golden demo, orchestration clarity)",
+      "weight": 1.0,
+      "source": "impl_plan_v4",
+      "target": "feedback_recommendations"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/implementation-phase-1-prompt.md",
+      "source_location": "implements Phase 1 deliverables from the plan",
+      "weight": 1.0,
+      "source": "phase1_prompt",
+      "target": "impl_plan_v4"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "docs/PRD_AND_ADR_HUMAN_GUIDE.md",
+      "source_location": "explains same architecture in plain language",
+      "weight": 0.9,
+      "source": "prd_adr_guide",
+      "target": "impl_plan_v4"
+    },
+    {
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "docs/ai_sdlc_platform_scaffolding_prompt.md",
+      "source_location": "both describe the same platform requirements from different perspectives (AI prompt vs human guide)",
+      "weight": 0.7,
+      "source": "scaffolding_prompt",
+      "target": "prd_adr_guide"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": "orchestration ownership section distinguishes A2A from Temporal",
+      "weight": 0.5,
+      "source": "a2a_placeholder",
+      "target": "temporal_orchestration"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": "Temporal signal wait for HITL approval",
+      "weight": 1.0,
+      "source": "approval_gate",
+      "target": "temporal_orchestration"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/final_feedback_recommendations_ai_sdlc_platform.md",
+      "source_location": "Phase 2B (observability) exists before Phase 5 (Temporal)",
+      "weight": 1.0,
+      "source": "observability_before_orchestration",
+      "target": "temporal_orchestration"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": "workflow orchestrated by Temporal",
+      "weight": 1.0,
+      "source": "sdlc_workflow",
+      "target": "temporal_orchestration"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": "Orchestration Ownership Clarity section defines boundary",
+      "weight": 1.0,
+      "source": "temporal_orchestration",
+      "target": "langgraph_agent_reasoning"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": "ArchitectureAgent uses LangGraph",
+      "weight": 1.0,
+      "source": "architecture_agent",
+      "target": "langgraph_agent_reasoning"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": "ImplementorAgent uses LangGraph",
+      "weight": 1.0,
+      "source": "implementor_agent",
+      "target": "langgraph_agent_reasoning"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": "PlannerAgent uses LangGraph graph",
+      "weight": 1.0,
+      "source": "planner_agent",
+      "target": "langgraph_agent_reasoning"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": "RetrieverAgent uses LangGraph",
+      "weight": 1.0,
+      "source": "retriever_agent",
+      "target": "langgraph_agent_reasoning"
+    },
+    {
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": "ReviewerAgent uses LangGraph",
+      "weight": 1.0,
+      "source": "reviewer_agent",
+      "target": "langgraph_agent_reasoning"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": "golden demo exercises full workflow end-to-end",
+      "weight": 1.0,
+      "source": "golden_demo_scenario",
+      "target": "sdlc_workflow"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": "in-memory rate limiting uses Fastify throttle instead of Redis",
+      "weight": 0.6,
+      "source": "no_redis_decision",
+      "target": "nestjs_fastify_decision"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": "approval-policy ties into Temporal HITL gate",
+      "weight": 1.0,
+      "source": "approval_gate",
+      "target": "governance_layer"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": "evaluations score agent outputs produced by workflow",
+      "weight": 0.8,
+      "source": "evaluation_framework",
+      "target": "sdlc_workflow"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": "retriever uses MCP tools for context from GitHub, Docs, Jira",
+      "weight": 1.0,
+      "source": "retriever_agent",
+      "target": "mcp_integration"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md",
+      "source_location": "both are future interop placeholders",
+      "weight": 0.5,
+      "source": "adk_placeholder",
+      "target": "a2a_placeholder"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "sdlc_agent_pipeline",
+      "label": "SDLC Agent Pipeline",
+      "nodes": [
+        "planner_agent",
+        "retriever_agent",
+        "architecture_agent",
+        "approval_gate",
+        "implementor_agent",
+        "reviewer_agent"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md"
+    },
+    {
+      "id": "monorepo_foundation_configs",
+      "label": "Phase 1 Monorepo Foundation",
+      "nodes": [
+        "package_json_root",
+        "nx_json_config",
+        "tsconfig_base",
+        "eslintrc_root",
+        "lintstagedrc",
+        "pnpm_workspace"
+      ],
+      "relation": "form",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "docs/implementation-phase-1-prompt.md"
+    },
+    {
+      "id": "implementation_plan_evolution",
+      "label": "Implementation Plan Version Chain",
+      "nodes": [
+        "impl_plan_v1",
+        "impl_plan_v2",
+        "impl_plan_v3",
+        "impl_plan_v4",
+        "feedback_recommendations"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "docs/IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md"
+    }
+  ]
+}
