@@ -1,10 +1,11 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+
 import './globals.css';
+import { RootErrorBoundary } from '@/components/error-boundary';
+import { Shell } from '@/components/layout/shell';
 import { ThemeProvider } from '@/components/layout/theme-provider';
 import { QueryProvider } from '@/lib/query-provider';
-import { Shell } from '@/components/layout/shell';
-import { RootErrorBoundary } from '@/components/error-boundary';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 

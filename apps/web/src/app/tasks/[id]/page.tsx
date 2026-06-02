@@ -1,13 +1,14 @@
 'use client';
 
+import { Play } from 'lucide-react';
 import { useParams } from 'next/navigation';
-import { useTask } from '@/hooks/use-tasks';
-import { useTriggerWorkflow } from '@/hooks/use-workflows';
+
 import { TraceViewer } from '@/components/trace/trace-viewer';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Play } from 'lucide-react';
+import { useTask } from '@/hooks/use-tasks';
+import { useTriggerWorkflow } from '@/hooks/use-workflows';
 
 export default function TaskDetailPage() {
   const params = useParams<{ id: string }>();

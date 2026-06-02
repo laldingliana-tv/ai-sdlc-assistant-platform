@@ -1,7 +1,8 @@
-import Link from 'next/link';
 import { ArrowRight, GitBranch, ListTodo, Zap } from 'lucide-react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import Link from 'next/link';
+
 import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function DashboardPage() {
   return (
