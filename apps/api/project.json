@@ -34,9 +34,9 @@
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
+      "executor": "nx:run-commands",
       "options": {
-        "lintFilePatterns": ["apps/api/src/**/*.ts"]
+        "command": "npx eslint apps/api/src/"
       }
     }
   }
