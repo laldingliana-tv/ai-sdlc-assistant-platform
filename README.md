@@ -137,8 +137,9 @@ You only need **one** of the following, depending on which LLM provider you want
 pnpm nx serve api
 pnpm nx serve web
 
-# Run tests for a specific library
-pnpm nx test shared-types
+# Run tests for a specific project
+pnpm nx test api
+pnpm nx test web
 ```
 
 ### Adding a new library
