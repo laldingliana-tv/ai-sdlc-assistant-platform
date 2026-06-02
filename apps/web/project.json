@@ -1,0 +1,57 @@
+{
+  "name": "web",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/web/src",
+  "projectType": "application",
+  "tags": ["scope:web", "type:app"],
+  "targets": {
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx next dev --port 4200",
+        "cwd": "apps/web"
+      }
+    },
+    "dev": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx next dev --port 4200",
+        "cwd": "apps/web"
+      }
+    },
+    "build": {
+      "executor": "@nx/next:build",
+      "outputs": ["{projectRoot}/.next"],
+      "options": {
+        "outputPath": "dist/apps/web"
+      }
+    },
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "next start",
+        "cwd": "apps/web"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "next lint",
+        "cwd": "apps/web"
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "options": {
+        "config": "apps/web/vitest.config.ts"
+      }
+    },
+    "e2e": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "playwright test",
+        "cwd": "apps/web/e2e"
+      }
+    }
+  }
+}

@@ -4,13 +4,13 @@ install:
 	pnpm install
 
 docker:
-	docker compose up -d
+	docker-compose up -d
 
 migrate:
-	pnpm nx run infra-database:prisma-migrate
+	pnpm nx run @ai-sdlc/infra-database:prisma:migrate:dev
 
 seed:
-	pnpm nx run infra-database:prisma-seed
+	pnpm nx run @ai-sdlc/infra-database:db:seed
 
 dev:
 	pnpm nx run-many -t serve --projects=api,web

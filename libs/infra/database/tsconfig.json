@@ -1,0 +1,12 @@
+{
+  "extends": "../../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "../../../dist/libs/infra/database",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "types": ["node"],
+    "noPropertyAccessFromIndexSignature": false
+  },
+  "include": ["src/**/*.ts", "prisma/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}

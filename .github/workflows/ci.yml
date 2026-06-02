@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [main, develop]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint-typecheck-test:
+    name: Lint, Typecheck & Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Full history for Nx affected commands
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9.12.3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Generate Prisma client
+        run: pnpm --filter @ai-sdlc/infra-database prisma:generate
+
+      # Derive SHAs for Nx affected commands
+      - name: Derive NX_BASE and NX_HEAD
+        uses: nrwl/nx-set-shas@v4
+
+      - name: Lint (affected)
+        run: pnpm nx affected -t lint --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
+
+      - name: Typecheck (affected)
+        run: pnpm nx affected -t typecheck --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }}
+
+      - name: Test (affected)
+        run: pnpm nx affected -t test --base=${{ env.NX_BASE }} --head=${{ env.NX_HEAD }} -- --reporter=default

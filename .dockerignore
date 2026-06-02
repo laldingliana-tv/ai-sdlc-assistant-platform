@@ -1,0 +1,17 @@
+node_modules
+dist
+.next
+.nx
+tmp
+.git
+.gitignore
+.env
+.env.*
+*.md
+docs/
+graphify-out/
+coverage/
+.turbo
+.vscode
+.idea
+*.log

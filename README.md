@@ -4,16 +4,16 @@ An enterprise AI platform that orchestrates multiple AI agents through SDLC work
 
 ## Tech Stack
 
-| Layer | Technology |
-|-------|-----------|
-| Monorepo | Nx + pnpm |
-| Frontend | Next.js 14, React, TypeScript, Tailwind, shadcn/ui |
-| Backend | NestJS 10, Fastify adapter |
-| AI/Agents | LangGraphJS, MCP, A2A/ADK |
-| Workflow | Temporal |
-| Database | PostgreSQL 15 + pgvector, Prisma |
-| Observability | OpenTelemetry, Langfuse, Pino |
-| Testing | Vitest, Playwright, Supertest |
+| Layer         | Technology                                         |
+| ------------- | -------------------------------------------------- |
+| Monorepo      | Nx + pnpm                                          |
+| Frontend      | Next.js 14, React, TypeScript, Tailwind, shadcn/ui |
+| Backend       | NestJS 10, Fastify adapter                         |
+| AI/Agents     | LangGraphJS, MCP, A2A/ADK                          |
+| Workflow      | Temporal                                           |
+| Database      | PostgreSQL 15 + pgvector, Prisma                   |
+| Observability | OpenTelemetry, Langfuse, Pino                      |
+| Testing       | Vitest, Playwright, Supertest                      |
 
 ## Project Structure
 
@@ -21,7 +21,8 @@ An enterprise AI platform that orchestrates multiple AI agents through SDLC work
 ai-sdlc-assistant-platform/
 ├── apps/
 │   ├── api/              # NestJS backend (Fastify)
-│   └── web/              # Next.js frontend
+│   ├── web/              # Next.js frontend
+│   └── workers/          # Temporal worker
 ├── libs/
 │   ├── shared/           # Shared types, schemas, constants, prompts
 │   ├── infra/            # Telemetry, logging, auth, database, governance
@@ -62,21 +63,69 @@ make migrate
 make dev
 ```
 
-The API will be available at `http://localhost:3001` and the web UI at `http://localhost:3000`.
+> **Windows users without `make`:** See the equivalent commands in the [Available Commands](#available-commands) table below.
+
+```powershell
+# Windows (PowerShell) — without make:
+pnpm install                                              # Step 1
+Copy-Item .env.example .env                               # Step 2
+docker-compose up -d                                      # Step 3
+pnpm nx run @ai-sdlc/infra-database:prisma:migrate:dev    # Step 4
+pnpm nx run-many -t serve --projects=api,web              # Step 5
+```
+
+The API will be available at `http://localhost:3000` and the web UI at `http://localhost:4200`.
+
+## API Keys
+
+The app starts without any API keys — all are optional and features gracefully degrade when keys are missing.
+
+### AI Provider Keys (needed to run AI agents)
+
+You only need **one** of the following, depending on which LLM provider you want to use:
+
+| Variable            | How to Get                                                                                                         |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| `OPENAI_API_KEY`    | Sign up at [platform.openai.com](https://platform.openai.com/api-keys) → API Keys → Create new secret key          |
+| `ANTHROPIC_API_KEY` | Sign up at [console.anthropic.com](https://console.anthropic.com/settings/keys) → Settings → API Keys → Create Key |
+| `GOOGLE_AI_API_KEY` | Go to [aistudio.google.com/apikey](https://aistudio.google.com/apikey) → Create API Key (free tier available)      |
+
+### Observability Keys (optional — for tracing agent runs)
+
+| Variable              | How to Get                                                                                                  |
+| --------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `LANGFUSE_PUBLIC_KEY` | Sign up at [cloud.langfuse.com](https://cloud.langfuse.com) → Project Settings → API Keys → Copy Public Key |
+| `LANGFUSE_SECRET_KEY` | Same page as above → Copy Secret Key                                                                        |
+
+> **Note:** If Langfuse keys are not set, telemetry is silently disabled. The app runs normally without them.
+
+### MCP Integration Keys (optional — for code retrieval)
+
+| Variable         | How to Get                                                                                                                            |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| `GITHUB_TOKEN`   | [github.com/settings/tokens](https://github.com/settings/tokens) → Generate new token (classic) with `repo` scope                     |
+| `JIRA_BASE_URL`  | Your Jira instance URL (e.g., `https://yourorg.atlassian.net`)                                                                        |
+| `JIRA_API_TOKEN` | [id.atlassian.com/manage-profile/security/api-tokens](https://id.atlassian.com/manage-profile/security/api-tokens) → Create API token |
+
+### Auth (auto-configured for development)
+
+| Variable     | Notes                                                                                     |
+| ------------ | ----------------------------------------------------------------------------------------- |
+| `JWT_SECRET` | Pre-filled in `.env.example` with a dev default. **Change in production** (min 16 chars). |
 
 ## Available Commands
 
-| Command | Description |
-|---------|-------------|
-| `make install` | Install all dependencies |
-| `make docker` | Start Docker services (Postgres, Temporal) |
-| `make migrate` | Run Prisma migrations |
-| `make seed` | Seed the database |
-| `make dev` | Start API + Web in development mode |
-| `make lint` | Lint all projects |
-| `make test` | Run all unit tests |
-| `make typecheck` | Type-check all projects |
-| `make clean` | Remove node_modules, dist, tmp |
+| Make Command     | Direct Command                                           | Description                                |
+| ---------------- | -------------------------------------------------------- | ------------------------------------------ |
+| `make install`   | `pnpm install`                                           | Install all dependencies                   |
+| `make docker`    | `docker-compose up -d`                                   | Start Docker services (Postgres, Temporal) |
+| `make migrate`   | `pnpm nx run @ai-sdlc/infra-database:prisma:migrate:dev` | Run Prisma migrations                      |
+| `make seed`      | `pnpm nx run @ai-sdlc/infra-database:db:seed`            | Seed the database                          |
+| `make dev`       | `pnpm nx run-many -t serve --projects=api,web`           | Start API + Web in development mode        |
+| `make lint`      | `pnpm nx run-many -t lint`                               | Lint all projects                          |
+| `make test`      | `pnpm nx run-many -t test`                               | Run all unit tests                         |
+| `make typecheck` | `pnpm nx run-many -t typecheck`                          | Type-check all projects                    |
+| `make clean`     | `rm -rf node_modules dist tmp .nx`                       | Remove node_modules, dist, tmp             |
 
 ## Development
 

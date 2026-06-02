@@ -1,0 +1,44 @@
+{
+  "name": "@ai-sdlc/api",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node dist/main.js",
+    "start:dev": "tsx watch src/main.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:e2e": "vitest run --config vitest.config.ts test/"
+  },
+  "dependencies": {
+    "@nestjs/common": "^10.4.0",
+    "@nestjs/config": "^3.2.0",
+    "@nestjs/core": "^10.4.0",
+    "@nestjs/platform-fastify": "^10.4.0",
+    "@nestjs/platform-ws": "^10.4.0",
+    "@nestjs/websockets": "^10.4.0",
+    "@temporalio/client": "^1.11.0",
+    "fastify": "^4.28.0",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.1",
+    "uuid": "^10.0.0",
+    "zod": "^3.23.8",
+    "@ai-sdlc/infra-auth": "workspace:*",
+    "@ai-sdlc/infra-database": "workspace:*",
+    "@ai-sdlc/infra-governance": "workspace:*",
+    "@ai-sdlc/infra-logging": "workspace:*",
+    "@ai-sdlc/infra-telemetry": "workspace:*",
+    "@ai-sdlc/shared-schemas": "workspace:*",
+    "@ai-sdlc/shared-types": "workspace:*"
+  },
+  "devDependencies": {
+    "@nestjs/testing": "^10.4.22",
+    "@types/node": "^20.14.0",
+    "@types/supertest": "^6.0.2",
+    "@types/uuid": "^10.0.0",
+    "supertest": "^7.0.0",
+    "tsx": "^4.19.0"
+  }
+}
