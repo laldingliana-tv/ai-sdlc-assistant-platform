@@ -31,5 +31,6 @@
     }
   },
   "plugins": ["@nx/vite"],
-  "defaultBase": "main"
+  "defaultBase": "main",
+  "analytics": false
 }
