@@ -4,16 +4,16 @@ An enterprise AI platform that orchestrates multiple AI agents through SDLC work
 
 ## Tech Stack
 
-| Layer         | Technology                                         |
-| ------------- | -------------------------------------------------- |
-| Monorepo      | Nx + pnpm                                          |
-| Frontend      | Next.js 14, React, TypeScript, Tailwind, shadcn/ui |
-| Backend       | NestJS 10, Fastify adapter                         |
-| AI/Agents     | LangGraphJS, MCP, A2A/ADK                          |
-| Workflow      | Temporal                                           |
-| Database      | PostgreSQL 15 + pgvector, Prisma                   |
-| Observability | OpenTelemetry, Langfuse, Pino                      |
-| Testing       | Vitest, Playwright, Supertest                      |
+| Layer         | Technology                                                   |
+| ------------- | ------------------------------------------------------------ |
+| Monorepo      | Nx + pnpm                                                    |
+| Frontend      | Next.js 16, React 19, TypeScript, Tailwind CSS v4, shadcn/ui |
+| Backend       | NestJS 10, Fastify adapter                                   |
+| AI/Agents     | LangGraphJS, MCP, A2A/ADK                                    |
+| Workflow      | Temporal                                                     |
+| Database      | PostgreSQL 15 + pgvector, Prisma                             |
+| Observability | OpenTelemetry, Langfuse, Pino                                |
+| Testing       | Vitest, Playwright, Supertest                                |
 
 ## Project Structure
 
