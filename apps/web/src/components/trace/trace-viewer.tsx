@@ -1,12 +1,13 @@
 'use client';
 
-import { useEffect } from 'react';
-import { Check, Circle, Loader2, XCircle, ShieldCheck } from 'lucide-react';
-import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/button';
-import { useWorkflow, useApproveWorkflow, type WorkflowStep } from '@/hooks/use-workflows';
-import { useEventStream } from '@/hooks/use-event-stream';
 import { useQueryClient } from '@tanstack/react-query';
+import { Check, Circle, Loader2, XCircle, ShieldCheck } from 'lucide-react';
+import { useEffect } from 'react';
+
+import { Button } from '@/components/ui/button';
+import { useEventStream } from '@/hooks/use-event-stream';
+import { useWorkflow, useApproveWorkflow, type WorkflowStep } from '@/hooks/use-workflows';
+import { cn } from '@/lib/utils';
 
 interface TraceViewerProps {
   workflowId: string;

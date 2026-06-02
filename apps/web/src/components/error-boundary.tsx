@@ -19,7 +19,7 @@ export class RootErrorBoundary extends React.Component<
     return { hasError: true };
   }
 
-  render() {
+  override render() {
     if (this.state.hasError) {
       return (
         <div className="flex min-h-screen items-center justify-center p-4">
