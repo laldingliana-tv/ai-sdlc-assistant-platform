@@ -22,7 +22,7 @@
       }
     },
     "test": {
-      "executor": "@nx/vite:test",
+      "executor": "@nx/vitest:test",
       "options": {
         "config": "apps/workers/vitest.config.ts"
       }
@@ -34,9 +34,9 @@
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
+      "executor": "nx:run-commands",
       "options": {
-        "lintFilePatterns": ["apps/workers/src/**/*.ts"]
+        "command": "npx eslint apps/workers/src/"
       }
     }
   }

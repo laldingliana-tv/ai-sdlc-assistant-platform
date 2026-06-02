@@ -4,16 +4,17 @@ An enterprise AI platform that orchestrates multiple AI agents through SDLC work
 
 ## Tech Stack
 
-| Layer         | Technology                                                   |
-| ------------- | ------------------------------------------------------------ |
-| Monorepo      | Nx + pnpm                                                    |
-| Frontend      | Next.js 16, React 19, TypeScript, Tailwind CSS v4, shadcn/ui |
-| Backend       | NestJS 10, Fastify adapter                                   |
-| AI/Agents     | LangGraphJS, MCP, A2A/ADK                                    |
-| Workflow      | Temporal                                                     |
-| Database      | PostgreSQL 15 + pgvector, Prisma                             |
-| Observability | OpenTelemetry, Langfuse, Pino                                |
-| Testing       | Vitest, Playwright, Supertest                                |
+| Layer         | Technology                                                       |
+| ------------- | ---------------------------------------------------------------- |
+| Monorepo      | Nx 22, pnpm 9                                                    |
+| Frontend      | Next.js 16, React 19, TypeScript 5.9, Tailwind CSS v4, shadcn/ui |
+| Backend       | NestJS 10, Fastify adapter                                       |
+| AI/Agents     | LangChain/LangGraph 1.x, MCP, A2A/ADK                            |
+| Workflow      | Temporal                                                         |
+| Database      | PostgreSQL 15 + pgvector, Prisma 6                               |
+| Observability | OpenTelemetry 2.x, Langfuse, Pino                                |
+| Testing       | Vitest 3, Playwright, Supertest                                  |
+| Linting       | ESLint 9 (flat config), Prettier                                 |
 
 ## Project Structure
 
@@ -38,7 +39,7 @@ ai-sdlc-assistant-platform/
 
 ## Prerequisites
 
-- **Node.js** 20 LTS (`nvm use` will pick up `.nvmrc`)
+- **Node.js** 20+ LTS
 - **pnpm** 9.x (`corepack enable && corepack prepare pnpm@latest --activate`)
 - **Docker** & Docker Compose (for PostgreSQL and Temporal)
 
@@ -70,7 +71,7 @@ make dev
 pnpm install                                              # Step 1
 Copy-Item .env.example .env                               # Step 2
 docker-compose up -d                                      # Step 3
-pnpm nx run @ai-sdlc/infra-database:prisma:migrate:dev    # Step 4
+pnpm nx run infra-database:prisma:migrate:dev              # Step 4
 pnpm nx run-many -t serve --projects=api,web              # Step 5
 ```
 
@@ -115,17 +116,17 @@ You only need **one** of the following, depending on which LLM provider you want
 
 ## Available Commands
 
-| Make Command     | Direct Command                                           | Description                                |
-| ---------------- | -------------------------------------------------------- | ------------------------------------------ |
-| `make install`   | `pnpm install`                                           | Install all dependencies                   |
-| `make docker`    | `docker-compose up -d`                                   | Start Docker services (Postgres, Temporal) |
-| `make migrate`   | `pnpm nx run @ai-sdlc/infra-database:prisma:migrate:dev` | Run Prisma migrations                      |
-| `make seed`      | `pnpm nx run @ai-sdlc/infra-database:db:seed`            | Seed the database                          |
-| `make dev`       | `pnpm nx run-many -t serve --projects=api,web`           | Start API + Web in development mode        |
-| `make lint`      | `pnpm nx run-many -t lint`                               | Lint all projects                          |
-| `make test`      | `pnpm nx run-many -t test`                               | Run all unit tests                         |
-| `make typecheck` | `pnpm nx run-many -t typecheck`                          | Type-check all projects                    |
-| `make clean`     | `rm -rf node_modules dist tmp .nx`                       | Remove node_modules, dist, tmp             |
+| Make Command     | Direct Command                                  | Description                                |
+| ---------------- | ----------------------------------------------- | ------------------------------------------ |
+| `make install`   | `pnpm install`                                  | Install all dependencies                   |
+| `make docker`    | `docker-compose up -d`                          | Start Docker services (Postgres, Temporal) |
+| `make migrate`   | `pnpm nx run infra-database:prisma:migrate:dev` | Run Prisma migrations                      |
+| `make seed`      | `pnpm nx run infra-database:db:seed`            | Seed the database                          |
+| `make dev`       | `pnpm nx run-many -t serve --projects=api,web`  | Start API + Web in development mode        |
+| `make lint`      | `pnpm nx run-many -t lint`                      | Lint all projects                          |
+| `make test`      | `pnpm nx run-many -t test`                      | Run all unit tests                         |
+| `make typecheck` | `pnpm nx run-many -t typecheck`                 | Type-check all projects                    |
+| `make clean`     | `rm -rf node_modules dist tmp .nx`              | Remove node_modules, dist, tmp             |
 
 ## Development
 
@@ -136,8 +137,9 @@ You only need **one** of the following, depending on which LLM provider you want
 pnpm nx serve api
 pnpm nx serve web
 
-# Run tests for a specific library
-pnpm nx test shared-types
+# Run tests for a specific project
+pnpm nx test api
+pnpm nx test web
 ```
 
 ### Adding a new library

@@ -14,7 +14,7 @@ export class TasksService {
   ) {}
 
   async create(dto: CreateTaskDto) {
-    const task = await this.prisma.task.create({
+    const task = await this.prisma['task'].create({
       data: {
         title: dto.title,
         description: dto.description,
@@ -51,12 +51,12 @@ export class TasksService {
     }
 
     const [data, total] = await Promise.all([
-      this.prisma.task.findMany({ where, skip, take: pageSize, orderBy: { createdAt: 'desc' } }),
-      this.prisma.task.count({ where }),
+      this.prisma['task'].findMany({ where, skip, take: pageSize, orderBy: { createdAt: 'desc' } }),
+      this.prisma['task'].count({ where }),
     ]);
 
     return {
-      data: data.map((t) => this.mapTask(t)),
+      data: data.map((t: Parameters<typeof this.mapTask>[0]) => this.mapTask(t)),
       total,
       page,
       pageSize,
@@ -64,7 +64,7 @@ export class TasksService {
   }
 
   async findOne(id: string) {
-    const task = await this.prisma.task.findUnique({ where: { id } });
+    const task = await this.prisma['task'].findUnique({ where: { id } });
     if (!task) {
       throw new NotFoundException(`Task ${id} not found`);
     }
@@ -72,13 +72,13 @@ export class TasksService {
   }
 
   async submit(id: string) {
-    await this.prisma.task.update({
+    await this.prisma['task'].update({
       where: { id },
       data: { status: 'PLANNING' },
     });
 
     const execution = await this.workflowsService.trigger({ taskId: id });
-    const updated = await this.prisma.task.update({
+    const updated = await this.prisma['task'].update({
       where: { id },
       data: { workflowExecutionId: execution.id },
     });

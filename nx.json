@@ -18,7 +18,7 @@
       "cache": true
     },
     "lint": {
-      "inputs": ["default", "{workspaceRoot}/.eslintrc.json"],
+      "inputs": ["default", "{workspaceRoot}/eslint.config.mjs"],
       "cache": true
     },
     "test": {
@@ -30,9 +30,7 @@
       "cache": true
     }
   },
-  "plugins": [
-    "@nx/eslint",
-    "@nx/vite"
-  ],
-  "defaultBase": "main"
+  "plugins": ["@nx/vite"],
+  "defaultBase": "main",
+  "analytics": false
 }
