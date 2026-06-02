@@ -22,9 +22,9 @@
     "clean": "rm -rf node_modules dist tmp .nx"
   },
   "dependencies": {
-    "@langchain/core": "^0.3.0",
-    "@langchain/langgraph": "^0.2.0",
-    "@langchain/openai": "^0.3.0"
+    "@langchain/core": "^1.1.48",
+    "@langchain/langgraph": "^1.3.3",
+    "@langchain/openai": "^1.4.7"
   },
   "devDependencies": {
     "@nx/eslint": "19.8.0",
