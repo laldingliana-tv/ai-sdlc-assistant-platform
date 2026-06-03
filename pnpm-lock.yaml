@@ -275,17 +275,37 @@ importers:
 
   libs/agents/adk: {}
 
-  libs/agents/architecture: {}
+  libs/agents/architecture:
+    dependencies:
+      '@ai-sdlc/ai-model-gateway':
+        specifier: workspace:*
+        version: link:../../ai/model-gateway
 
   libs/agents/core: {}
 
-  libs/agents/implementor: {}
+  libs/agents/implementor:
+    dependencies:
+      '@ai-sdlc/ai-model-gateway':
+        specifier: workspace:*
+        version: link:../../ai/model-gateway
 
-  libs/agents/planner: {}
+  libs/agents/planner:
+    dependencies:
+      '@ai-sdlc/ai-model-gateway':
+        specifier: workspace:*
+        version: link:../../ai/model-gateway
 
-  libs/agents/retriever: {}
+  libs/agents/retriever:
+    dependencies:
+      '@ai-sdlc/ai-model-gateway':
+        specifier: workspace:*
+        version: link:../../ai/model-gateway
 
-  libs/agents/reviewer: {}
+  libs/agents/reviewer:
+    dependencies:
+      '@ai-sdlc/ai-model-gateway':
+        specifier: workspace:*
+        version: link:../../ai/model-gateway
 
   libs/ai/model-gateway: {}
 
