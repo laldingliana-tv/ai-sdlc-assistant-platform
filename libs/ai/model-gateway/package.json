@@ -1,5 +1,5 @@
 {
-  "name": "@ai-sdlc/agents-planner",
+  "name": "@ai-sdlc/ai-model-gateway",
   "version": "0.0.1",
   "private": true,
   "type": "module",
@@ -8,7 +8,5 @@
   "exports": {
     ".": "./src/index.ts"
   },
-  "dependencies": {
-    "@ai-sdlc/ai-model-gateway": "workspace:*"
-  }
+  "dependencies": {}
 }

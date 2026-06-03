@@ -150,13 +150,86 @@ pnpm nx g @nx/js:library my-lib --directory=libs/shared/my-lib
 
 ## Architecture
 
-The platform follows a multi-agent orchestration pattern:
+```mermaid
+graph TD
+    subgraph Frontend
+        WEB[Next.js Web App]
+    end
 
-1. **Planner Agent** — Breaks down tasks into structured work items
-2. **Retriever Agent** — Fetches relevant context from codebase and docs
-3. **Architecture Agent** — Reviews proposals against architectural constraints
-4. **Approval Gate** — Human-in-the-loop checkpoint
-5. **Implementor Agent** — Generates code changes
-6. **Reviewer Agent** — Reviews output for quality and correctness
+    subgraph Backend
+        API[NestJS API]
+    end
 
-Temporal manages the workflow state machine, ensuring durability and observability across the entire pipeline.
+    subgraph Orchestration
+        TEMPORAL[Temporal Server]
+        WORKER[Temporal Worker]
+    end
+
+    subgraph AI Layer
+        GW[Model Gateway]
+        PLANNER[Planner Agent]
+        RETRIEVER[Retriever Agent]
+        ARCH[Architecture Agent]
+        APPROVAL[Approval Gate / HITL]
+        IMPL[Implementor Agent]
+        REVIEWER[Reviewer Agent]
+    end
+
+    subgraph Providers
+        OPENAI[OpenAI]
+        ANTHROPIC[Anthropic]
+        GOOGLE[Google AI]
+    end
+
+    subgraph Infrastructure
+        DB[(PostgreSQL + pgvector)]
+        MCP[MCP Servers]
+        OTEL[OpenTelemetry + Langfuse]
+    end
+
+    WEB -->|SSE / REST| API
+    API -->|start workflow| TEMPORAL
+    API -->|signal: approve/reject| TEMPORAL
+    TEMPORAL -->|dispatch activities| WORKER
+    WORKER --> PLANNER
+    WORKER --> RETRIEVER
+    WORKER --> ARCH
+    WORKER -->|waits for signal| APPROVAL
+    WORKER --> IMPL
+    WORKER --> REVIEWER
+
+    PLANNER --> GW
+    RETRIEVER --> GW
+    ARCH --> GW
+    IMPL --> GW
+    REVIEWER --> GW
+
+    GW --> OPENAI
+    GW --> ANTHROPIC
+    GW --> GOOGLE
+
+    RETRIEVER --> MCP
+    API --> DB
+    API --> OTEL
+    WORKER --> OTEL
+```
+
+### How It Works
+
+1. A developer submits a task via the **Web UI**.
+2. The **API** starts a Temporal workflow that orchestrates the agent pipeline.
+3. The **Temporal Worker** executes each agent as a durable activity:
+   - **Planner** → breaks the task into structured work items
+   - **Retriever** → fetches relevant code/docs via MCP
+   - **Architecture** → validates against architectural constraints
+   - **Approval Gate** → human-in-the-loop checkpoint
+   - **Implementor** → generates code changes
+   - **Reviewer** → checks quality and correctness
+4. Each agent calls the **Model Gateway** by capability profile (e.g. `"coding"`, `"planning"`). The gateway resolves the profile to the best available LLM provider.
+5. Results flow back through the workflow and are streamed to the frontend via SSE.
+
+### Key Library Docs
+
+| Library                                                  | Description                                                 |
+| -------------------------------------------------------- | ----------------------------------------------------------- |
+| [libs/ai/model-gateway](libs/ai/model-gateway/README.md) | Provider-agnostic LLM gateway with capability-based routing |

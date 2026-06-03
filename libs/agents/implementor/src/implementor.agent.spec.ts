@@ -1,10 +1,30 @@
 // Orchestration owner: LangGraph
-import { describe, it, expect } from 'vitest';
-import { ImplementorAgent } from './implementor.agent.js';
+import type { ModelGateway, ModelResponse } from '@ai-sdlc/ai/model-gateway';
 import type { AgentInput } from '@ai-sdlc/shared/types';
+import { describe, it, expect, vi } from 'vitest';
+
+import { ImplementorAgent } from './implementor.agent.js';
+
+function createMockGateway(response?: Partial<ModelResponse>): ModelGateway {
+  return {
+    invoke: vi.fn().mockResolvedValue({
+      content: response?.content ?? '## Implementation: ThemeProvider.tsx + dark.json tokens',
+      toolCalls: response?.toolCalls,
+      usage: response?.usage ?? { promptTokens: 300, completionTokens: 500, totalTokens: 800 },
+      metadata: response?.metadata ?? {
+        modelId: 'claude-4-sonnet',
+        provider: 'anthropic',
+        latencyMs: 250,
+      },
+    }),
+    stream: vi.fn(),
+    getModel: vi.fn(),
+  } as unknown as ModelGateway;
+}
 
 describe('ImplementorAgent', () => {
-  const agent = new ImplementorAgent();
+  const mockGateway = createMockGateway();
+  const agent = new ImplementorAgent(mockGateway);
 
   const mockInput: AgentInput = {
     taskId: 'task-001',
@@ -46,16 +66,46 @@ describe('ImplementorAgent', () => {
     expect(graph.invoke).toBeInstanceOf(Function);
   });
 
-  it('should return implementation proposal with artifacts', async () => {
+  it('should return implementation content from gateway', async () => {
     const output = await agent.invoke(mockInput);
 
     expect(output.agentName).toBe('implementor');
     expect(output.status).toBe('completed');
     expect(output.result).toBeDefined();
-    expect(output.result!.content).toContain('Implementation Proposal');
-    expect(output.result!.structuredOutput).toHaveProperty('filesToModify');
-    expect(output.result!.structuredOutput).toHaveProperty('testStrategy');
-    expect(output.result!.artifacts).toHaveLength(1);
-    expect(output.result!.artifacts![0].name).toBe('dark-tokens');
+    expect(output.result!.content).toContain('ThemeProvider');
+    expect(output.durationMs).toBe(250);
+    expect(output.tokenUsage).toEqual({
+      promptTokens: 300,
+      completionTokens: 500,
+      totalTokens: 800,
+    });
+  });
+
+  it('should call gateway with coding profile', async () => {
+    await agent.invoke(mockInput);
+
+    expect(mockGateway.invoke).toHaveBeenCalledWith(
+      expect.objectContaining({
+        profile: { name: 'coding' },
+        metadata: { agentName: 'implementor', taskId: 'task-001' },
+      }),
+    );
+  });
+
+  it('should return failed status on gateway error', async () => {
+    const errorGateway = createMockGateway();
+    (errorGateway.invoke as ReturnType<typeof vi.fn>).mockRejectedValue(
+      new Error('Model overloaded'),
+    );
+    const failAgent = new ImplementorAgent(errorGateway);
+
+    const output = await failAgent.invoke(mockInput);
+
+    expect(output.status).toBe('failed');
+    expect(output.error).toEqual({
+      code: 'GATEWAY_ERROR',
+      message: 'Model overloaded',
+      retryable: false,
+    });
   });
 });
