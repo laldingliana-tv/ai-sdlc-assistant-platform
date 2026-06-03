@@ -22,7 +22,9 @@
     "clean": "rm -rf node_modules dist tmp .nx"
   },
   "dependencies": {
+    "@langchain/anthropic": "^0.3.17",
     "@langchain/core": "^1.1.48",
+    "@langchain/google-genai": "^0.2.12",
     "@langchain/langgraph": "^1.3.3",
     "@langchain/openai": "^1.4.7"
   },

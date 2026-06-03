@@ -1,0 +1,26 @@
+{
+  "name": "ai-model-gateway",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/ai/model-gateway/src",
+  "projectType": "library",
+  "targets": {
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc --noEmit -p libs/ai/model-gateway/tsconfig.json"
+      }
+    },
+    "test": {
+      "executor": "@nx/vitest:test",
+      "options": {
+        "config": "libs/ai/model-gateway/vitest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "eslint libs/ai/model-gateway/src"
+      }
+    }
+  }
+}

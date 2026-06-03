@@ -1,51 +1,30 @@
 // Orchestration owner: LangGraph
-import { StateGraph } from '@langchain/langgraph';
 import type { BaseAgent } from '@ai-sdlc/agents/core';
+import type { ModelGateway } from '@ai-sdlc/ai/model-gateway';
 import type { AgentInput, AgentOutput } from '@ai-sdlc/shared/types';
+import { SystemMessage, HumanMessage } from '@langchain/core/messages';
+import { StateGraph } from '@langchain/langgraph';
+
 import { ReviewerState } from './reviewer.state.js';
-
-const GOLDEN_DEMO_RESPONSE = `## Review: Dark Mode Implementation Plan
-
-### Overall Assessment: APPROVED ✓ (Score: 8.5/10)
-
-### Strengths
-- Phased approach minimizes risk of regressions
-- CSS custom properties strategy aligns with ADR-007
-- WCAG AA compliance explicitly addressed
-- Cross-MFE synchronization via event bus is scalable
-
-### Concerns (Minor)
-1. **No fallback strategy** — What happens if a user's browser doesn't support CSS custom properties? (Edge case, <1% of users)
-2. **Missing testing strategy for visual regressions** — Recommend adding Chromatic or Percy integration
-3. **Sprint estimate may be optimistic** — Billing MFE refactoring (Issue #501) could add 1 sprint
-
-### Recommendations
-- Add a progressive enhancement step for legacy browser support
-- Include a rollback plan (feature flag to disable dark mode per-MFE)
-- Consider adding a "system preference" option alongside manual toggle
-
-### Verdict
-The plan is well-structured and comprehensive. Approve with minor suggestions above.`;
 
 /**
  * ReviewerAgent — evaluates plans and implementations against quality criteria.
+ * Uses the Model Gateway for LLM calls via the 'review' profile.
  */
 export class ReviewerAgent implements BaseAgent {
   readonly name = 'reviewer';
+
+  constructor(private readonly gateway: ModelGateway) {}
 
   createGraph() {
     const graph = new StateGraph(ReviewerState)
       .addNode('review', async (state) => {
         return {
-          output: GOLDEN_DEMO_RESPONSE,
-          findings: [
-            'No fallback strategy for legacy browsers',
-            'Missing visual regression testing plan',
-            'Sprint estimate may be optimistic',
-          ],
-          approved: true,
-          score: 8.5,
-          messages: [{ role: 'assistant', content: GOLDEN_DEMO_RESPONSE }],
+          output: state.input,
+          findings: [],
+          approved: false,
+          score: 0,
+          messages: [],
         };
       })
       .addEdge('__start__', 'review')
@@ -55,25 +34,48 @@ export class ReviewerAgent implements BaseAgent {
   }
 
   async invoke(input: AgentInput): Promise<AgentOutput> {
-    const start = Date.now();
-    const compiled = this.createGraph();
-    const result = await compiled.invoke({
-      input: `${input.context.taskTitle}: ${input.context.taskDescription}`,
-    });
+    try {
+      const taskDescription = input.context.taskDescription ?? '';
+      const taskTitle = input.context.taskTitle ?? '';
+      const previousOutputs =
+        input.context.previousOutputs.length > 0
+          ? JSON.stringify(input.context.previousOutputs)
+          : '';
 
-    return {
-      agentName: 'reviewer',
-      status: 'completed',
-      result: {
-        content: result.output,
-        structuredOutput: {
-          findings: result.findings,
-          approved: result.approved,
-          score: result.score,
+      const messages = [
+        new SystemMessage(
+          'You are a review agent. Review the output for quality, correctness, and completeness. Provide an overall assessment with a score (1-10), list specific findings, and give a clear approve/reject verdict.',
+        ),
+        new HumanMessage(
+          `Task: ${taskTitle}\n\nDescription: ${taskDescription}${previousOutputs ? `\n\nPrevious outputs:\n${previousOutputs}` : ''}`,
+        ),
+      ];
+
+      const response = await this.gateway.invoke({
+        profile: { name: 'review' },
+        messages,
+        metadata: { agentName: this.name, taskId: input.taskId },
+      });
+
+      return {
+        agentName: this.name,
+        status: 'completed',
+        result: { content: response.content },
+        durationMs: response.metadata.latencyMs,
+        tokenUsage: response.usage,
+      };
+    } catch (error) {
+      return {
+        agentName: this.name,
+        status: 'failed',
+        result: undefined,
+        durationMs: 0,
+        error: {
+          code: 'GATEWAY_ERROR',
+          message: error instanceof Error ? error.message : 'Unknown error',
+          retryable: false,
         },
-      },
-      durationMs: Date.now() - start,
-      tokenUsage: { promptTokens: 520, completionTokens: 380, totalTokens: 900 },
-    };
+      };
+    }
   }
 }

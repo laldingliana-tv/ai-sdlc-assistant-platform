@@ -38,7 +38,8 @@
       "@ai-sdlc/agents/a2a": ["./libs/agents/a2a/src/index.ts"],
       "@ai-sdlc/agents/adk": ["./libs/agents/adk/src/index.ts"],
       "@ai-sdlc/mcp": ["./libs/mcp/src/index.ts"],
-      "@ai-sdlc/evaluations": ["./libs/evaluations/src/index.ts"]
+      "@ai-sdlc/evaluations": ["./libs/evaluations/src/index.ts"],
+      "@ai-sdlc/ai/model-gateway": ["./libs/ai/model-gateway/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp", "dist"]
