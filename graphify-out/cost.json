@@ -8,5 +8,22 @@
     }
   ],
   "total_input_tokens": 0,
-  "total_output_tokens": 0
+  "total_output_tokens": 0,
+  "graphify_1780512252": {
+    "timestamp": "2026-06-03T18:44:12Z",
+    "scope": "libs/",
+    "model": "claude-sonnet-4-5",
+    "input_tokens": 4800,
+    "output_tokens": 1200,
+    "estimated_cost_usd": 0.0324,
+    "nodes": 923,
+    "edges": 1714,
+    "communities": 79,
+    "token_benchmark": {
+      "raw_words": 13781,
+      "raw_tokens_est": 10335,
+      "graph_tokens_est": 160899,
+      "compression_ratio": 0.1
+    }
+  }
 }

@@ -1,1 +1,772 @@
-{"C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\.eslintrc.json":{"size":1254,"mtime_ns":1779448927610590600,"hash":"3f657cb5c1ec92a7e953d4f52038370bc0ade6b634dd12fda6c2a119ac4ed9aa"},"C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\.lintstagedrc.json":{"size":164,"mtime_ns":1779448927612166800,"hash":"83a5c542ea0177f73ea06932f71020dfa2be6dc418245c6e19c9d2d3cb4c76b9"},"C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\nx.json":{"size":926,"mtime_ns":1779448927610590600,"hash":"3921fe63928f4cafa064fe54eb227a53f82eb1fe541d9a4cd3ac0e0314b2c5cd"},"C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\package.json":{"size":1272,"mtime_ns":1779448927610590600,"hash":"218ec875b4cd87ab2f1a9a6d658385211944008dd4abaff483c9ebb6ad85f521"},"C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\tsconfig.base.json":{"size":2055,"mtime_ns":1779448927610590600,"hash":"5da3256cc0c3004c281b01e827d04e16443f6c31e246dfc1dd65b4e4dd3c6e94"},"C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\README.md":{"size":3780,"mtime_ns":1779448927665633700,"hash":"a85bd018870e3821887855f03528f7a94e9675e7be77069d09545717425726b5"},"C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\docs\\IMPLEMENTATION_PLAN.md":{"size":14889,"mtime_ns":1779432604977627500,"hash":"7634b2a0de11860c69b890db4f4f7749c992a68fa765bc0e8b9289c7969547e8"},"C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\docs\\IMPLEMENTATION_PLAN_V2.md":{"size":22697,"mtime_ns":1779435528959559300,"hash":"ea278c64df44aa98208f4f0924f7925408539de42ba179a4ed6cdc8e04bb46a3"},"C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\docs\\IMPLEMENTATION_PLAN_V3_FINAL.md":{"size":27405,"mtime_ns":1779437193718808900,"hash":"2d1a8658ccb01e1a12e9a6c89cbfee0f44576e799573072d7025962baecd05eb"},"C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\docs\\IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md":{"size":31737,"mtime_ns":1779444569955120400,"hash":"f101f1b859a5a89642a802edbf53633e297a25c51b4803b185b7252e727d9b29"},"C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\docs\\PRD_AND_ADR_HUMAN_GUIDE.md":{"size":10816,"mtime_ns":1779445052737571400,"hash":"c877ab76ec9758db4bdd2a4f9d3ac48ec310240ba81e4c1dd283ffdb95ec05c1"},"C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\docs\\ai_sdlc_platform_scaffolding_prompt.md":{"size":6939,"mtime_ns":1779448540730374900,"hash":"9471434780717b25504d52934b15378f56a7e4385fba713ab5b07a6a803830cb"},"C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\docs\\final_feedback_recommendations_ai_sdlc_platform.md":{"size":9505,"mtime_ns":1779448540866444000,"hash":"6b1588789be9af14cd0cd23ad81ac6bc9eb74c930e47e5d8409343fbe3a16896"},"C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\docs\\implementation-phase-1-prompt.md":{"size":6130,"mtime_ns":1779448773259120600,"hash":"4fac8c163c4f5a53958200be5f2ed9cad1dbc64f46b1b45b1ddce287524772d8"},"C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\pnpm-workspace.yaml":{"size":42,"mtime_ns":1779448927610590600,"hash":"a2c736794c4b607966d8adee65cfcad576f94e8e19c0974a16866d1fb2aa7b4e"}}
+{
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\.eslintrc.json": {
+    "size": 1254,
+    "mtime_ns": 1779448927610590600,
+    "hash": "3f657cb5c1ec92a7e953d4f52038370bc0ade6b634dd12fda6c2a119ac4ed9aa"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\.lintstagedrc.json": {
+    "size": 164,
+    "mtime_ns": 1779448927612166800,
+    "hash": "83a5c542ea0177f73ea06932f71020dfa2be6dc418245c6e19c9d2d3cb4c76b9"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\nx.json": {
+    "size": 926,
+    "mtime_ns": 1779448927610590600,
+    "hash": "3921fe63928f4cafa064fe54eb227a53f82eb1fe541d9a4cd3ac0e0314b2c5cd"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\package.json": {
+    "size": 1272,
+    "mtime_ns": 1779448927610590600,
+    "hash": "218ec875b4cd87ab2f1a9a6d658385211944008dd4abaff483c9ebb6ad85f521"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\tsconfig.base.json": {
+    "size": 2055,
+    "mtime_ns": 1779448927610590600,
+    "hash": "5da3256cc0c3004c281b01e827d04e16443f6c31e246dfc1dd65b4e4dd3c6e94"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\README.md": {
+    "size": 3780,
+    "mtime_ns": 1779448927665633700,
+    "hash": "a85bd018870e3821887855f03528f7a94e9675e7be77069d09545717425726b5"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\docs\\IMPLEMENTATION_PLAN.md": {
+    "size": 14889,
+    "mtime_ns": 1779432604977627500,
+    "hash": "7634b2a0de11860c69b890db4f4f7749c992a68fa765bc0e8b9289c7969547e8"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\docs\\IMPLEMENTATION_PLAN_V2.md": {
+    "size": 22697,
+    "mtime_ns": 1779435528959559300,
+    "hash": "ea278c64df44aa98208f4f0924f7925408539de42ba179a4ed6cdc8e04bb46a3"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\docs\\IMPLEMENTATION_PLAN_V3_FINAL.md": {
+    "size": 27405,
+    "mtime_ns": 1779437193718808900,
+    "hash": "2d1a8658ccb01e1a12e9a6c89cbfee0f44576e799573072d7025962baecd05eb"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\docs\\IMPLEMENTATION_PLAN_V4_REVISED_FINAL.md": {
+    "size": 31737,
+    "mtime_ns": 1779444569955120400,
+    "hash": "f101f1b859a5a89642a802edbf53633e297a25c51b4803b185b7252e727d9b29"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\docs\\PRD_AND_ADR_HUMAN_GUIDE.md": {
+    "size": 10816,
+    "mtime_ns": 1779445052737571400,
+    "hash": "c877ab76ec9758db4bdd2a4f9d3ac48ec310240ba81e4c1dd283ffdb95ec05c1"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\docs\\ai_sdlc_platform_scaffolding_prompt.md": {
+    "size": 6939,
+    "mtime_ns": 1779448540730374900,
+    "hash": "9471434780717b25504d52934b15378f56a7e4385fba713ab5b07a6a803830cb"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\docs\\final_feedback_recommendations_ai_sdlc_platform.md": {
+    "size": 9505,
+    "mtime_ns": 1779448540866444000,
+    "hash": "6b1588789be9af14cd0cd23ad81ac6bc9eb74c930e47e5d8409343fbe3a16896"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\docs\\implementation-phase-1-prompt.md": {
+    "size": 6130,
+    "mtime_ns": 1779448773259120600,
+    "hash": "4fac8c163c4f5a53958200be5f2ed9cad1dbc64f46b1b45b1ddce287524772d8"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\pnpm-workspace.yaml": {
+    "size": 42,
+    "mtime_ns": 1779448927610590600,
+    "hash": "a2c736794c4b607966d8adee65cfcad576f94e8e19c0974a16866d1fb2aa7b4e"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\a2a\\package.json": {
+    "size": 222,
+    "mtime_ns": 1780304931794073400,
+    "hash": "f084153827bfca5cbf120898a4a079ba55cd77b7f99da0414c8aa4c210d8c486"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\a2a\\src\\a2a.interface.ts": {
+    "size": 738,
+    "mtime_ns": 1780304946868262800,
+    "hash": "edc8858cbbed40e387638a89702a6cfa19edb97f887c135a6e1e1379d2b8b2e2"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\a2a\\src\\a2a.router.ts": {
+    "size": 1443,
+    "mtime_ns": 1780304946940477000,
+    "hash": "4304c926f6e40a4f6b0964807f64e23d2318d08b17016a4eca7510d5c769787c"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\a2a\\src\\index.ts": {
+    "size": 218,
+    "mtime_ns": 1780304946991289900,
+    "hash": "2cd5ab8ed8339e7d4e0c5b381f3a9dfbc55432d9f77530e98846f6c3b21ae0cf"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\a2a\\tsconfig.json": {
+    "size": 163,
+    "mtime_ns": 1780304931882390200,
+    "hash": "2e3fe6928ee4bb2e099c1fc192150767c3d52200d8c1229d74ad8c1ea4da11a4"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\adk\\package.json": {
+    "size": 222,
+    "mtime_ns": 1780304932394257000,
+    "hash": "73d0e95450304fb29b813cb16ea7592dacee27f9ca3e7652e19c7499e2943885"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\adk\\src\\adk.interface.ts": {
+    "size": 1071,
+    "mtime_ns": 1780304947090752400,
+    "hash": "c13b6cf2c389b66329dede0576677c36cafe074f6674ad77f41dd7566c80e6e1"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\adk\\src\\index.ts": {
+    "size": 188,
+    "mtime_ns": 1780304947106896400,
+    "hash": "b6d68f9c36ac5e2c1271894340062740693cace4dca88962471b0d62884cfeaa"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\adk\\tsconfig.json": {
+    "size": 163,
+    "mtime_ns": 1780304932575853500,
+    "hash": "7b3abe2db8185533b1df54cbd9ade3eb3ae42dbce4d1cf2861603a56783c2f87"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\architecture\\package.json": {
+    "size": 295,
+    "mtime_ns": 1780506608717887800,
+    "hash": "5cc39e2e33cb4f900cc41e376a571f04d631ddad8d7a7db10fd3e4f6ecabd9fc"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\architecture\\src\\architecture.agent.spec.ts": {
+    "size": 3409,
+    "mtime_ns": 1780506608721767800,
+    "hash": "89ce18d35033d32727b3e10c9db88135ed5080c8fe99a7b4ff52caefc6348e79"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\architecture\\src\\architecture.agent.ts": {
+    "size": 2677,
+    "mtime_ns": 1780506608725969600,
+    "hash": "e0e04fe87c0e69fffbff34b512f7ff50cead5236dbc4aa51b61a1d9ed0c7dcfa"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\architecture\\src\\architecture.state.ts": {
+    "size": 792,
+    "mtime_ns": 1780304947342253900,
+    "hash": "154d3f1771d9036efe7e413dc28eacf294b90ac65551c9356cfd6120193af692"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\architecture\\src\\index.ts": {
+    "size": 184,
+    "mtime_ns": 1780304947391637200,
+    "hash": "3599121e6d23908a7a5e59ef1af1a731c70889f38d6e7e64664c4692ea13aa01"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\architecture\\tsconfig.json": {
+    "size": 163,
+    "mtime_ns": 1780304933256294000,
+    "hash": "1626b0454a6017b8ef19fd1966500a8bdb67c5c48a12457001702395fcf4e4c4"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\core\\package.json": {
+    "size": 223,
+    "mtime_ns": 1780304933275998600,
+    "hash": "9636b74eebaa4714c7a11a57bcbe6cc8ec5ac5b8c8f3e523e0b413cc064415f8"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\core\\src\\agent.interface.ts": {
+    "size": 810,
+    "mtime_ns": 1780304947429141000,
+    "hash": "55d701e125e476d36d2f0a7aa2ffc031d6e69f4e445eac1a5ebc8471a56a363b"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\core\\src\\graph-builder.ts": {
+    "size": 677,
+    "mtime_ns": 1780304947468759000,
+    "hash": "9d3d9fde8234c9f71d5de631e1caf4e79b7903c7411ccb19118e6b7a39c4c25e"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\core\\src\\index.ts": {
+    "size": 266,
+    "mtime_ns": 1780304947540726700,
+    "hash": "c1e92b44dade71e303b9dcc0108ca16dc8239504d595fbf126bc63a547cb59bd"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\core\\src\\tool-binder.ts": {
+    "size": 1033,
+    "mtime_ns": 1780304947581590100,
+    "hash": "df84505825111fb23f9189f018ede41fbce0685bfc929bacb5ef02e438d932f8"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\core\\tsconfig.json": {
+    "size": 163,
+    "mtime_ns": 1780304933437531500,
+    "hash": "4f8d217cb23aa862d05d9e21937b3e31eb7b796a895af62a6ff2e348c056fd74"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\implementor\\package.json": {
+    "size": 294,
+    "mtime_ns": 1780506608728958400,
+    "hash": "61cc5c156049646e5760294e1fb2baf8b500ad33409ab9fed553c800d9336752"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\implementor\\src\\implementor.agent.spec.ts": {
+    "size": 3557,
+    "mtime_ns": 1780506608731588200,
+    "hash": "1610749ae87eb274579dba90fd17f93710f1d50bbfd5c5b3d2a4194e8708a9ed"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\implementor\\src\\implementor.agent.ts": {
+    "size": 2692,
+    "mtime_ns": 1780506608736332100,
+    "hash": "5a5dab30c165513cb828d94f3bcdc58daf7cf9fe5bb06884fd1066059e095dc0"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\implementor\\src\\implementor.state.ts": {
+    "size": 795,
+    "mtime_ns": 1780304947870957100,
+    "hash": "f4ddb8e95b528c3b889b94378b43cf919fd8cd589496379218d509a7a1949a02"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\implementor\\src\\index.ts": {
+    "size": 179,
+    "mtime_ns": 1780304947887343900,
+    "hash": "867e17db1fc980218b3322b232fbf6e0745aea5de423758fe8944299e42464ca"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\implementor\\tsconfig.json": {
+    "size": 163,
+    "mtime_ns": 1780304933468870900,
+    "hash": "45167547b69f7dd2ce26bd93e3f4e849c89f812bb97274c9d3107f2ce288675b"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\planner\\package.json": {
+    "size": 290,
+    "mtime_ns": 1780506608739392100,
+    "hash": "3e8bbda58b0509d44ae8e21952d3c629ff5912b291f56206c903ce5dbcb6497a"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\planner\\src\\index.ts": {
+    "size": 159,
+    "mtime_ns": 1780304947973417400,
+    "hash": "ec61745092eb5beb1ae6fb9b1171367a03a638c6d36291c9eda60cc00ad2e8a8"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\planner\\src\\planner.agent.spec.ts": {
+    "size": 3023,
+    "mtime_ns": 1780506608744210500,
+    "hash": "a7af0d5ce5e1e478961b048fb1aaeca7602d349e79a725d259c539a15bbf09dd"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\planner\\src\\planner.agent.ts": {
+    "size": 2616,
+    "mtime_ns": 1780506608746257600,
+    "hash": "6dd38fda38d76489aa022987efec3827e211063fb84d3fab3ad9bb792214c62a"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\planner\\src\\planner.state.ts": {
+    "size": 659,
+    "mtime_ns": 1780304947534184200,
+    "hash": "2a07209d6e6123e0e57cd83d4dcdcd026156bc6967ab1de83588396b89b161e7"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\planner\\tsconfig.json": {
+    "size": 163,
+    "mtime_ns": 1780304933535733800,
+    "hash": "682a1092c66ce23338d8c3d2cd0f54aea265bd2297b97ee70b611b2a0bd86457"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\retriever\\package.json": {
+    "size": 292,
+    "mtime_ns": 1780506608749636100,
+    "hash": "8ea46d9866ae46f25e025a0ccdf8ac8546809872bea9760cdbc236e9a137773f"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\retriever\\src\\index.ts": {
+    "size": 169,
+    "mtime_ns": 1780304947661101500,
+    "hash": "7ad4f5faee38f8b4550e021d55b1315d76ec341d8a4e48548afa124d5950021b"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\retriever\\src\\retriever.agent.spec.ts": {
+    "size": 2993,
+    "mtime_ns": 1780506608753191300,
+    "hash": "e8d9cd349e01b222a875cdb874ec33a11f1d4bffb150ad5361978b1285ee0533"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\retriever\\src\\retriever.agent.ts": {
+    "size": 2681,
+    "mtime_ns": 1780506608755570200,
+    "hash": "171a5e07aef586029183ad11dc46622d97250e7e6a7542a501b01e89e8fab257"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\retriever\\src\\retriever.state.ts": {
+    "size": 676,
+    "mtime_ns": 1780304947887343900,
+    "hash": "d29e074ddbafe196cec665c86fb79ec9af83093fdb2fde627dc679d7097976af"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\retriever\\tsconfig.json": {
+    "size": 163,
+    "mtime_ns": 1780304933572504300,
+    "hash": "4cf6e1ec1fecd70bd04bd1400462c5acf2bf5c03dda3c8d561a12b638c0d9295"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\reviewer\\package.json": {
+    "size": 291,
+    "mtime_ns": 1780506608759605200,
+    "hash": "abcc3a1017d178fedbf8d27e05ef4d94461bbf2fb11835eb4e249f6ca8f09db0"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\reviewer\\src\\index.ts": {
+    "size": 164,
+    "mtime_ns": 1780304947917537700,
+    "hash": "2ebc74c97ec50a7f6d831893ff3817b7c8ac1cb3b766890c53c0bacc6b54057f"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\reviewer\\src\\reviewer.agent.spec.ts": {
+    "size": 3113,
+    "mtime_ns": 1780506608764242500,
+    "hash": "b1078da1fee3a8a90fe8451b8ada8c420792c04d3915dc75c6c7763a0a135d99"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\reviewer\\src\\reviewer.agent.ts": {
+    "size": 2692,
+    "mtime_ns": 1780506608767511400,
+    "hash": "f33324314615a09ec654286b97f8bb94239aeec32b46b3335dafe6da867a2866"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\reviewer\\src\\reviewer.state.ts": {
+    "size": 762,
+    "mtime_ns": 1780304948082851900,
+    "hash": "775a6a61bfcea832cee90e9a8e822567233c748996e3208e654f7143c7506fbb"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\agents\\reviewer\\tsconfig.json": {
+    "size": 163,
+    "mtime_ns": 1780304933723654700,
+    "hash": "039105da58231267ddc86f15f510a2c6c875aa7b7ce728d463e445041e936ec5"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\ai\\model-gateway\\__tests__\\model-gateway.spec.ts": {
+    "size": 9870,
+    "mtime_ns": 1780506608775994200,
+    "hash": "97176df29c6336a556484b1cdefbb481f8916ae7bd24d617dd0ca87aea283566"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\ai\\model-gateway\\__tests__\\model-registry.spec.ts": {
+    "size": 5203,
+    "mtime_ns": 1780506608779217700,
+    "hash": "7502f006f0d9d7363b2bf37b73a2ef519b9a80f504635a2b19ba56e107d85283"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\ai\\model-gateway\\package.json": {
+    "size": 240,
+    "mtime_ns": 1780506608781397600,
+    "hash": "cbd04475a208da4351f4f78fd9fa068c848f6a6c4bfc621e4fb85b8b9734329e"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\ai\\model-gateway\\project.json": {
+    "size": 666,
+    "mtime_ns": 1780506608789701900,
+    "hash": "2693c54480b2dc4d08be6bfd27e46ca3b308fc6d63938d752604c5200fece6d7"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\ai\\model-gateway\\src\\catalog\\models.catalog.ts": {
+    "size": 1644,
+    "mtime_ns": 1780506608796482600,
+    "hash": "011c0f03014db84bd7c4fcc04be1d5dcb3e1962146738c3e65ffa52447a721f6"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\ai\\model-gateway\\src\\config\\default-profiles.ts": {
+    "size": 765,
+    "mtime_ns": 1780506608801573300,
+    "hash": "1637c1ba1cd1dd9f38b59e4c81cea88e6fe2f4740e57149b5a0be1b5b5a1a6e8"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\ai\\model-gateway\\src\\gateway\\create-gateway.ts": {
+    "size": 906,
+    "mtime_ns": 1780506608805310300,
+    "hash": "e819ddb30821c4cbf0c1bfe3bd41e17e6347aa5773f974214bda58948cbf5524"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\ai\\model-gateway\\src\\gateway\\model-gateway.service.ts": {
+    "size": 3659,
+    "mtime_ns": 1780506608807925100,
+    "hash": "51b9b677d17141bdfc2d5d3fd725df3917833d118e71c279825417139e877b80"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\ai\\model-gateway\\src\\index.ts": {
+    "size": 1163,
+    "mtime_ns": 1780506608812048300,
+    "hash": "643b045a8a7ccf8a298a9904a6ae121981ebbe874b939a206fa7bc9fc1fbc365"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\ai\\model-gateway\\src\\interfaces\\model-config.interface.ts": {
+    "size": 628,
+    "mtime_ns": 1780506608814106200,
+    "hash": "7dcaa5842a77121077d3d0bf78ffc7e4bae50a292828822d59bcb7e5e712adb9"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\ai\\model-gateway\\src\\interfaces\\model-gateway.interface.ts": {
+    "size": 1488,
+    "mtime_ns": 1780506608816438300,
+    "hash": "4436240375d1803d564f44869863ebf869cd47cf299503ef38b1be3542b9747e"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\ai\\model-gateway\\src\\providers\\anthropic.provider.ts": {
+    "size": 1431,
+    "mtime_ns": 1780506608864922400,
+    "hash": "a3e6ef13055e5a7787f0d1fb9b3622ae85bc16ce6ca458ee639c386e522e15d7"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\ai\\model-gateway\\src\\providers\\google.provider.ts": {
+    "size": 1267,
+    "mtime_ns": 1780506608866965500,
+    "hash": "0853c08acd7abd1c836ffeb59e80d7842b827bafdba171d0e9e75cfe008cbea5"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\ai\\model-gateway\\src\\providers\\openai.provider.ts": {
+    "size": 1372,
+    "mtime_ns": 1780506608869365100,
+    "hash": "2c05f7901d04c7cc4d3adcc2a6a26ce1043cadfb1c29916921dbf8276bd5ddc4"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\ai\\model-gateway\\src\\providers\\provider.interface.ts": {
+    "size": 660,
+    "mtime_ns": 1780506608873159800,
+    "hash": "df4bf7bee08f9d58bfeec1c4ad99bf24e661ec5ee2de182725a1bcc27e91286e"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\ai\\model-gateway\\src\\registry\\model-registry.ts": {
+    "size": 3093,
+    "mtime_ns": 1780506608876478100,
+    "hash": "d8ffda73af06b4e979d74156f9eb66bd7174d2f1d60e2948420a8bee33265315"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\ai\\model-gateway\\tsconfig.json": {
+    "size": 171,
+    "mtime_ns": 1780506608879018800,
+    "hash": "f6e091735a5ea57bc2bb9d111871dfe3e64410fa564fd16f8fa1f82eccd23397"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\ai\\model-gateway\\vitest.config.ts": {
+    "size": 315,
+    "mtime_ns": 1780506608881402900,
+    "hash": "45587c477fdde68f883f5f45fc6ad6a8e9a6ede1624e486b3529e51b94f336b5"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\evaluations\\package.json": {
+    "size": 223,
+    "mtime_ns": 1780304933743178500,
+    "hash": "03a75ed79857a9c4ca2e4b412d3407ddbe0b0bd646c9738face710b0085ebe14"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\evaluations\\src\\evaluator.interface.ts": {
+    "size": 641,
+    "mtime_ns": 1780304948282921900,
+    "hash": "d7328731871e1c7aa5f52279f09cb8cca6c9f06406aeda17bb72e5b2877e658d"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\evaluations\\src\\evaluator.registry.ts": {
+    "size": 1816,
+    "mtime_ns": 1780304948329944900,
+    "hash": "bddc870a279d8b2daa058a411ec855539a2a2d1b72ab65732e9a26f0499d9f1c"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\evaluations\\src\\evaluators\\quality.evaluator.ts": {
+    "size": 1212,
+    "mtime_ns": 1780304948353304000,
+    "hash": "691ca67be01a5a9f9908057a0aa8318475e1e4e705118343027cbd1439eb7a8b"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\evaluations\\src\\evaluators\\relevance.evaluator.ts": {
+    "size": 945,
+    "mtime_ns": 1780304948361360400,
+    "hash": "e5bc16396be7688537f1c0731b6bb5efec1c0c8508e9f38d3dd155c989367691"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\evaluations\\src\\index.ts": {
+    "size": 298,
+    "mtime_ns": 1780304948380611900,
+    "hash": "6bbce0990c193410876335fc6b6ed470bc9eb82d78f4ac8e8217dbfd8a111c94"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\evaluations\\tsconfig.json": {
+    "size": 160,
+    "mtime_ns": 1780304933753663800,
+    "hash": "5bcbbe70887f2aea4c0dc4cb2ba0466314c58ec52c09f3e5348a20fb17fd3ffa"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\auth\\package.json": {
+    "size": 298,
+    "mtime_ns": 1780303584377265900,
+    "hash": "53e98b344a2efb76fe90fa81a7317604732b132f57b81edf232ec914e19d25ad"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\auth\\src\\auth.guard.ts": {
+    "size": 654,
+    "mtime_ns": 1780303584377265900,
+    "hash": "2a14bd925c963bd169f79dbf508f824025b05ff8a882080e09f3d055ed016965"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\auth\\src\\auth.module.ts": {
+    "size": 269,
+    "mtime_ns": 1780303584377265900,
+    "hash": "0466ec40a36fb5835950cfe76735631237d3ae157074ae79cb3a52971a19de70"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\auth\\src\\index.ts": {
+    "size": 194,
+    "mtime_ns": 1780303584377265900,
+    "hash": "5d4647d15e40a34884333b1fd8d71d38211f768ba27a3c949d12628df2be2a00"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\auth\\src\\rbac.decorator.ts": {
+    "size": 319,
+    "mtime_ns": 1780303584377265900,
+    "hash": "c0285a54b3825b5f6fcf5c74d7a10ecd5cf78734fdbf7a6bc8c4eab840ab7dcf"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\auth\\src\\throttle.guard.ts": {
+    "size": 1107,
+    "mtime_ns": 1780303584377265900,
+    "hash": "aa0d33ba95dffd0c5ba45c2a272f0896ce20d60d18b475810305715901c879c6"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\auth\\tsconfig.json": {
+    "size": 271,
+    "mtime_ns": 1780303584377265900,
+    "hash": "66dbf33bac637efc30e140fb33f83f09a28dc2d93602e05f095432462233ed91"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\database\\package.json": {
+    "size": 698,
+    "mtime_ns": 1780391259373611600,
+    "hash": "8611862f03325a037dac90de8f2a3d65dd08ee43f257f0ae4c05376caa4d98c5"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\database\\prisma\\migrations\\20260601125558_init\\migration.sql": {
+    "size": 5221,
+    "mtime_ns": 1780318558258137000,
+    "hash": "d2e08a4d61f3bb712cd8a241fbfa0a8c9c9cea1f9440fb811b5a229b86147e5b"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\database\\prisma\\migrations\\20260601200000_add_agent_execution_status_values\\migration.sql": {
+    "size": 156,
+    "mtime_ns": 1780391259375622300,
+    "hash": "3f34f0693917147a20af7c8787c52d7fb5fd8377706f63003a25322b8eb406b0"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\database\\prisma\\migrations\\20260601200001_set_default_pending_status\\migration.sql": {
+    "size": 94,
+    "mtime_ns": 1780391259383984800,
+    "hash": "36ee4d70ab37ffe69fb4b3622dcaa5d464ad9e5f7ad85b98d8f748e9fc3136ab"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\database\\prisma\\seed.ts": {
+    "size": 1416,
+    "mtime_ns": 1780303584377265900,
+    "hash": "17845235ace50e7fceb3f4c33e1943e6f318aa08a13c313b01b86fdf2a68b546"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\database\\project.json": {
+    "size": 732,
+    "mtime_ns": 1780334121822697400,
+    "hash": "287d357a0757ebc42b853d2f210676a7ebc51490adf7e8a86e71b58245ed2a9c"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\database\\src\\index.ts": {
+    "size": 54,
+    "mtime_ns": 1780303584377265900,
+    "hash": "69ff0a2cc7ec3508e08274d9550256455489c49c13d81403c928f2fc3bb8dd17"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\database\\src\\prisma.service.ts": {
+    "size": 408,
+    "mtime_ns": 1780391259388006800,
+    "hash": "9bc6059537c2d0fae9d483c412ccd161ccdf439fffa11ec3f3e555d129f65889"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\database\\tsconfig.json": {
+    "size": 367,
+    "mtime_ns": 1780303584377265900,
+    "hash": "4a0f2fd4de6eb01996ed06bfa00c8aeb2589f0a8908a4cfc961056eeeca0075a"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\governance\\package.json": {
+    "size": 240,
+    "mtime_ns": 1780303584377265900,
+    "hash": "579e30706a713b13f7fffa0440157a3e00169919a4132980f28bcb396dd3c45f"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\governance\\src\\index.ts": {
+    "size": 248,
+    "mtime_ns": 1780303584377265900,
+    "hash": "93d94385293eb58b588387e589cbae6168dda92f99876f70a30712ac2f357c9a"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\governance\\src\\policies\\approval-policy.ts": {
+    "size": 1123,
+    "mtime_ns": 1780303584377265900,
+    "hash": "01017347f423c77db11a57b65069b5a679e9f962af7c36c10541caf5bf548cce"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\governance\\src\\policies\\scope-policy.ts": {
+    "size": 1066,
+    "mtime_ns": 1780303584377265900,
+    "hash": "98f8e87e942b3852ab2bb5bc245d98a009f1a9047cf9fb1b151b7ed9758e9b5c"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\governance\\src\\policy.interface.ts": {
+    "size": 728,
+    "mtime_ns": 1780303584377265900,
+    "hash": "d597e52e5b772d67ab491009dcd75b9fbc2ff91fcf8965de81373c6c38e2943f"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\governance\\src\\policy.registry.ts": {
+    "size": 677,
+    "mtime_ns": 1780303584377265900,
+    "hash": "7e2fef96e08c8b9afdf58e89585f2cec6b974c3fac06bf65ef8c22cff0d30c02"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\governance\\tsconfig.json": {
+    "size": 204,
+    "mtime_ns": 1780303584377265900,
+    "hash": "73b5fa5f751e04b622f523903580542a8e1489019faf9cb1be43ada6a55f59ec"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\logging\\package.json": {
+    "size": 335,
+    "mtime_ns": 1780300923234075300,
+    "hash": "702e0f4b56298bef809b5867112d31c5602f81b0c2916f00d11e6ec9cc8b7757"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\logging\\src\\index.ts": {
+    "size": 56,
+    "mtime_ns": 1780300923243067000,
+    "hash": "7d97d13ba593a6cecf1cc1fae46ce28ce6a396cd33a1ddf69a1f61057b54604d"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\logging\\src\\logger.service.ts": {
+    "size": 1281,
+    "mtime_ns": 1780300923242067300,
+    "hash": "38001beb5eca8a0e3558c0f3018b929f696e960e98981e60cb1dc200b8ab3c23"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\logging\\tsconfig.json": {
+    "size": 264,
+    "mtime_ns": 1780300923234075300,
+    "hash": "25b55b61bac2ea4538a375ca708fc4a56b702bd3d8c53c7e32a99c2e4210a548"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\telemetry\\package.json": {
+    "size": 565,
+    "mtime_ns": 1780391259390017200,
+    "hash": "d124eb27574539e9020cdef87afdfdab3ce7aebc7680183e64f5fb57b39dc1ea"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\telemetry\\src\\index.ts": {
+    "size": 416,
+    "mtime_ns": 1780300923234075300,
+    "hash": "fabeeed82591217c2a4a560d1b5b6adb06c0c9f6995c8b00008bd8f4e937d67b"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\telemetry\\src\\langfuse.ts": {
+    "size": 1316,
+    "mtime_ns": 1780300923234075300,
+    "hash": "e6e3f07cbcc073d01e6d955ef518256b7f1dd9359f57265d7523d9c116dc30fd"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\telemetry\\src\\logger.ts": {
+    "size": 673,
+    "mtime_ns": 1780300923234075300,
+    "hash": "cfbb16a500f84532d9fdd95e8d6d24bd3f6e42a5cf0050ff5b3c8e528c5416e0"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\telemetry\\src\\tracing.ts": {
+    "size": 1665,
+    "mtime_ns": 1780391259524168100,
+    "hash": "724a5416647c6c4cdd6e71298926116840c9a2a996cb7095b2eda9303b451e26"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\infra\\telemetry\\tsconfig.json": {
+    "size": 217,
+    "mtime_ns": 1780300923234075300,
+    "hash": "62c6f00e309c63f7c5ccd36c4ed4b3f7298004b51d090f4c8addca6a670a2b3b"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\mcp\\package.json": {
+    "size": 215,
+    "mtime_ns": 1780304934096519000,
+    "hash": "594770b767218b4e7cf7e9249f3a9f628712a9aed16b35cb16013283cf0520a8"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\mcp\\src\\index.ts": {
+    "size": 478,
+    "mtime_ns": 1780304948394700900,
+    "hash": "4f0116ff798f7b9d90bbfcd94b6251f24a76c9edda6992e99359b27afa38a020"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\mcp\\src\\mcp-client.interface.ts": {
+    "size": 768,
+    "mtime_ns": 1780304948410965300,
+    "hash": "0729abd61ebcbbab3f2c337f828b4431ea0bc25406fdb518c0e574df2da583a7"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\mcp\\src\\mcp-transport.interface.ts": {
+    "size": 1906,
+    "mtime_ns": 1780304948424186300,
+    "hash": "3796de14304d9d8646df339ba7c3f94bb0b2eb01392340566cb896d735937962"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\mcp\\src\\mcp.registry.ts": {
+    "size": 1848,
+    "mtime_ns": 1780304948440626700,
+    "hash": "0c75a06f96b529d280275dc5c80c50abeb31833465e95f769f3f3c1711fe5c3e"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\mcp\\src\\providers\\docs.provider.ts": {
+    "size": 1752,
+    "mtime_ns": 1780304948451529500,
+    "hash": "12a800badb424aa2b696ba05bd5ae4a671c84caf5ad26fd2911950efd8e6e6aa"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\mcp\\src\\providers\\github.provider.ts": {
+    "size": 1634,
+    "mtime_ns": 1780304948460851200,
+    "hash": "0fc4dbade03a116363087592cb51619be2f4fdb8132d6b530c0bc343636949e2"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\mcp\\src\\providers\\jira.provider.ts": {
+    "size": 1938,
+    "mtime_ns": 1780304948475854800,
+    "hash": "572ec96be9e36c02826af8711c129cb0ec7c6008dc65cfb38b348a07aed748b9"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\mcp\\tsconfig.json": {
+    "size": 160,
+    "mtime_ns": 1780304934102540200,
+    "hash": "7f2213185c7fa5c30c009b9887b7e2ffe8555bac2d8aee47f407a91678c96251"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\constants\\package.json": {
+    "size": 206,
+    "mtime_ns": 1780298507445547300,
+    "hash": "9f958173b52ae005138a89863ecef1445fc8684b5643f76aac1540e95e9db3cd"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\constants\\src\\index.ts": {
+    "size": 1699,
+    "mtime_ns": 1780298514150466200,
+    "hash": "a6698e2760c5727378ac56efc1a0ea5bbbea4db555fb4d88d467d67032319457"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\constants\\tsconfig.json": {
+    "size": 218,
+    "mtime_ns": 1780298507464105700,
+    "hash": "60a9419b3a5764f9df72e13ca5dd07632bfeb41ccde7e6fbd05e101728103d1b"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\prompts\\package.json": {
+    "size": 204,
+    "mtime_ns": 1780298507470215100,
+    "hash": "2cd6fa0a488921f70b6c6dca38d7658ecccd0d6ff080792a27c864677bb35d7e"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\prompts\\src\\index.ts": {
+    "size": 59,
+    "mtime_ns": 1780298514166816900,
+    "hash": "ac48e488508c8471b5dbd97c7d8e999a9372469663fbabb99f34473580c32cbe"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\prompts\\src\\registry.ts": {
+    "size": 1388,
+    "mtime_ns": 1780298514197162100,
+    "hash": "d0809d1524befa088850927aa9d83ca0459424ae67b8c27d238ed3d81ec38ee6"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\prompts\\src\\types.ts": {
+    "size": 525,
+    "mtime_ns": 1780298514208753500,
+    "hash": "a7dea6bc18698aab6d75b14f3930d90f724be614728ea609e3e51f1d347aee7c"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\prompts\\tsconfig.json": {
+    "size": 216,
+    "mtime_ns": 1780298507479159300,
+    "hash": "a549710ba680747941e502eca42ff8392ea7ba42a98e705457cb44247692a625"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\schemas\\package.json": {
+    "size": 250,
+    "mtime_ns": 1780298507493821000,
+    "hash": "a41c4d99ccfa3da5a00a9adb05c94cf8134abfb5af8025c64e7feed23282e901"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\schemas\\src\\agent.schema.ts": {
+    "size": 1473,
+    "mtime_ns": 1780298514237773500,
+    "hash": "3659198b606218a18cbcacf5c51dda7f3f6716a660d843b64a4f738fcf962414"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\schemas\\src\\env.schema.ts": {
+    "size": 1393,
+    "mtime_ns": 1780319680568092700,
+    "hash": "e118df8e032ce90acf85c628464fd5596ad1c90153f27d0979f49787a89b7334"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\schemas\\src\\evaluation.schema.ts": {
+    "size": 789,
+    "mtime_ns": 1780298514266933400,
+    "hash": "160df68e83da14f2b2c7ba2fcb81238f8ca1d94ca6d081966c47ce02b7489145"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\schemas\\src\\index.ts": {
+    "size": 180,
+    "mtime_ns": 1780298514269702000,
+    "hash": "e19cb23e07b79098398dd9c9805dc0750ea322a35158010958519273f95ee0a6"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\schemas\\src\\task.schema.ts": {
+    "size": 1546,
+    "mtime_ns": 1780298514288016300,
+    "hash": "1578d686b7d4d9cb4f57b8204b30552f141852f588c13730c04bc059808697b4"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\schemas\\src\\workflow.schema.ts": {
+    "size": 1958,
+    "mtime_ns": 1780333964662768600,
+    "hash": "d1de74579744711f1caead587b52721fdd068931c7fb7bf87f98beb1ccfdda65"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\schemas\\tsconfig.json": {
+    "size": 216,
+    "mtime_ns": 1780298507503375400,
+    "hash": "65678a3fb52261cb6ff406184f7c2fda7637ffbe6a95dcc347e1d04382f8d643"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\types\\package.json": {
+    "size": 202,
+    "mtime_ns": 1780298507512551700,
+    "hash": "67024f92f296b7bd930aad970bf0cecaffd60db85e770a5a9f40593fc8e7b0ae"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\types\\src\\agent.ts": {
+    "size": 1266,
+    "mtime_ns": 1780298514311990200,
+    "hash": "0e1fa896215cbcaa3357b88c12444afbb784e45859a713bad4474de8f53b175c"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\types\\src\\error.ts": {
+    "size": 710,
+    "mtime_ns": 1780298514324083200,
+    "hash": "d91fdf82f4f2942039f475a8222b009bf9da57c65deed13cce966655c99f4c17"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\types\\src\\evaluation.ts": {
+    "size": 668,
+    "mtime_ns": 1780298514331569100,
+    "hash": "f048c49420bdd8267cbe3fbc5990ec4ee3aae026e4b35ef9ed8f823aafcc42e9"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\types\\src\\index.ts": {
+    "size": 200,
+    "mtime_ns": 1780298514336341000,
+    "hash": "183c1d830db160180a5be631a326bed1fb0817b54816e1a0013a0a77a15206d2"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\types\\src\\mcp.ts": {
+    "size": 605,
+    "mtime_ns": 1780298514344177000,
+    "hash": "bdbc19ce57489d6f2913c8b97f11f2be8670172da7879df267d1b7be0a865540"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\types\\src\\task.ts": {
+    "size": 1054,
+    "mtime_ns": 1780298514352589600,
+    "hash": "fd7f71bcd85363650d268a3b425085455521b02df29a85ecca7423470df5c7c9"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\types\\src\\user.ts": {
+    "size": 383,
+    "mtime_ns": 1780333964652722300,
+    "hash": "dc5ce7c27acf7e0f96a98eef1376b675d1d99c8942ffc85625bcd48d046e6925"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\types\\src\\workflow.ts": {
+    "size": 1348,
+    "mtime_ns": 1780298514361820200,
+    "hash": "dface55af331590c8753a82436dd17c8c4bc7659bad5695a6de554bfced0d395"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\shared\\types\\tsconfig.json": {
+    "size": 214,
+    "mtime_ns": 1780298507521533900,
+    "hash": "8e59cc19ef2bb71403b9dc4c83272c7142f6d893ae747e6175c9c05a1d803bc0"
+  },
+  "C:\\Users\\VantawlL\\projects\\ai-sdlc-assistant-platform\\libs\\ai\\model-gateway\\README.md": {
+    "size": 4144,
+    "mtime_ns": 1780506608771058500,
+    "hash": "d58e603d8e432932a6eb93c9783311db4256179f4c7429ab75f61af59001eb8c"
+  }
+}

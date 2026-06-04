@@ -1,0 +1,647 @@
+{
+  "nodes": [
+    {
+      "id": "reviewer_revieweragent",
+      "label": "ReviewerAgent",
+      "file_type": "code",
+      "source_file": "libs/agents/reviewer/src/reviewer.agent.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "reviewer_revieweragent_spec",
+      "label": "ReviewerAgent Spec",
+      "file_type": "code",
+      "source_file": "libs/agents/reviewer/src/reviewer.agent.spec.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "reviewer_reviewerstate",
+      "label": "ReviewerState",
+      "file_type": "code",
+      "source_file": "libs/agents/reviewer/src/reviewer.state.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "reviewer_index",
+      "label": "Reviewer Agent Index",
+      "file_type": "code",
+      "source_file": "libs/agents/reviewer/src/index.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "modelgateway_models_catalog",
+      "label": "Model Catalog",
+      "file_type": "code",
+      "source_file": "libs/ai/model-gateway/src/catalog/models.catalog.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "modelgateway_default_profiles",
+      "label": "Default Profiles Config",
+      "file_type": "code",
+      "source_file": "libs/ai/model-gateway/src/config/default-profiles.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "modelgateway_create_gateway",
+      "label": "createModelGateway Factory",
+      "file_type": "code",
+      "source_file": "libs/ai/model-gateway/src/gateway/create-gateway.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "modelgateway_modelgatewayservice",
+      "label": "ModelGatewayService",
+      "file_type": "code",
+      "source_file": "libs/ai/model-gateway/src/gateway/model-gateway.service.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "modelgateway_index",
+      "label": "Model Gateway Index",
+      "file_type": "code",
+      "source_file": "libs/ai/model-gateway/src/index.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "modelgateway_modelconfig_interface",
+      "label": "ModelConfig Interface",
+      "file_type": "code",
+      "source_file": "libs/ai/model-gateway/src/interfaces/model-config.interface.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "modelgateway_modelgateway_interface",
+      "label": "ModelGateway Interface",
+      "file_type": "code",
+      "source_file": "libs/ai/model-gateway/src/interfaces/model-gateway.interface.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "modelgateway_anthropic_provider",
+      "label": "AnthropicProvider",
+      "file_type": "code",
+      "source_file": "libs/ai/model-gateway/src/providers/anthropic.provider.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "modelgateway_google_provider",
+      "label": "GoogleProvider",
+      "file_type": "code",
+      "source_file": "libs/ai/model-gateway/src/providers/google.provider.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "modelgateway_openai_provider",
+      "label": "OpenAIProvider",
+      "file_type": "code",
+      "source_file": "libs/ai/model-gateway/src/providers/openai.provider.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "modelgateway_provider_interface",
+      "label": "ModelProviderAdapter Interface",
+      "file_type": "code",
+      "source_file": "libs/ai/model-gateway/src/providers/provider.interface.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "modelgateway_gateway_spec",
+      "label": "ModelGatewayService Spec",
+      "file_type": "code",
+      "source_file": "libs/ai/model-gateway/__tests__/model-gateway.spec.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "modelgateway_registry_spec",
+      "label": "ModelRegistry Spec",
+      "file_type": "code",
+      "source_file": "libs/ai/model-gateway/__tests__/model-registry.spec.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "reviewer_revieweragent",
+      "target": "reviewer_reviewerstate",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/agents/reviewer/src/reviewer.agent.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "reviewer_revieweragent",
+      "target": "modelgateway_modelgateway_interface",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/agents/reviewer/src/reviewer.agent.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "reviewer_revieweragent",
+      "target": "modelgateway_modelgatewayservice",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/agents/reviewer/src/reviewer.agent.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "reviewer_revieweragent_spec",
+      "target": "reviewer_revieweragent",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/agents/reviewer/src/reviewer.agent.spec.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "reviewer_revieweragent_spec",
+      "target": "modelgateway_modelgateway_interface",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/agents/reviewer/src/reviewer.agent.spec.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "reviewer_index",
+      "target": "reviewer_revieweragent",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/agents/reviewer/src/index.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "reviewer_index",
+      "target": "reviewer_reviewerstate",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/agents/reviewer/src/index.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_create_gateway",
+      "target": "modelgateway_models_catalog",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/gateway/create-gateway.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_create_gateway",
+      "target": "modelgateway_default_profiles",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/gateway/create-gateway.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_create_gateway",
+      "target": "modelgateway_openai_provider",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/gateway/create-gateway.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_create_gateway",
+      "target": "modelgateway_anthropic_provider",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/gateway/create-gateway.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_create_gateway",
+      "target": "modelgateway_google_provider",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/gateway/create-gateway.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_create_gateway",
+      "target": "modelgateway_modelgatewayservice",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/gateway/create-gateway.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_modelgatewayservice",
+      "target": "modelgateway_modelgateway_interface",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/gateway/model-gateway.service.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_modelgatewayservice",
+      "target": "modelgateway_provider_interface",
+      "relation": "calls",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/gateway/model-gateway.service.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_anthropic_provider",
+      "target": "modelgateway_provider_interface",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/providers/anthropic.provider.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_google_provider",
+      "target": "modelgateway_provider_interface",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/providers/google.provider.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_openai_provider",
+      "target": "modelgateway_provider_interface",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/providers/openai.provider.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_anthropic_provider",
+      "target": "modelgateway_openai_provider",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "libs/ai/model-gateway/src/providers/anthropic.provider.ts",
+      "source_location": null,
+      "weight": 0.95
+    },
+    {
+      "source": "modelgateway_google_provider",
+      "target": "modelgateway_openai_provider",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "libs/ai/model-gateway/src/providers/google.provider.ts",
+      "source_location": null,
+      "weight": 0.95
+    },
+    {
+      "source": "modelgateway_anthropic_provider",
+      "target": "modelgateway_google_provider",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "libs/ai/model-gateway/src/providers/anthropic.provider.ts",
+      "source_location": null,
+      "weight": 0.95
+    },
+    {
+      "source": "modelgateway_anthropic_provider",
+      "target": "modelgateway_modelconfig_interface",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/providers/anthropic.provider.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_google_provider",
+      "target": "modelgateway_modelconfig_interface",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/providers/google.provider.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_openai_provider",
+      "target": "modelgateway_modelconfig_interface",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/providers/openai.provider.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_models_catalog",
+      "target": "modelgateway_modelconfig_interface",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/catalog/models.catalog.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_default_profiles",
+      "target": "modelgateway_modelconfig_interface",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/config/default-profiles.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_default_profiles",
+      "target": "modelgateway_models_catalog",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "libs/ai/model-gateway/src/config/default-profiles.ts",
+      "source_location": null,
+      "weight": 0.95
+    },
+    {
+      "source": "modelgateway_gateway_spec",
+      "target": "modelgateway_modelgatewayservice",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/__tests__/model-gateway.spec.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_gateway_spec",
+      "target": "modelgateway_provider_interface",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/__tests__/model-gateway.spec.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_registry_spec",
+      "target": "modelgateway_provider_interface",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/__tests__/model-registry.spec.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_registry_spec",
+      "target": "modelgateway_modelconfig_interface",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/__tests__/model-registry.spec.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_index",
+      "target": "modelgateway_modelgateway_interface",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/index.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_index",
+      "target": "modelgateway_modelconfig_interface",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/index.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_index",
+      "target": "modelgateway_provider_interface",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/index.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_index",
+      "target": "modelgateway_openai_provider",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/index.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_index",
+      "target": "modelgateway_anthropic_provider",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/index.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_index",
+      "target": "modelgateway_google_provider",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/index.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_index",
+      "target": "modelgateway_modelgatewayservice",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/index.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_index",
+      "target": "modelgateway_create_gateway",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/index.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_index",
+      "target": "modelgateway_models_catalog",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/index.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelgateway_index",
+      "target": "modelgateway_default_profiles",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/index.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "reviewer_revieweragent",
+      "target": "modelgateway_default_profiles",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "libs/agents/reviewer/src/reviewer.agent.ts",
+      "source_location": null,
+      "weight": 0.85
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "llm_provider_implementations",
+      "label": "LLM Provider Implementations of ModelProviderAdapter",
+      "nodes": [
+        "modelgateway_openai_provider",
+        "modelgateway_anthropic_provider",
+        "modelgateway_google_provider"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/providers/provider.interface.ts"
+    },
+    {
+      "id": "gateway_factory_assembly",
+      "label": "createModelGateway assembles all providers and config into the gateway",
+      "nodes": [
+        "modelgateway_create_gateway",
+        "modelgateway_openai_provider",
+        "modelgateway_anthropic_provider",
+        "modelgateway_google_provider",
+        "modelgateway_models_catalog",
+        "modelgateway_default_profiles",
+        "modelgateway_modelgatewayservice"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/ai/model-gateway/src/gateway/create-gateway.ts"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}

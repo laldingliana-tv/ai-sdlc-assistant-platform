@@ -1,0 +1,418 @@
+{
+  "nodes": [
+    {
+      "id": "modelregistry_ModelRegistry",
+      "label": "ModelRegistry",
+      "file_type": "code",
+      "source_file": "libs/ai/model-gateway/src/registry/model-registry.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "evaluatorinterface_Evaluator",
+      "label": "Evaluator Interface",
+      "file_type": "code",
+      "source_file": "libs/evaluations/src/evaluator.interface.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "evaluatorregistry_EvaluatorRegistry",
+      "label": "EvaluatorRegistry",
+      "file_type": "code",
+      "source_file": "libs/evaluations/src/evaluator.registry.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "qualityevaluator_QualityEvaluator",
+      "label": "QualityEvaluator",
+      "file_type": "code",
+      "source_file": "libs/evaluations/src/evaluators/quality.evaluator.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "relevanceevaluator_RelevanceEvaluator",
+      "label": "RelevanceEvaluator",
+      "file_type": "code",
+      "source_file": "libs/evaluations/src/evaluators/relevance.evaluator.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "authguard_AuthGuard",
+      "label": "AuthGuard",
+      "file_type": "code",
+      "source_file": "libs/infra/auth/src/auth.guard.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "authmodule_AuthModule",
+      "label": "AuthModule (NestJS)",
+      "file_type": "code",
+      "source_file": "libs/infra/auth/src/auth.module.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "throttleguard_ThrottleGuard",
+      "label": "ThrottleGuard",
+      "file_type": "code",
+      "source_file": "libs/infra/auth/src/throttle.guard.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "rbacdecor_Roles",
+      "label": "Roles RBAC Decorator",
+      "file_type": "code",
+      "source_file": "libs/infra/auth/src/rbac.decorator.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "infraauthindex_Exports",
+      "label": "infra-auth Library Index",
+      "file_type": "code",
+      "source_file": "libs/infra/auth/src/index.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "evaluationsindex_Exports",
+      "label": "evaluations Library Index",
+      "file_type": "code",
+      "source_file": "libs/evaluations/src/index.ts",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "infradatabasepkg_Package",
+      "label": "@ai-sdlc/infra-database Package",
+      "file_type": "code",
+      "source_file": "libs/infra/database/package.json",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "qualityevaluator_QualityEvaluator",
+      "target": "evaluatorinterface_Evaluator",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/evaluations/src/evaluators/quality.evaluator.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "relevanceevaluator_RelevanceEvaluator",
+      "target": "evaluatorinterface_Evaluator",
+      "relation": "implements",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/evaluations/src/evaluators/relevance.evaluator.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "evaluatorregistry_EvaluatorRegistry",
+      "target": "evaluatorinterface_Evaluator",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/evaluations/src/evaluator.registry.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "evaluatorregistry_EvaluatorRegistry",
+      "target": "qualityevaluator_QualityEvaluator",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "libs/evaluations/src/evaluator.registry.ts",
+      "source_location": null,
+      "weight": 0.95
+    },
+    {
+      "source": "evaluatorregistry_EvaluatorRegistry",
+      "target": "relevanceevaluator_RelevanceEvaluator",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "libs/evaluations/src/evaluator.registry.ts",
+      "source_location": null,
+      "weight": 0.95
+    },
+    {
+      "source": "modelregistry_ModelRegistry",
+      "target": "evaluatorregistry_EvaluatorRegistry",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "libs/ai/model-gateway/src/registry/model-registry.ts",
+      "source_location": null,
+      "weight": 0.95
+    },
+    {
+      "source": "qualityevaluator_QualityEvaluator",
+      "target": "relevanceevaluator_RelevanceEvaluator",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "libs/evaluations/src/evaluators/quality.evaluator.ts",
+      "source_location": null,
+      "weight": 0.95
+    },
+    {
+      "source": "authmodule_AuthModule",
+      "target": "authguard_AuthGuard",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "libs/infra/auth/src/auth.module.ts",
+      "source_location": null,
+      "weight": 0.95
+    },
+    {
+      "source": "authmodule_AuthModule",
+      "target": "throttleguard_ThrottleGuard",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "libs/infra/auth/src/auth.module.ts",
+      "source_location": null,
+      "weight": 0.95
+    },
+    {
+      "source": "authmodule_AuthModule",
+      "target": "rbacdecor_Roles",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "libs/infra/auth/src/auth.module.ts",
+      "source_location": null,
+      "weight": 0.85
+    },
+    {
+      "source": "infraauthindex_Exports",
+      "target": "authmodule_AuthModule",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/infra/auth/src/index.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "infraauthindex_Exports",
+      "target": "authguard_AuthGuard",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/infra/auth/src/index.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "infraauthindex_Exports",
+      "target": "rbacdecor_Roles",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/infra/auth/src/index.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "infraauthindex_Exports",
+      "target": "throttleguard_ThrottleGuard",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/infra/auth/src/index.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "evaluationsindex_Exports",
+      "target": "evaluatorinterface_Evaluator",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/evaluations/src/index.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "evaluationsindex_Exports",
+      "target": "evaluatorregistry_EvaluatorRegistry",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/evaluations/src/index.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "evaluationsindex_Exports",
+      "target": "qualityevaluator_QualityEvaluator",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/evaluations/src/index.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "evaluationsindex_Exports",
+      "target": "relevanceevaluator_RelevanceEvaluator",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/evaluations/src/index.ts",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "modelregistry_ModelRegistry",
+      "target": "modelregistry_ModelRegistry",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "libs/ai/model-gateway/src/registry/model-registry.ts",
+      "source_location": null,
+      "weight": 0.85
+    },
+    {
+      "source": "authguard_AuthGuard",
+      "target": "throttleguard_ThrottleGuard",
+      "relation": "semantically_similar_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "libs/infra/auth/src/index.ts",
+      "source_location": null,
+      "weight": 0.85
+    },
+    {
+      "source": "rbacdecor_Roles",
+      "target": "authguard_AuthGuard",
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "libs/infra/auth/src/rbac.decorator.ts",
+      "source_location": null,
+      "weight": 0.85
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "evaluator_implementations",
+      "label": "Evaluator Implementations (Quality + Relevance)",
+      "nodes": [
+        "qualityevaluator_QualityEvaluator",
+        "relevanceevaluator_RelevanceEvaluator",
+        "evaluatorinterface_Evaluator"
+      ],
+      "relation": "implement",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/evaluations/src/index.ts"
+    },
+    {
+      "id": "registry_pattern_implementors",
+      "label": "Registry Pattern Implementors (ModelRegistry + EvaluatorRegistry)",
+      "nodes": ["modelregistry_ModelRegistry", "evaluatorregistry_EvaluatorRegistry"],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "libs/ai/model-gateway/src/registry/model-registry.ts"
+    },
+    {
+      "id": "auth_module_composition",
+      "label": "AuthModule Guard and Decorator Composition",
+      "nodes": [
+        "authmodule_AuthModule",
+        "authguard_AuthGuard",
+        "throttleguard_ThrottleGuard",
+        "rbacdecor_Roles"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "libs/infra/auth/src/auth.module.ts"
+    },
+    {
+      "id": "evaluations_library_exports",
+      "label": "Evaluations Library Public API",
+      "nodes": [
+        "evaluationsindex_Exports",
+        "evaluatorinterface_Evaluator",
+        "evaluatorregistry_EvaluatorRegistry",
+        "qualityevaluator_QualityEvaluator",
+        "relevanceevaluator_RelevanceEvaluator"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/evaluations/src/index.ts"
+    },
+    {
+      "id": "infra_auth_library_exports",
+      "label": "infra-auth Library Public API",
+      "nodes": [
+        "infraauthindex_Exports",
+        "authmodule_AuthModule",
+        "authguard_AuthGuard",
+        "throttleguard_ThrottleGuard",
+        "rbacdecor_Roles"
+      ],
+      "relation": "participate_in",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "libs/infra/auth/src/index.ts"
+    }
+  ],
+  "input_tokens": 0,
+  "output_tokens": 0
+}
