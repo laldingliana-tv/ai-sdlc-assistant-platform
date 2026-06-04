@@ -42,3 +42,18 @@ docker-compose.override.yml
 
 vite.config.*.timestamp*
 .claude/worktrees
+
+# Graphify — pipeline cache (regenerable, keep outputs: graph.html, graph.json, GRAPH_REPORT.md, manifest.json, cost.json)
+graphify-out/.graphify_ast.json
+graphify-out/.graphify_cache.json
+graphify-out/.graphify_chunk_*.json
+graphify-out/.graphify_detect.json
+graphify-out/.graphify_extract.json
+graphify-out/.graphify_semantic.json
+graphify-out/.graphify_semantic_new.json
+graphify-out/.graphify_uncached.txt
+graphify-out/.graphify_step_ast.py
+graphify-out/.graphify_python
+graphify-out/.graphify_analysis.json
+graphify-out/.graphify_chunk_list_*.txt
+graphify-out/cache/
