@@ -62,15 +62,47 @@ describe('PlannerAgent', () => {
     });
   });
 
-  it('should call gateway with planning profile', async () => {
+  it('should call gateway with planning profile and JSON format', async () => {
     await agent.invoke(mockInput);
 
     expect(mockGateway.invoke).toHaveBeenCalledWith(
       expect.objectContaining({
-        profile: { name: 'planning' },
+        profile: { name: 'planning', overrides: { responseFormat: 'json' } },
         metadata: { agentName: 'planner', taskId: 'task-001' },
       }),
     );
+  });
+
+  it('should parse structured output when gateway returns valid JSON', async () => {
+    const structured = JSON.stringify({
+      agent: 'planner',
+      phases: [
+        {
+          id: 1,
+          title: 'Setup',
+          description: 'Initial setup',
+          steps: [{ id: 1, action: 'Create config', acceptanceCriteria: 'Config exists' }],
+        },
+      ],
+      summary: 'A structured plan',
+      estimatedComplexity: 'medium',
+    });
+    const structuredGateway = createMockGateway({ content: structured });
+    const structuredAgent = new PlannerAgent(structuredGateway);
+
+    const output = await structuredAgent.invoke(mockInput);
+
+    expect(output.result!.structuredOutput).toBeDefined();
+    expect(output.result!.structuredOutput!.agent).toBe('planner');
+    const planOutput = output.result!.structuredOutput as { phases: { title: string }[] };
+    expect(planOutput.phases[0].title).toBe('Setup');
+  });
+
+  it('should still return content when JSON parsing fails', async () => {
+    const output = await agent.invoke(mockInput);
+
+    expect(output.result!.content).toBe('Plan: Phase 1, Phase 2, Phase 3');
+    expect(output.result!.structuredOutput).toBeUndefined();
   });
 
   it('should return failed status on gateway error', async () => {
@@ -88,6 +120,19 @@ describe('PlannerAgent', () => {
       message: 'API key missing',
       retryable: false,
     });
-    expect(output.durationMs).toBe(0);
+    expect(output.durationMs).toBeGreaterThanOrEqual(0);
+  });
+
+  it('should mark rate limit errors as retryable', async () => {
+    const errorGateway = createMockGateway();
+    (errorGateway.invoke as ReturnType<typeof vi.fn>).mockRejectedValue(
+      new Error('Rate limit exceeded (429)'),
+    );
+    const failAgent = new PlannerAgent(errorGateway);
+
+    const output = await failAgent.invoke(mockInput);
+
+    expect(output.status).toBe('failed');
+    expect(output.error!.retryable).toBe(true);
   });
 });

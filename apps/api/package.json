@@ -24,7 +24,7 @@
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.1",
     "uuid": "^10.0.0",
-    "zod": "^3.23.8",
+    "zod": "^3.25.76",
     "@ai-sdlc/infra-auth": "workspace:*",
     "@ai-sdlc/infra-database": "workspace:*",
     "@ai-sdlc/infra-governance": "workspace:*",

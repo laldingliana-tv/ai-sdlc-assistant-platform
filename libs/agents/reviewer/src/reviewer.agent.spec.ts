@@ -65,15 +65,39 @@ describe('ReviewerAgent', () => {
     });
   });
 
-  it('should call gateway with review profile', async () => {
+  it('should call gateway with review profile and JSON format', async () => {
     await agent.invoke(mockInput);
 
     expect(mockGateway.invoke).toHaveBeenCalledWith(
       expect.objectContaining({
-        profile: { name: 'review' },
+        profile: { name: 'review', overrides: { responseFormat: 'json' } },
         metadata: { agentName: 'reviewer', taskId: 'task-001' },
       }),
     );
+  });
+
+  it('should parse structured output when gateway returns valid JSON', async () => {
+    const structured = JSON.stringify({
+      agent: 'reviewer',
+      verdict: 'approved',
+      score: 9,
+      findings: [{ severity: 'suggestion', category: 'style', message: 'Consider adding JSDoc' }],
+      summary: 'Well-structured implementation',
+    });
+    const structuredGateway = createMockGateway({ content: structured });
+    const structuredAgent = new ReviewerAgent(structuredGateway);
+
+    const output = await structuredAgent.invoke(mockInput);
+
+    expect(output.result!.structuredOutput).toBeDefined();
+    expect(output.result!.structuredOutput!.agent).toBe('reviewer');
+  });
+
+  it('should still return content when JSON parsing fails', async () => {
+    const output = await agent.invoke(mockInput);
+
+    expect(output.result!.content).toContain('APPROVED');
+    expect(output.result!.structuredOutput).toBeUndefined();
   });
 
   it('should return failed status on gateway error', async () => {
@@ -91,5 +115,6 @@ describe('ReviewerAgent', () => {
       message: 'Invalid API key',
       retryable: false,
     });
+    expect(output.durationMs).toBeGreaterThanOrEqual(0);
   });
 });

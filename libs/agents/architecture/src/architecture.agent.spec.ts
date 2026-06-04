@@ -75,15 +75,48 @@ describe('ArchitectureAgent', () => {
     });
   });
 
-  it('should call gateway with planning profile', async () => {
+  it('should call gateway with planning profile and JSON format', async () => {
     await agent.invoke(mockInput);
 
     expect(mockGateway.invoke).toHaveBeenCalledWith(
       expect.objectContaining({
-        profile: { name: 'planning' },
+        profile: { name: 'planning', overrides: { responseFormat: 'json' } },
         metadata: { agentName: 'architecture', taskId: 'task-001' },
       }),
     );
+  });
+
+  it('should parse structured output when gateway returns valid JSON', async () => {
+    const structured = JSON.stringify({
+      agent: 'architecture',
+      decisions: [
+        {
+          id: 'ADR-001',
+          title: 'Use CSS vars',
+          status: 'accepted',
+          context: 'Need theming',
+          decision: 'CSS custom properties',
+          consequences: ['Simple', 'Fast'],
+        },
+      ],
+      constraints: ['Must support IE11'],
+      verdict: 'approved',
+      rationale: 'Solid approach',
+    });
+    const structuredGateway = createMockGateway({ content: structured });
+    const structuredAgent = new ArchitectureAgent(structuredGateway);
+
+    const output = await structuredAgent.invoke(mockInput);
+
+    expect(output.result!.structuredOutput).toBeDefined();
+    expect(output.result!.structuredOutput!.agent).toBe('architecture');
+  });
+
+  it('should still return content when JSON parsing fails', async () => {
+    const output = await agent.invoke(mockInput);
+
+    expect(output.result!.content).toContain('CSS Custom Properties');
+    expect(output.result!.structuredOutput).toBeUndefined();
   });
 
   it('should return failed status on gateway error', async () => {
@@ -99,7 +132,8 @@ describe('ArchitectureAgent', () => {
     expect(output.error).toEqual({
       code: 'GATEWAY_ERROR',
       message: 'Connection timeout',
-      retryable: false,
+      retryable: true,
     });
+    expect(output.durationMs).toBeGreaterThanOrEqual(0);
   });
 });
