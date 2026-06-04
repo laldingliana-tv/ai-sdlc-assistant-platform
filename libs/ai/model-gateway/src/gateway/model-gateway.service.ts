@@ -1,6 +1,7 @@
 import type { BaseChatModel } from '@langchain/core/language_models/chat_models';
 import type { AIMessage } from '@langchain/core/messages';
 
+import type { ProviderType } from '../interfaces/model-config.interface.js';
 import type {
   ModelGateway,
   ModelProfile,
@@ -31,9 +32,20 @@ export class ModelGatewayService implements ModelGateway {
     });
 
     let invocableModel = model;
+
+    // Apply JSON response format if requested (provider-aware)
+    if (request.profile.overrides?.responseFormat === 'json') {
+      const bindParams = this.getJsonModeParams(definition.provider);
+      invocableModel = (
+        invocableModel as unknown as {
+          bind: (kwargs: Record<string, unknown>) => BaseChatModel;
+        }
+      ).bind(bindParams);
+    }
+
     if (request.tools && request.tools.length > 0) {
       invocableModel = (
-        model as unknown as { bindTools: (tools: unknown[]) => BaseChatModel }
+        invocableModel as unknown as { bindTools: (tools: unknown[]) => BaseChatModel }
       ).bindTools(
         request.tools.map((t) => ({
           name: t.name,
@@ -63,6 +75,9 @@ export class ModelGatewayService implements ModelGateway {
   }
 
   async *stream(request: ModelRequest): AsyncIterable<ModelStreamChunk> {
+    // TODO: responseFormat: 'json' is not applied during streaming.
+    // Most providers don't support JSON mode with streaming. If needed,
+    // replicate the bind logic here or throw if responseFormat is requested via stream.
     const { definition, mapping } = this.registry.resolveProfile(request.profile.name);
     const model = this.registry.createModel(definition, {
       temperature: request.profile.overrides?.temperature ?? mapping.temperature,
@@ -104,5 +119,27 @@ export class ModelGatewayService implements ModelGateway {
       name: tc.name,
       arguments: (tc.args as Record<string, unknown>) ?? {},
     }));
+  }
+
+  /**
+   * Returns provider-specific bind parameters for JSON mode.
+   * - OpenAI: `response_format: { type: 'json_object' }`
+   * - Anthropic: handled via system prompt (LangChain Anthropic doesn't use response_format);
+   *   we still pass the OpenAI-style param since @langchain/anthropic silently ignores it.
+   * - Google: `response_mime_type: 'application/json'`
+   */
+  private getJsonModeParams(provider: ProviderType): Record<string, unknown> {
+    switch (provider) {
+      case 'google':
+        return { response_mime_type: 'application/json' };
+      case 'anthropic':
+        // Anthropic doesn't have a native JSON mode parameter.
+        // JSON output is enforced via the system prompt instruction.
+        // Pass response_format anyway — LangChain adapters may support it in the future.
+        return { response_format: { type: 'json_object' } };
+      case 'openai':
+      default:
+        return { response_format: { type: 'json_object' } };
+    }
   }
 }

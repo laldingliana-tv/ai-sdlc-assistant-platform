@@ -81,15 +81,41 @@ describe('ImplementorAgent', () => {
     });
   });
 
-  it('should call gateway with coding profile', async () => {
+  it('should call gateway with coding profile and JSON format', async () => {
     await agent.invoke(mockInput);
 
     expect(mockGateway.invoke).toHaveBeenCalledWith(
       expect.objectContaining({
-        profile: { name: 'coding' },
+        profile: { name: 'coding', overrides: { responseFormat: 'json' } },
         metadata: { agentName: 'implementor', taskId: 'task-001' },
       }),
     );
+  });
+
+  it('should parse structured output when gateway returns valid JSON', async () => {
+    const structured = JSON.stringify({
+      agent: 'implementor',
+      changes: [
+        {
+          filePath: 'src/theme.ts',
+          action: 'create',
+          language: 'typescript',
+          description: 'Theme provider',
+        },
+      ],
+      testStrategy: {
+        approach: 'Unit tests',
+        testFiles: [{ filePath: 'src/theme.spec.ts', testCases: ['should toggle dark mode'] }],
+      },
+      summary: 'Created theme provider',
+    });
+    const structuredGateway = createMockGateway({ content: structured });
+    const structuredAgent = new ImplementorAgent(structuredGateway);
+
+    const output = await structuredAgent.invoke(mockInput);
+
+    expect(output.result!.structuredOutput).toBeDefined();
+    expect(output.result!.structuredOutput!.agent).toBe('implementor');
   });
 
   it('should return failed status on gateway error', async () => {
@@ -105,7 +131,8 @@ describe('ImplementorAgent', () => {
     expect(output.error).toEqual({
       code: 'GATEWAY_ERROR',
       message: 'Model overloaded',
-      retryable: false,
+      retryable: true,
     });
+    expect(output.durationMs).toBeGreaterThanOrEqual(0);
   });
 });

@@ -62,15 +62,45 @@ describe('RetrieverAgent', () => {
     });
   });
 
-  it('should call gateway with retrieval profile', async () => {
+  it('should call gateway with retrieval profile and JSON format', async () => {
     await agent.invoke(mockInput);
 
     expect(mockGateway.invoke).toHaveBeenCalledWith(
       expect.objectContaining({
-        profile: { name: 'retrieval' },
+        profile: { name: 'retrieval', overrides: { responseFormat: 'json' } },
         metadata: { agentName: 'retriever', taskId: 'task-001' },
       }),
     );
+  });
+
+  it('should parse structured output when gateway returns valid JSON', async () => {
+    const structured = JSON.stringify({
+      agent: 'retriever',
+      sources: [
+        {
+          path: 'libs/shared/types/src/agent.ts',
+          type: 'code',
+          relevance: 0.95,
+          reason: 'Core agent types',
+        },
+      ],
+      summary: 'Found relevant sources',
+      confidence: 0.9,
+    });
+    const structuredGateway = createMockGateway({ content: structured });
+    const structuredAgent = new RetrieverAgent(structuredGateway);
+
+    const output = await structuredAgent.invoke(mockInput);
+
+    expect(output.result!.structuredOutput).toBeDefined();
+    expect(output.result!.structuredOutput!.agent).toBe('retriever');
+  });
+
+  it('should still return content when JSON parsing fails', async () => {
+    const output = await agent.invoke(mockInput);
+
+    expect(output.result!.content).toContain('ADR-007');
+    expect(output.result!.structuredOutput).toBeUndefined();
   });
 
   it('should return failed status on gateway error', async () => {
@@ -86,7 +116,8 @@ describe('RetrieverAgent', () => {
     expect(output.error).toEqual({
       code: 'GATEWAY_ERROR',
       message: 'Rate limit exceeded',
-      retryable: false,
+      retryable: true,
     });
+    expect(output.durationMs).toBeGreaterThanOrEqual(0);
   });
 });
