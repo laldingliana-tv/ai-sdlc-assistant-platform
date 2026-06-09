@@ -77,6 +77,74 @@ pnpm nx run-many -t serve --projects=api,web              # Step 5
 
 The API will be available at `http://localhost:3000` and the web UI at `http://localhost:4200`.
 
+## How the Platform Works (New Joiner Guide)
+
+This section explains the end-to-end flow of the platform so you can understand how all the pieces fit together.
+
+### The Big Picture
+
+This platform automates parts of the Software Development Lifecycle (SDLC) using AI agents. Instead of a single LLM chat, it orchestrates **multiple specialized AI agents** that each handle one phase of a development task — planning, context retrieval, architecture review, implementation, and code review.
+
+Think of it like a virtual engineering team: you describe a task, and the agents collaborate through a structured pipeline to produce a reviewable output (plans, code, reviews).
+
+### End-to-End Flow
+
+```
+Developer submits task ─► API ─► Temporal Workflow ─► Agent Pipeline ─► Results streamed to UI
+```
+
+Here's what happens step by step:
+
+1. **You submit a task** via the Next.js web UI (e.g., "Add dark mode to the settings page").
+2. **The NestJS API** validates the request, persists the task in PostgreSQL, and starts a **Temporal workflow**.
+3. **Temporal** (a durable workflow engine) orchestrates the agent pipeline. Each agent runs as a Temporal "activity" — meaning it's retried automatically on failure and the overall progress is persisted even if a worker crashes.
+4. **The agents execute in sequence:**
+
+   | Step | Agent             | What it does                                                                       |
+   | ---- | ----------------- | ---------------------------------------------------------------------------------- |
+   | 1    | **Planner**       | Breaks the task into structured phases/work items                                  |
+   | 2    | **Retriever**     | Fetches relevant code, docs, and PRs via MCP tools (GitHub, Jira, internal docs)   |
+   | 3    | **Architecture**  | Evaluates the plan against architectural constraints; produces ADR-style decisions |
+   | 4    | **Approval Gate** | Pauses the workflow and waits for a human to approve or reject (up to 24 hours)    |
+   | 5    | **Implementor**   | Generates code changes and a test strategy                                         |
+   | 6    | **Reviewer**      | Reviews the implementation for quality, correctness, and best practices            |
+
+5. **Each agent calls the Model Gateway**, which routes LLM requests to the best available provider (OpenAI, Anthropic, or Google) based on the task's capability profile (e.g., `"coding"` vs `"planning"`).
+6. **Results stream back** to the frontend via Server-Sent Events (SSE), so you see progress in real time.
+
+### Key Concepts
+
+| Concept                          | What it means                                                                                                                                   |
+| -------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Temporal**                     | A workflow engine that makes the pipeline durable — steps survive crashes and can be retried. The workflow code lives in `apps/workers/`.       |
+| **LangGraph**                    | A graph-based framework (from LangChain) used to define each agent's internal reasoning as a state machine. Agent code lives in `libs/agents/`. |
+| **MCP (Model Context Protocol)** | A standard protocol for giving AI agents access to external tools (GitHub search, file reading, Jira lookups). Configured in `libs/mcp/`.       |
+| **Model Gateway**                | An abstraction layer (`libs/ai/model-gateway/`) that lets agents request LLM capabilities without being coupled to a specific provider.         |
+| **Human-in-the-Loop (HITL)**     | The approval gate where a human reviews the architecture before code generation starts. The workflow pauses until a signal is received.         |
+| **A2A / ADK**                    | Future protocols for agent-to-agent communication and Google ADK interoperability (currently placeholder interfaces).                           |
+
+### Where Things Live
+
+| What you're looking for      | Where to find it                                                     |
+| ---------------------------- | -------------------------------------------------------------------- |
+| Frontend (UI)                | `apps/web/` — Next.js 16 + React 19                                  |
+| Backend API                  | `apps/api/` — NestJS with Fastify                                    |
+| Temporal workers & workflows | `apps/workers/`                                                      |
+| Agent implementations        | `libs/agents/{planner,retriever,architecture,implementor,reviewer}/` |
+| Shared types & validation    | `libs/shared/`                                                       |
+| Database schema & migrations | `libs/infra/database/`                                               |
+| Observability & logging      | `libs/infra/telemetry/`, `libs/infra/logging/`                       |
+| MCP tool providers           | `libs/mcp/`                                                          |
+| Model gateway                | `libs/ai/model-gateway/`                                             |
+
+### Development Tips for New Joiners
+
+- **You only need one AI provider key** (OpenAI, Anthropic, or Google) to run the agents. Set it in `.env`.
+- **Docker must be running** for PostgreSQL and Temporal. Use `make docker` to start them.
+- **Nx manages the monorepo.** Use `pnpm nx <target> <project>` to run tasks for specific projects (e.g., `pnpm nx test api`).
+- **Agent outputs are currently mock data.** The pipeline structure is real, but agents return golden demo responses rather than calling live LLMs (real integration is in progress).
+- **Check `docs/` for design decisions** — architecture plans, implementation phases, and reviews are documented there.
+
 ## API Keys
 
 The app starts without any API keys — all are optional and features gracefully degrade when keys are missing.
